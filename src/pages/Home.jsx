@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Sparkles, Heart, Briefcase, DollarSign, Users, Activity } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import CardDraw from "../components/tarot/CardDraw";
+import MagicCursor from "../components/tarot/MagicCursor";
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -30,6 +31,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+      <MagicCursor />
+      
       {/* Mystical background effects */}
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518562180175-34a163b1a9a6?w=1200&q=80')] opacity-5 bg-cover bg-center" />
       <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 via-transparent to-transparent" />

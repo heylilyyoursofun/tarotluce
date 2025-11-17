@@ -76,6 +76,9 @@ export default function Home() {
            }}
       />
       
+      {/* Google Fonts Import */}
+      <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet" />
+      
       <AnimatePresence mode="wait">
         {!showReading && !showQuest ? (
           <motion.div
@@ -96,8 +99,8 @@ export default function Home() {
                 <div className="w-32 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent" />
               </div>
               
-              <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-amber-200 via-yellow-400 to-amber-600 mb-2 tracking-wider"
-                  style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-amber-200 via-yellow-400 to-amber-600 mb-2 tracking-widest"
+                  style={{ fontFamily: "'Cinzel', serif" }}>
                 MYSTIC TAROT
               </h1>
               
@@ -107,7 +110,8 @@ export default function Home() {
                 <div className="w-16 h-0.5 bg-gradient-to-l from-transparent to-amber-500" />
               </div>
               
-              <p className="text-amber-100/90 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed tracking-wide">
+              <p className="text-amber-100/90 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed tracking-wider"
+                 style={{ fontFamily: "'Cinzel', serif" }}>
                 Seek guidance from the ancient wisdom of the cards. Choose your path and discover what the universe has to reveal.
               </p>
               
@@ -173,14 +177,15 @@ export default function Home() {
                         </div>
                       </div>
                       
-                      <h3 className="text-3xl font-semibold text-amber-100 mb-3 tracking-wide"
-                          style={{ fontFamily: "'Playfair Display', serif" }}>
+                      <h3 className="text-3xl font-semibold text-amber-100 mb-3 tracking-wider"
+                          style={{ fontFamily: "'Cinzel', serif" }}>
                         My Daily Advice
                       </h3>
                       
                       <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mb-4" />
                       
-                      <p className="text-amber-200/70 text-sm tracking-wide">
+                      <p className="text-amber-200/70 text-sm tracking-wide"
+                         style={{ fontFamily: "'Cinzel', serif" }}>
                         Receive guidance and inspiration for your day ahead
                       </p>
                     </div>
@@ -230,15 +235,16 @@ export default function Home() {
                         </div>
                       </div>
                       
-                      <h3 className="text-3xl font-semibold text-amber-100 mb-3 tracking-wide"
-                          style={{ fontFamily: "'Playfair Display', serif" }}>
+                      <h3 className="text-3xl font-semibold text-amber-100 mb-3 tracking-wider"
+                          style={{ fontFamily: "'Cinzel', serif" }}>
                         Make A Quest
                       </h3>
                       
                       <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mb-4" />
                       
-                      <p className="text-amber-200/70 text-sm tracking-wide">
-                        Seek answers about love, career, wealth, family, or health
+                      <p className="text-amber-200/70 text-sm tracking-wide"
+                         style={{ fontFamily: "'Cinzel', serif" }}>
+                        Seek answers about love, career, wealth, family, health, or spirituality
                       </p>
                     </div>
                   </CardContent>
@@ -253,7 +259,8 @@ export default function Home() {
               transition={{ delay: 0.8 }}
               className="text-center"
             >
-              <div className="flex justify-center items-center gap-3 text-amber-400/50 text-sm tracking-widest">
+              <div className="flex justify-center items-center gap-3 text-amber-400/50 text-sm tracking-widest"
+                   style={{ fontFamily: "'Cinzel', serif" }}>
                 <div className="w-8 h-px bg-gradient-to-r from-transparent to-amber-500/50" />
                 <p>EACH READING IS UNIQUE AND CRAFTED JUST FOR YOU</p>
                 <div className="w-8 h-px bg-gradient-to-l from-transparent to-amber-500/50" />

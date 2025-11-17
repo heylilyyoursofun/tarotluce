@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Heart, Briefcase, DollarSign, Users, Activity } from "lucide-react";
+import { ArrowLeft, Heart, Briefcase, DollarSign, Users, Activity, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function QuestSelection({ onQuestSelect, onBack }) {
@@ -11,6 +11,7 @@ export default function QuestSelection({ onQuestSelect, onBack }) {
     { id: "finance", name: "Wealth & Abundance", icon: DollarSign, color: "from-yellow-500 to-amber-600", description: "Financial prosperity and resources" },
     { id: "family", name: "Family & Home", icon: Users, color: "from-amber-700 to-yellow-600", description: "Domestic harmony and bonds" },
     { id: "health", name: "Health & Vitality", icon: Activity, color: "from-orange-600 to-amber-600", description: "Physical and mental wellbeing" },
+    { id: "spirituality", name: "Spirituality & Growth", icon: Sparkles, color: "from-purple-600 to-amber-500", description: "Inner wisdom and soul evolution" },
   ];
 
   return (
@@ -29,14 +30,15 @@ export default function QuestSelection({ onQuestSelect, onBack }) {
         <div className="flex items-center gap-3">
           <div className="w-16 h-px bg-gradient-to-r from-transparent to-amber-500" />
           <h2 className="text-3xl font-semibold text-amber-100 tracking-wider"
-              style={{ fontFamily: "'Playfair Display', serif" }}>
+              style={{ fontFamily: "'Cinzel', serif" }}>
             Choose Your Quest
           </h2>
           <div className="w-16 h-px bg-gradient-to-l from-transparent to-amber-500" />
         </div>
       </div>
 
-      <p className="text-center text-amber-200/80 text-lg mb-12 max-w-2xl mx-auto tracking-wide">
+      <p className="text-center text-amber-200/80 text-lg mb-12 max-w-2xl mx-auto tracking-wide"
+         style={{ fontFamily: "'Cinzel', serif" }}>
         Select the area of life where you seek guidance from the ancient cards
       </p>
 
@@ -88,13 +90,14 @@ export default function QuestSelection({ onQuestSelect, onBack }) {
                     </div>
                     
                     <h3 className="text-xl font-semibold text-amber-100 text-center mb-2 tracking-wide"
-                        style={{ fontFamily: "'Playfair Display', serif" }}>
+                        style={{ fontFamily: "'Cinzel', serif" }}>
                       {quest.name}
                     </h3>
                     
                     <div className="h-0.5 w-16 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     
-                    <p className="text-amber-200/60 text-sm text-center tracking-wide">
+                    <p className="text-amber-200/60 text-sm text-center tracking-wide"
+                       style={{ fontFamily: "'Cinzel', serif" }}>
                       {quest.description}
                     </p>
                   </div>

@@ -1,7 +1,8 @@
+
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Sparkles } from "lucide-react";
+import { ArrowLeft, Sparkles, Volume2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { base44 } from "@/api/base44Client";
 
@@ -345,11 +346,16 @@ export default function CardDraw({ category, onBack }) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
   const [fairyDust, setFairyDust] = useState([]);
+  const [isSpeaking, setIsSpeaking] = useState(false);
 
   const drawCard = async () => {
     setIsDrawing(true);
     setIsFlipped(false);
     setReading(null);
+    if (window.speechSynthesis.speaking) {
+      window.speechSynthesis.cancel();
+      setIsSpeaking(false);
+    }
 
     await new Promise(resolve => setTimeout(resolve, 1500));
 
@@ -384,6 +390,22 @@ export default function CardDraw({ category, onBack }) {
     }
     setFairyDust(particles);
     setTimeout(() => setFairyDust([]), 2500);
+  };
+
+  const speakReading = () => {
+    if ('speechSynthesis' in window && reading) {
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        setIsSpeaking(false);
+      } else {
+        const utterance = new SpeechSynthesisUtterance(reading);
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
+        utterance.onend = () => setIsSpeaking(false);
+        window.speechSynthesis.speak(utterance);
+        setIsSpeaking(true);
+      }
+    }
   };
 
   const generateReading = async (card) => {
@@ -711,12 +733,26 @@ Write 3-4 paragraphs.`;
                         </p>
                       </div>
                     ) : (
-                      <div className="prose prose-invert max-w-none">
-                        <p className="text-amber-100/90 leading-relaxed whitespace-pre-line tracking-wide"
-                           style={{ fontFamily: "'Cinzel', serif" }}>
-                          {reading}
-                        </p>
-                      </div>
+                      <>
+                        <div className="flex justify-end mb-4">
+                          <Button
+                            onClick={speakReading}
+                            variant="ghost"
+                            size="sm"
+                            className="text-amber-300 hover:text-amber-100 hover:bg-amber-900/30"
+                            style={{ fontFamily: "'Cinzel', serif" }}
+                          >
+                            <Volume2 className={`w-4 h-4 mr-2 ${isSpeaking ? 'animate-pulse' : ''}`} />
+                            {isSpeaking ? 'Stop' : 'Listen'}
+                          </Button>
+                        </div>
+                        <div className="prose prose-invert max-w-none">
+                          <p className="text-amber-100/90 leading-relaxed whitespace-pre-line tracking-wide"
+                             style={{ fontFamily: "'Cinzel', serif" }}>
+                            {reading}
+                          </p>
+                        </div>
+                      </>
                     )}
                   </CardContent>
                 </Card>
@@ -727,6 +763,10 @@ Write 3-4 paragraphs.`;
                       setDrawnCard(null);
                       setReading(null);
                       setIsFlipped(false);
+                      if (window.speechSynthesis.speaking) {
+                        window.speechSynthesis.cancel();
+                        setIsSpeaking(false);
+                      }
                     }}
                     variant="outline"
                     className="border-2 border-amber-600/60 text-amber-200 hover:bg-amber-900/40 hover:text-amber-100 rounded-none tracking-wider"

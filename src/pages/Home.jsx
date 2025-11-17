@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -101,7 +102,7 @@ export default function Home() {
               
               <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-amber-200 via-yellow-400 to-amber-600 mb-2 tracking-widest"
                   style={{ fontFamily: "'Cinzel', serif" }}>
-                MYSTIC TAROT
+                Mystic Tarot
               </h1>
               
               <div className="flex justify-center items-center gap-4 mb-6">
@@ -262,7 +263,7 @@ export default function Home() {
               <div className="flex justify-center items-center gap-3 text-amber-400/50 text-sm tracking-widest"
                    style={{ fontFamily: "'Cinzel', serif" }}>
                 <div className="w-8 h-px bg-gradient-to-r from-transparent to-amber-500/50" />
-                <p>EACH READING IS UNIQUE AND CRAFTED JUST FOR YOU</p>
+                <p>Each Reading Is Unique And Crafted Just For You</p>
                 <div className="w-8 h-px bg-gradient-to-l from-transparent to-amber-500/50" />
               </div>
             </motion.div>

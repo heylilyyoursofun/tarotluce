@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -213,8 +214,7 @@ Write 3-4 paragraphs.`;
                              }}
                         />
                         <div className="text-center relative z-10">
-                          <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-amber-400 to-amber-700 opacity-40 blur-3xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                          <Sparkles className="w-24 h-24 text-amber-400/70 relative" />
+                          <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-amber-400 to-amber-700 opacity-40 blur-3xl" />
                         </div>
                       </CardContent>
                     </Card>
@@ -268,14 +268,14 @@ Write 3-4 paragraphs.`;
                       </div>
                       
                       <CardContent className="p-8 h-full flex flex-col items-center justify-center text-center relative z-10">
-                        <div className="text-7xl mb-6 font-bold text-amber-300 drop-shadow-lg"
+                        <div className="text-7xl mb-6 font-bold text-amber-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
                              style={{ fontFamily: "'Playfair Display', serif" }}>
                           {drawnCard.number}
                         </div>
                         
                         <div className="w-16 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent mb-4" />
                         
-                        <h3 className="text-3xl font-bold text-amber-100 mb-4 tracking-wide drop-shadow-md"
+                        <h3 className="text-3xl font-bold text-amber-100 mb-4 tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
                             style={{ fontFamily: "'Playfair Display', serif" }}>
                           {drawnCard.name}
                         </h3>
@@ -286,7 +286,7 @@ Write 3-4 paragraphs.`;
                           {drawnCard.keywords.slice(0, 3).map((keyword, i) => (
                             <span
                               key={i}
-                              className="px-3 py-1 bg-amber-900/60 border border-amber-600/40 text-sm text-amber-100 tracking-wide backdrop-blur-sm"
+                              className="px-3 py-1 bg-amber-900/80 border border-amber-600/60 text-sm text-amber-100 tracking-wide backdrop-blur-sm"
                             >
                               {keyword}
                             </span>

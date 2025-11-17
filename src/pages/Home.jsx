@@ -11,12 +11,12 @@ export default function Home() {
   const [showReading, setShowReading] = useState(false);
 
   const categories = [
-    { id: "general", name: "Daily Inspiration", icon: Sparkles, color: "from-purple-500 to-pink-500" },
-    { id: "love", name: "Love & Relationships", icon: Heart, color: "from-rose-500 to-pink-500" },
-    { id: "career", name: "Career & Purpose", icon: Briefcase, color: "from-blue-500 to-cyan-500" },
-    { id: "finance", name: "Wealth & Abundance", icon: DollarSign, color: "from-emerald-500 to-teal-500" },
-    { id: "family", name: "Family & Home", icon: Users, color: "from-amber-500 to-orange-500" },
-    { id: "health", name: "Health & Vitality", icon: Activity, color: "from-red-500 to-rose-500" },
+    { id: "general", name: "Daily Inspiration", icon: Sparkles, color: "from-amber-400 to-yellow-600" },
+    { id: "love", name: "Love & Relationships", icon: Heart, color: "from-rose-600 to-amber-500" },
+    { id: "career", name: "Career & Purpose", icon: Briefcase, color: "from-amber-600 to-orange-700" },
+    { id: "finance", name: "Wealth & Abundance", icon: DollarSign, color: "from-yellow-500 to-amber-600" },
+    { id: "family", name: "Family & Home", icon: Users, color: "from-amber-700 to-yellow-600" },
+    { id: "health", name: "Health & Vitality", icon: Activity, color: "from-orange-600 to-amber-600" },
   ];
 
   const handleCategorySelect = (category) => {
@@ -30,12 +30,47 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-900 via-amber-950 to-stone-900 relative overflow-hidden">
       <MagicCursor />
       
-      {/* Mystical background effects */}
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518562180175-34a163b1a9a6?w=1200&q=80')] opacity-5 bg-cover bg-center" />
-      <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 via-transparent to-transparent" />
+      {/* Art Deco pattern overlay */}
+      <div className="absolute inset-0 opacity-10">
+        <div 
+          className="w-full h-full"
+          style={{
+            backgroundImage: `
+              repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(251, 191, 36, 0.1) 50px, rgba(251, 191, 36, 0.1) 51px),
+              repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(251, 191, 36, 0.1) 50px, rgba(251, 191, 36, 0.1) 51px)
+            `
+          }}
+        />
+      </div>
+      
+      {/* Decorative corner elements */}
+      <div className="absolute top-0 left-0 w-64 h-64 border-t-4 border-l-4 border-amber-500/30" 
+           style={{
+             borderImage: "linear-gradient(135deg, #f59e0b 0%, transparent 100%) 1",
+             clipPath: "polygon(0 0, 100% 0, 0 100%)"
+           }}
+      />
+      <div className="absolute top-0 right-0 w-64 h-64 border-t-4 border-r-4 border-amber-500/30"
+           style={{
+             borderImage: "linear-gradient(225deg, #f59e0b 0%, transparent 100%) 1",
+             clipPath: "polygon(100% 0, 100% 100%, 0 0)"
+           }}
+      />
+      <div className="absolute bottom-0 left-0 w-64 h-64 border-b-4 border-l-4 border-amber-500/30"
+           style={{
+             borderImage: "linear-gradient(45deg, #f59e0b 0%, transparent 100%) 1",
+             clipPath: "polygon(0 100%, 100% 100%, 0 0)"
+           }}
+      />
+      <div className="absolute bottom-0 right-0 w-64 h-64 border-b-4 border-r-4 border-amber-500/30"
+           style={{
+             borderImage: "linear-gradient(315deg, #f59e0b 0%, transparent 100%) 1",
+             clipPath: "polygon(100% 100%, 100% 0, 0 100%)"
+           }}
+      />
       
       <AnimatePresence mode="wait">
         {!showReading ? (
@@ -52,12 +87,29 @@ export default function Home() {
               transition={{ delay: 0.2 }}
               className="text-center mb-12 md:mb-16"
             >
-              <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-200 via-pink-200 to-purple-200 mb-4">
-                Mystic Tarot
+              {/* Art Deco ornament */}
+              <div className="flex justify-center mb-6">
+                <div className="w-32 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent" />
+              </div>
+              
+              <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-amber-200 via-yellow-400 to-amber-600 mb-2 tracking-wider"
+                  style={{ fontFamily: "'Playfair Display', serif" }}>
+                MYSTIC TAROT
               </h1>
-              <p className="text-purple-200/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+              
+              <div className="flex justify-center items-center gap-4 mb-6">
+                <div className="w-16 h-0.5 bg-gradient-to-r from-transparent to-amber-500" />
+                <Sparkles className="w-6 h-6 text-amber-400" />
+                <div className="w-16 h-0.5 bg-gradient-to-l from-transparent to-amber-500" />
+              </div>
+              
+              <p className="text-amber-100/90 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed tracking-wide">
                 Seek guidance from the ancient wisdom of the cards. Choose your path and discover what the universe has to reveal.
               </p>
+              
+              <div className="flex justify-center mt-6">
+                <div className="w-32 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent" />
+              </div>
             </motion.div>
 
             {/* Category Grid */}
@@ -72,21 +124,47 @@ export default function Home() {
                     transition={{ delay: 0.1 * index }}
                   >
                     <Card
-                      className="bg-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-500 cursor-pointer group overflow-hidden"
+                      className="bg-gradient-to-br from-stone-900/80 to-amber-950/80 backdrop-blur-xl border-2 border-amber-700/40 hover:border-amber-500/60 transition-all duration-500 cursor-pointer group overflow-hidden relative"
                       onClick={() => handleCategorySelect(category)}
                     >
+                      {/* Art Deco geometric pattern */}
+                      <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <div className="absolute inset-0" 
+                             style={{
+                               backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(251, 191, 36, 0.3) 10px, rgba(251, 191, 36, 0.3) 11px)`
+                             }}
+                        />
+                      </div>
+                      
+                      {/* Corner decorations */}
+                      <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-amber-500/50" />
+                      <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-amber-500/50" />
+                      <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-amber-500/50" />
+                      <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-amber-500/50" />
+                      
                       <CardContent className="p-8 relative">
-                        <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                        <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
                         <div className="relative z-10">
-                          <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${category.color} p-0.5 mb-6 mx-auto`}>
-                            <div className="w-full h-full bg-slate-900 rounded-2xl flex items-center justify-center">
-                              <Icon className="w-8 h-8 text-white" />
+                          <div className={`w-20 h-20 mx-auto mb-6 relative`}>
+                            {/* Hexagonal frame */}
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <div className={`w-full h-full bg-gradient-to-br ${category.color} opacity-20`}
+                                   style={{
+                                     clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)"
+                                   }}
+                              />
+                            </div>
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <Icon className="w-10 h-10 text-amber-400 relative z-10" />
                             </div>
                           </div>
-                          <h3 className="text-xl font-semibold text-white text-center mb-2">
+                          
+                          <h3 className="text-xl font-semibold text-amber-100 text-center mb-2 tracking-wide"
+                              style={{ fontFamily: "'Playfair Display', serif" }}>
                             {category.name}
                           </h3>
-                          <div className="h-1 w-12 bg-gradient-to-r from-transparent via-purple-400 to-transparent mx-auto opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          
+                          <div className="h-0.5 w-16 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         </div>
                       </CardContent>
                     </Card>
@@ -100,9 +178,13 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="text-center mt-16 text-purple-200/50 text-sm"
+              className="text-center mt-16"
             >
-              <p>Each reading is unique and crafted just for you</p>
+              <div className="flex justify-center items-center gap-3 text-amber-400/50 text-sm tracking-widest">
+                <div className="w-8 h-px bg-gradient-to-r from-transparent to-amber-500/50" />
+                <p>EACH READING IS UNIQUE AND CRAFTED JUST FOR YOU</p>
+                <div className="w-8 h-px bg-gradient-to-l from-transparent to-amber-500/50" />
+              </div>
             </motion.div>
           </motion.div>
         ) : (

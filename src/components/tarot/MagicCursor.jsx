@@ -59,15 +59,15 @@ export default function MagicCursor() {
         {/* Wand */}
         <div className="relative -translate-x-2 -translate-y-2">
           {/* Glow around wand */}
-          <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full blur-xl" />
+          <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/40 to-yellow-500/40 rounded-full blur-xl" />
           
-          {/* Wand stick */}
+          {/* Wand stick - richer brown/wood color */}
           <div className="relative">
             <div
-              className="w-1 h-6 bg-gradient-to-b from-amber-300 to-amber-600 rounded-full"
+              className="w-1 h-6 bg-gradient-to-b from-amber-700 via-amber-800 to-amber-950 rounded-full shadow-lg"
               style={{ transform: "rotate(45deg) translateX(2px)" }}
             />
-            {/* Star at tip */}
+            {/* Golden star at tip */}
             <div className="absolute -top-1 -left-1">
               <svg
                 width="12"
@@ -79,17 +79,18 @@ export default function MagicCursor() {
                 <path
                   d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"
                   fill="url(#starGradient)"
-                  stroke="white"
+                  stroke="#d97706"
                   strokeWidth="1"
                 />
                 <defs>
                   <linearGradient id="starGradient" x1="2" y1="2" x2="22" y2="22">
                     <stop offset="0%" stopColor="#fbbf24" />
-                    <stop offset="100%" stopColor="#f59e0b" />
+                    <stop offset="50%" stopColor="#f59e0b" />
+                    <stop offset="100%" stopColor="#d97706" />
                   </linearGradient>
                 </defs>
               </svg>
-              {/* Sparkle effect */}
+              {/* Golden sparkle effect */}
               <motion.div
                 className="absolute inset-0"
                 animate={{
@@ -102,14 +103,14 @@ export default function MagicCursor() {
                   ease: "easeInOut",
                 }}
               >
-                <div className="w-3 h-3 bg-yellow-300 rounded-full blur-sm" />
+                <div className="w-3 h-3 bg-amber-400 rounded-full blur-sm" />
               </motion.div>
             </div>
           </div>
         </div>
       </motion.div>
 
-      {/* Trail particles */}
+      {/* Trail particles - gold and amber tones */}
       <AnimatePresence>
         {trail.map((point, index) => (
           <motion.div
@@ -135,8 +136,8 @@ export default function MagicCursor() {
               style={{
                 background: `radial-gradient(circle, ${
                   index % 2 === 0
-                    ? "rgba(168, 85, 247, 0.6)"
-                    : "rgba(236, 72, 153, 0.6)"
+                    ? "rgba(251, 191, 36, 0.7)"
+                    : "rgba(217, 119, 6, 0.7)"
                 } 0%, transparent 70%)`,
               }}
             />
@@ -144,7 +145,7 @@ export default function MagicCursor() {
         ))}
       </AnimatePresence>
 
-      {/* Larger glow particles that appear less frequently */}
+      {/* Larger glow particles - golden shimmer */}
       <AnimatePresence>
         {trail
           .filter((_, index) => index % 3 === 0)
@@ -167,7 +168,7 @@ export default function MagicCursor() {
                 ease: "easeOut",
               }}
             >
-              <div className="w-6 h-6 rounded-full bg-gradient-radial from-purple-400/40 to-transparent blur-md" />
+              <div className="w-6 h-6 rounded-full bg-gradient-radial from-amber-400/40 to-transparent blur-md" />
             </motion.div>
           ))}
       </AnimatePresence>

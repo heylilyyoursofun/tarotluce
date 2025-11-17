@@ -78,7 +78,7 @@ export default function Home() {
       />
       
       {/* Google Fonts Import */}
-      <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
       
       <AnimatePresence mode="wait">
         {!showReading && !showQuest ? (

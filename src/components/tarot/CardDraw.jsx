@@ -712,7 +712,7 @@ Write 3-4 paragraphs.`;
                     <div className="flex items-center justify-center gap-3 mb-6">
                       <div className="w-12 h-px bg-gradient-to-r from-transparent to-amber-500" />
                       <h4 className="text-2xl font-semibold text-amber-100 tracking-wider"
-                          style={{ fontFamily: "'Cinzel', serif" }}>
+                          style={{ fontFamily: "'Playfair Display', serif" }}>
                         Your Reading
                       </h4>
                       <div className="w-12 h-px bg-gradient-to-l from-transparent to-amber-500" />

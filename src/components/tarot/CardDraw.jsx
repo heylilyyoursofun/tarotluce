@@ -768,8 +768,7 @@ Write 3-4 paragraphs.`;
                         setIsSpeaking(false);
                       }
                     }}
-                    variant="outline"
-                    className="border-2 border-amber-600/60 text-amber-200 hover:bg-amber-900/40 hover:text-amber-100 rounded-none tracking-wider"
+                    className="bg-gradient-to-r from-stone-800 to-amber-900 hover:from-stone-700 hover:to-amber-800 text-amber-200 hover:text-amber-100 border-2 border-amber-600/60 rounded-none tracking-wider"
                     style={{ fontFamily: "'Cinzel', serif" }}
                   >
                     Draw Another Card

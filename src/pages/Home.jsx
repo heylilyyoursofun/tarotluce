@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -35,50 +34,8 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-950 via-indigo-900 to-blue-950 relative overflow-hidden">
+    <div className="min-h-screen relative">
       <MagicCursor />
-      
-      {/* Art Deco pattern overlay */}
-      <div className="absolute inset-0 opacity-10">
-        <div
-          className="w-full h-full"
-          style={{
-            backgroundImage: `
-              repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(212, 175, 55, 0.1) 50px, rgba(212, 175, 55, 0.1) 51px),
-              repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(212, 175, 55, 0.1) 50px, rgba(212, 175, 55, 0.1) 51px)
-            `
-          }} />
-
-      </div>
-      
-      {/* Decorative corner elements */}
-      <div className="absolute top-0 left-0 w-64 h-64 border-t-4 border-l-4 border-yellow-500/30"
-      style={{
-        borderImage: "linear-gradient(135deg, #d4af37 0%, transparent 100%) 1",
-        clipPath: "polygon(0 0, 100% 0, 0 100%)"
-      }} />
-
-      <div className="absolute top-0 right-0 w-64 h-64 border-t-4 border-r-4 border-yellow-500/30"
-      style={{
-        borderImage: "linear-gradient(225deg, #d4af37 0%, transparent 100%) 1",
-        clipPath: "polygon(100% 0, 100% 100%, 0 0)"
-      }} />
-
-      <div className="absolute bottom-0 left-0 w-64 h-64 border-b-4 border-l-4 border-yellow-500/30"
-      style={{
-        borderImage: "linear-gradient(45deg, #d4af37 0%, transparent 100%) 1",
-        clipPath: "polygon(0 100%, 100% 100%, 0 0)"
-      }} />
-
-      <div className="absolute bottom-0 right-0 w-64 h-64 border-b-4 border-r-4 border-yellow-500/30"
-      style={{
-        borderImage: "linear-gradient(315deg, #d4af37 0%, transparent 100%) 1",
-        clipPath: "polygon(100% 100%, 100% 0, 0 100%)"
-      }} />
-
-      
-      {/* Google Fonts Import */}
-      <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
       
       <AnimatePresence mode="wait">
         {!showReading && !showQuest ?
@@ -100,18 +57,18 @@ export default function Home() {
                 <div className="w-32 h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />
               </div>
               
-              <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-yellow-200 via-yellow-300 to-yellow-500 mb-2 tracking-widest"
+              <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-yellow-200 via-yellow-300 to-yellow-500 mb-2 tracking-widest drop-shadow-[0_0_30px_rgba(250,204,21,0.5)]"
             style={{ fontFamily: "'Cinzel', serif" }}>
                 Tarot Luce
               </h1>
               
               <div className="flex justify-center items-center gap-4 mb-6">
                 <div className="w-16 h-0.5 bg-gradient-to-r from-transparent to-yellow-400" />
-                <Sparkles className="w-6 h-6 text-yellow-300" />
+                <Sparkles className="w-6 h-6 text-yellow-300 drop-shadow-[0_0_10px_rgba(250,204,21,0.8)]" />
                 <div className="w-16 h-0.5 bg-gradient-to-l from-transparent to-yellow-400" />
               </div>
               
-              <p className="text-slate-200/90 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed tracking-wider"
+              <p className="text-slate-200/90 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed tracking-wider drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
             style={{ fontFamily: "'Cinzel', serif" }}>
                 Seek guidance, inspiration and wisdom from the cards, that would illuminate your path and discover what the universe has to reveal.
               </p>
@@ -130,7 +87,7 @@ export default function Home() {
               transition={{ delay: 0.4 }}>
 
                 <Card
-                className="bg-gradient-to-br from-purple-900/80 to-purple-700/80 backdrop-blur-xl border-2 border-purple-400/0 hover:border-purple-400/0 transition-all duration-500 cursor-pointer group overflow-hidden relative h-full shadow-[0_0_30px_rgba(168,85,247,0.4)] hover:shadow-[0_0_50px_rgba(168,85,247,0.7)]"
+                className="bg-gradient-to-br from-purple-900/80 to-purple-700/80 backdrop-blur-xl border-2 border-purple-400/30 hover:border-purple-400/50 transition-all duration-500 cursor-pointer group overflow-hidden relative h-full shadow-[0_0_30px_rgba(168,85,247,0.4)] hover:shadow-[0_0_50px_rgba(168,85,247,0.7)]"
                 onClick={handleDailyAdvice}>
 
                   {/* Art Deco geometric pattern */}
@@ -202,7 +159,7 @@ export default function Home() {
               transition={{ delay: 0.5 }}>
 
                 <Card
-                className="bg-gradient-to-br from-teal-900/80 to-emerald-700/80 backdrop-blur-xl border-2 border-teal-400/0 hover:border-teal-400/0 transition-all duration-500 cursor-pointer group overflow-hidden relative h-full shadow-[0_0_30px_rgba(20,184,166,0.4)] hover:shadow-[0_0_50px_rgba(20,184,166,0.7)]"
+                className="bg-gradient-to-br from-teal-900/80 to-emerald-700/80 backdrop-blur-xl border-2 border-teal-400/30 hover:border-teal-400/50 transition-all duration-500 cursor-pointer group overflow-hidden relative h-full shadow-[0_0_30px_rgba(20,184,166,0.4)] hover:shadow-[0_0_50px_rgba(20,184,166,0.7)]"
                 onClick={handleMakeQuest}>
 
                   {/* Art Deco geometric pattern */}
@@ -262,7 +219,7 @@ export default function Home() {
             transition={{ delay: 0.8 }}
             className="text-center">
 
-              <div className="flex justify-center items-center gap-3 text-slate-400/50 text-sm tracking-widest"
+              <div className="flex justify-center items-center gap-3 text-slate-300/60 text-sm tracking-widest"
             style={{ fontFamily: "'Cinzel', serif" }}>
                 <div className="w-8 h-px bg-gradient-to-r from-transparent to-slate-400/50" />
                 <p>Each Reading Is Unique And Crafted Just For You</p>
@@ -290,6 +247,6 @@ export default function Home() {
           </motion.div>
         }
       </AnimatePresence>
-    </div>);
-
+    </div>
+  );
 }

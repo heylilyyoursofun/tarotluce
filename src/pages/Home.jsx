@@ -58,44 +58,44 @@ export default function Home() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="relative z-10 container mx-auto px-4 py-4 md:py-16 min-h-screen flex flex-col justify-center"
+                className="relative z-10 container mx-auto px-4 py-2 md:py-16 min-h-screen flex flex-col justify-center"
               >
                 {/* Header */}
                 <motion.div
                   initial={{ y: -20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.2 }}
-                  className="text-center mb-8 md:mb-20"
+                  className="text-center mb-4 md:mb-20"
                 >
-                  <div className="flex justify-center mb-3 md:mb-6">
-                    <div className="w-32 h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />
+                  <div className="flex justify-center mb-2 md:mb-6">
+                    <div className="w-24 md:w-32 h-0.5 md:h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />
                   </div>
                   
-                  <h1 className="text-4xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-yellow-200 via-yellow-300 to-yellow-500 mb-2 tracking-widest drop-shadow-[0_0_30px_rgba(250,204,21,0.5)]"
+                  <h1 className="text-3xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-yellow-200 via-yellow-300 to-yellow-500 mb-1 md:mb-2 tracking-widest drop-shadow-[0_0_30px_rgba(250,204,21,0.5)]"
                     style={{ fontFamily: "'Cinzel', serif" }}
                   >
                     Tarot Luce
                   </h1>
                   
-                  <div className="flex justify-center items-center gap-4 mb-3 md:mb-6">
-                    <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-transparent to-yellow-400" />
-                    <Sparkles className="w-4 md:w-6 h-4 md:h-6 text-yellow-300 drop-shadow-[0_0_10px_rgba(250,204,21,0.8)]" />
-                    <div className="w-12 md:w-16 h-0.5 bg-gradient-to-l from-transparent to-yellow-400" />
+                  <div className="flex justify-center items-center gap-2 md:gap-4 mb-2 md:mb-6">
+                    <div className="w-8 md:w-16 h-0.5 bg-gradient-to-r from-transparent to-yellow-400" />
+                    <Sparkles className="w-3 md:w-6 h-3 md:h-6 text-yellow-300 drop-shadow-[0_0_10px_rgba(250,204,21,0.8)]" />
+                    <div className="w-8 md:w-16 h-0.5 bg-gradient-to-l from-transparent to-yellow-400" />
                   </div>
                   
-                  <p className="text-slate-200/90 text-sm md:text-xl max-w-2xl mx-auto leading-relaxed tracking-wider drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] px-2"
+                  <p className="text-slate-200/90 text-xs md:text-xl max-w-2xl mx-auto leading-relaxed tracking-wide md:tracking-wider drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] px-2"
                     style={{ fontFamily: "'Cinzel', serif" }}
                   >
-                    Seek guidance, inspiration and wisdom from the cards, that would illuminate your path and discover what the universe has to reveal.
+                    Seek guidance, inspiration and wisdom from the cards
                   </p>
                   
-                  <div className="flex justify-center mt-3 md:mt-6">
-                    <div className="w-32 h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />
+                  <div className="flex justify-center mt-2 md:mt-6">
+                    <div className="w-24 md:w-32 h-0.5 md:h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />
                   </div>
                 </motion.div>
 
                 {/* Main Action Buttons */}
-                <div className="max-w-4xl mx-auto grid grid-cols-2 gap-3 md:gap-8 mb-8 md:mb-16">
+                <div className="max-w-4xl mx-auto grid grid-cols-2 gap-3 md:gap-8 mb-4 md:mb-16">
                   {/* Daily Advice Button - Amethyst Purple */}
                   <motion.div
                     initial={{ x: -20, opacity: 0 }}
@@ -120,15 +120,15 @@ export default function Home() {
                         }}
                       />
                       
-                      <CardContent className="p-4 md:p-12 relative">
+                      <CardContent className="p-3 md:p-12 relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-pink-400 opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
                         <div className="relative z-10 text-center">
-                          <div className="w-12 h-12 md:w-24 md:h-24 mx-auto mb-3 md:mb-6 relative">
+                          <div className="w-10 h-10 md:w-24 md:h-24 mx-auto mb-2 md:mb-6 relative">
                             <div className="absolute inset-0 flex items-center justify-center">
                               {[...Array(12)].map((_, i) => (
                                 <div
                                   key={i}
-                                  className="absolute w-0.5 md:w-1 h-6 md:h-12 bg-gradient-to-t from-yellow-400/60 to-transparent"
+                                  className="absolute w-0.5 md:w-1 h-5 md:h-12 bg-gradient-to-t from-yellow-400/60 to-transparent"
                                   style={{
                                     transformOrigin: 'bottom center',
                                     transform: `rotate(${i * 30}deg)`,
@@ -138,29 +138,29 @@ export default function Home() {
                               ))}
                             </div>
                             <div className="absolute inset-0 flex items-center justify-center">
-                              <div className="w-8 h-8 md:w-16 md:h-16 bg-gradient-to-br from-yellow-300 to-yellow-500 opacity-30"
+                              <div className="w-6 h-6 md:w-16 md:h-16 bg-gradient-to-br from-yellow-300 to-yellow-500 opacity-30"
                                 style={{
                                   clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)"
                                 }}
                               />
                             </div>
                             <div className="absolute inset-0 flex items-center justify-center">
-                              <Sparkles className="w-6 h-6 md:w-12 md:h-12 text-yellow-300 relative z-10" />
+                              <Sparkles className="w-5 h-5 md:w-12 md:h-12 text-yellow-300 relative z-10" />
                             </div>
                           </div>
                           
-                          <h3 className="text-base md:text-3xl font-semibold text-slate-100 mb-2 md:mb-3 tracking-wider"
+                          <h3 className="text-sm md:text-3xl font-semibold text-slate-100 mb-1 md:mb-3 tracking-wider"
                             style={{ fontFamily: "'Cinzel', serif" }}
                           >
                             My Daily Advice
                           </h3>
                           
-                          <div className="w-12 md:w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-2 md:mb-4" />
+                          <div className="w-10 md:w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-1 md:mb-4" />
                           
-                          <p className="text-slate-100/90 text-xs md:text-sm tracking-wide"
+                          <p className="text-slate-100/90 text-[10px] md:text-sm tracking-wide leading-tight"
                             style={{ fontFamily: "'Cinzel', serif" }}
                           >
-                            Receive guidance and inspiration for your day ahead
+                            Receive guidance for your day
                           </p>
                         </div>
                       </CardContent>
@@ -191,10 +191,10 @@ export default function Home() {
                         }}
                       />
                       
-                      <CardContent className="p-4 md:p-12 relative">
+                      <CardContent className="p-3 md:p-12 relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-cyan-400 opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
                         <div className="relative z-10 text-center">
-                          <div className="w-12 h-12 md:w-24 md:h-24 mx-auto mb-3 md:mb-6 relative">
+                          <div className="w-10 h-10 md:w-24 md:h-24 mx-auto mb-2 md:mb-6 relative">
                             <div className="absolute inset-0 flex items-center justify-center">
                               <div className="w-full h-full bg-gradient-to-br from-yellow-300 to-yellow-500 opacity-30"
                                 style={{
@@ -203,22 +203,22 @@ export default function Home() {
                               />
                             </div>
                             <div className="absolute inset-0 flex items-center justify-center">
-                              <Compass className="w-6 h-6 md:w-12 md:h-12 text-yellow-300 relative z-10" />
+                              <Compass className="w-5 h-5 md:w-12 md:h-12 text-yellow-300 relative z-10" />
                             </div>
                           </div>
                           
-                          <h3 className="text-base md:text-3xl font-semibold text-slate-100 mb-2 md:mb-3 tracking-wider"
+                          <h3 className="text-sm md:text-3xl font-semibold text-slate-100 mb-1 md:mb-3 tracking-wider"
                             style={{ fontFamily: "'Cinzel', serif" }}
                           >
                             Make A Quest
                           </h3>
                           
-                          <div className="w-12 md:w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-2 md:mb-4" />
+                          <div className="w-10 md:w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-1 md:mb-4" />
                           
-                          <p className="text-slate-100/90 text-xs md:text-sm tracking-wide"
+                          <p className="text-slate-100/90 text-[10px] md:text-sm tracking-wide leading-tight"
                             style={{ fontFamily: "'Cinzel', serif" }}
                           >
-                            Seek answers about love, career, wealth, family, health, or spirituality
+                            Seek answers about life areas
                           </p>
                         </div>
                       </CardContent>
@@ -233,12 +233,12 @@ export default function Home() {
                   transition={{ delay: 0.8 }}
                   className="text-center"
                 >
-                  <div className="flex justify-center items-center gap-2 md:gap-3 text-slate-300/60 text-xs md:text-sm tracking-widest"
+                  <div className="flex justify-center items-center gap-2 md:gap-3 text-slate-300/60 text-[10px] md:text-sm tracking-widest"
                     style={{ fontFamily: "'Cinzel', serif" }}
                   >
-                    <div className="w-6 md:w-8 h-px bg-gradient-to-r from-transparent to-slate-400/50" />
-                    <p>Each Reading Is Unique And Crafted Just For You</p>
-                    <div className="w-6 md:w-8 h-px bg-gradient-to-l from-transparent to-slate-400/50" />
+                    <div className="w-4 md:w-8 h-px bg-gradient-to-r from-transparent to-slate-400/50" />
+                    <p>Unique Reading For You</p>
+                    <div className="w-4 md:w-8 h-px bg-gradient-to-l from-transparent to-slate-400/50" />
                   </div>
                 </motion.div>
               </motion.div>

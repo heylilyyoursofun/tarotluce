@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -194,14 +195,14 @@ export default function Home() {
                 </Card>
               </motion.div>
 
-              {/* Make A Quest Button - Sapphire Blue */}
+              {/* Make A Quest Button - Teal Green */}
               <motion.div
               initial={{ x: 20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.5 }}>
 
                 <Card
-                className="bg-gradient-to-br from-blue-900/80 to-blue-700/80 backdrop-blur-xl border-2 border-blue-400/0 hover:border-blue-400/0 transition-all duration-500 cursor-pointer group overflow-hidden relative h-full shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:shadow-[0_0_50px_rgba(59,130,246,0.7)]"
+                className="bg-gradient-to-br from-teal-900/80 to-emerald-700/80 backdrop-blur-xl border-2 border-teal-400/0 hover:border-teal-400/0 transition-all duration-500 cursor-pointer group overflow-hidden relative h-full shadow-[0_0_30px_rgba(20,184,166,0.4)] hover:shadow-[0_0_50px_rgba(20,184,166,0.7)]"
                 onClick={handleMakeQuest}>
 
                   {/* Art Deco geometric pattern */}
@@ -216,7 +217,7 @@ export default function Home() {
                   {/* Glow effect border */}
                   <div className="absolute inset-0 rounded-lg"
                 style={{
-                  boxShadow: 'inset 0 0 20px rgba(59, 130, 246, 0.3), inset 0 0 40px rgba(59, 130, 246, 0.1)'
+                  boxShadow: 'inset 0 0 20px rgba(20, 184, 166, 0.3), inset 0 0 40px rgba(20, 184, 166, 0.1)'
                 }} />
 
                   

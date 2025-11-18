@@ -18,7 +18,7 @@ const TAROT_CARDS = [
       finance: "Financially, The Fool advises being open to new opportunities while maintaining awareness. It may indicate unconventional approaches to wealth or investing in yourself and your dreams.",
       family: "In family matters, this card suggests bringing fresh energy and spontaneity to relationships. It may indicate new family dynamics or the courage to be your authentic self with loved ones.",
       health: "For health, The Fool encourages trying new wellness approaches and listening to your body's wisdom. It's about starting fresh with self-care and embracing vitality.",
-      spirituality: "Spiritually, The Fool represents the beginning of your spiritual journey, embracing divine innocence, and trusting the universe. It's about taking a leap of faith in your spiritual path and being open to infinite possibilities in your soul's evolution."
+      spirituality: "The Fool represents the beginning of your spiritual journey, embracing divine innocence, and trusting the universe. It's about taking a leap of faith in your spiritual path and being open to infinite possibilities in your soul's evolution."
     },
     gradient: "from-sky-200 via-blue-300 to-indigo-400"
   },
@@ -398,7 +398,7 @@ export default function CardDraw({ category, onBack }) {
         window.speechSynthesis.cancel();
         setIsSpeaking(false);
       } else {
-        const utterance = new SpeechSynthesisUtterance(reading);
+        const utterance = new SpeechSynthesisUtterance(reading.replace(/\[.*?\]\n/g, '')); // Remove subtitles for speech
         utterance.rate = 0.9;
         utterance.pitch = 1;
         utterance.onend = () => setIsSpeaking(false);
@@ -433,8 +433,10 @@ Based on this traditional tarot meaning, provide a personalized, uplifting readi
 3. Highlights opportunities and positive potentials
 4. Ends with an inspiring affirmation or message
 
-Keep the tone warm, mystical, and encouraging. Make it feel personal and meaningful.
-Write 3-4 paragraphs.`;
+Structure your response as 3-4 paragraphs, each with a short subtitle (3-5 words) that summarizes that paragraph.
+Format each paragraph as: [Subtitle]\n[Paragraph text]\n\n
+
+Keep the tone warm, mystical, and encouraging. Make it feel personal and meaningful.`;
 
       const result = await base44.integrations.Core.InvokeLLM({
         prompt: prompt,
@@ -746,11 +748,28 @@ Write 3-4 paragraphs.`;
                             {isSpeaking ? 'Stop' : 'Listen'}
                           </Button>
                         </div>
-                        <div className="prose prose-invert max-w-none">
-                          <p className="text-amber-100/90 leading-relaxed whitespace-pre-line tracking-wide"
-                             style={{ fontFamily: "'Cinzel', serif" }}>
-                            {reading}
-                          </p>
+                        <div className="space-y-6">
+                          {reading && reading.split('\n\n').filter(p => p.trim()).map((paragraph, index) => {
+                            const lines = paragraph.split('\n');
+                            const subtitleMatch = lines[0]?.match(/^\[(.*?)\]/);
+                            const subtitle = subtitleMatch ? subtitleMatch[1].trim() : null;
+                            const content = subtitleMatch ? lines.slice(1).join('\n').trim() : paragraph.trim();
+                            
+                            return (
+                              <div key={index} className="space-y-2">
+                                {subtitle && (
+                                  <h5 className="text-lg font-semibold text-amber-300 tracking-wide"
+                                      style={{ fontFamily: "'Playfair Display', serif" }}>
+                                    {subtitle}
+                                  </h5>
+                                )}
+                                <p className="text-amber-100/90 leading-relaxed tracking-wide"
+                                   style={{ fontFamily: "'Playfair Display', serif" }}>
+                                  {content}
+                                </p>
+                              </div>
+                            );
+                          })}
                         </div>
                       </>
                     )}

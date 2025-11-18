@@ -39,21 +39,9 @@ export default function LoadingScreen() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mb-6 relative"
+          className="mb-6 relative flex flex-col items-center"
         >
-          {/* Candle body */}
-          <div className="w-8 h-16 bg-gradient-to-b from-amber-100 via-amber-200 to-amber-300 rounded-t-lg rounded-b-sm mx-auto relative">
-            {/* Candle texture */}
-            <div className="absolute inset-0 opacity-20 rounded-t-lg rounded-b-sm"
-                 style={{
-                   backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 3px)'
-                 }} />
-          </div>
-          
-          {/* Wick */}
-          <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-1 h-3 bg-gradient-to-b from-gray-800 to-gray-600 rounded-full" />
-          
-          {/* Flame - aligned with wick */}
+          {/* Flame - centered above everything */}
           <motion.div
             animate={{
               scale: [1, 1.15, 0.9, 1.1, 0.95, 1.05, 1],
@@ -66,7 +54,7 @@ export default function LoadingScreen() {
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="absolute -top-10 left-1/2 -translate-x-1/2"
+            className="mb-2"
           >
             {/* Outer flame glow */}
             <div className="absolute inset-0 w-10 h-14 -left-5 -top-1 bg-gradient-radial from-orange-400/70 via-yellow-500/50 to-transparent blur-xl" />
@@ -106,6 +94,18 @@ export default function LoadingScreen() {
               />
             </svg>
           </motion.div>
+          
+          {/* Wick */}
+          <div className="w-1 h-3 bg-gradient-to-b from-gray-800 to-gray-600 rounded-full mb-0" />
+          
+          {/* Candle body */}
+          <div className="w-8 h-16 bg-gradient-to-b from-amber-100 via-amber-200 to-amber-300 rounded-t-lg rounded-b-sm relative">
+            {/* Candle texture */}
+            <div className="absolute inset-0 opacity-20 rounded-t-lg rounded-b-sm"
+                 style={{
+                   backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 3px)'
+                 }} />
+          </div>
         </motion.div>
 
         {/* Text */}

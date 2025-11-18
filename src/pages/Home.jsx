@@ -102,7 +102,7 @@ export default function Home() {
               
               <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-amber-200 via-yellow-400 to-amber-600 mb-2 tracking-widest"
                   style={{ fontFamily: "'Cinzel', serif" }}>
-                Mystic Tarot
+                Tarot Luce
               </h1>
               
               <div className="flex justify-center items-center gap-4 mb-6">
@@ -113,7 +113,7 @@ export default function Home() {
               
               <p className="text-amber-100/90 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed tracking-wider"
                  style={{ fontFamily: "'Cinzel', serif" }}>
-                Seek guidance from the ancient wisdom of the cards. Choose your path and discover what the universe has to reveal.
+                Seek guidance, inspiration and wisdom from the cards, that would illuminate your path and discover what the universe has to reveal.
               </p>
               
               <div className="flex justify-center mt-6">

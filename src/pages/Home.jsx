@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -151,7 +150,7 @@ export default function Home() {
                   
                   <CardContent className="p-12 relative">
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-pink-400 opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
-                    <div className="relative z-10 text-center">
+                    <div className="bg-gradient-to-br opacity-100 absolute inset-0 from-purple-400 to-pink-400 group-hover:opacity-20 transition-opacity duration-500">
                       {/* Sunburst icon */}
                       <div className="w-24 h-24 mx-auto mb-6 relative">
                         <div className="absolute inset-0 flex items-center justify-center">
@@ -186,7 +185,7 @@ export default function Home() {
                       
                       <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-4" />
                       
-                      <p className="text-slate-100/95 text-sm tracking-wide"
+                      <p className="text-slate-300/70 text-sm tracking-wide opacity-100"
                     style={{ fontFamily: "'Cinzel', serif" }}>Receive guidance and inspiration for your day ahead
 
                     </p>
@@ -245,7 +244,7 @@ export default function Home() {
                       
                       <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-4" />
                       
-                      <p className="text-slate-100/95 text-sm tracking-wide"
+                      <p className="text-slate-300/70 text-sm tracking-wide"
                     style={{ fontFamily: "'Cinzel', serif" }}>
                         Seek answers about love, career, wealth, family, health, or spirituality
                       </p>

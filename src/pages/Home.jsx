@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -185,7 +186,7 @@ export default function Home() {
                       
                       <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-4" />
                       
-                      <p className="text-slate-300/70 text-sm tracking-wide opacity-100"
+                      <p className="text-slate-100/95 text-sm tracking-wide"
                     style={{ fontFamily: "'Cinzel', serif" }}>Receive guidance and inspiration for your day ahead
 
                     </p>
@@ -244,7 +245,7 @@ export default function Home() {
                       
                       <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-4" />
                       
-                      <p className="text-slate-300/70 text-sm tracking-wide"
+                      <p className="text-slate-100/95 text-sm tracking-wide"
                     style={{ fontFamily: "'Cinzel', serif" }}>
                         Seek answers about love, career, wealth, family, health, or spirituality
                       </p>

@@ -398,7 +398,8 @@ export default function CardDraw({ category, onBack }) {
         window.speechSynthesis.cancel();
         setIsSpeaking(false);
       } else {
-        const utterance = new SpeechSynthesisUtterance(reading.replace(/\[.*?\]\n/g, '')); // Remove subtitles for speech
+        // Remove subtitles (formatted as **Subtitle**) for speech
+        const utterance = new SpeechSynthesisUtterance(reading.replace(/\*\*(.*?)\*\*\n?/g, ''));
         utterance.rate = 0.9;
         utterance.pitch = 1;
         utterance.onend = () => setIsSpeaking(false);
@@ -434,7 +435,7 @@ Based on this traditional tarot meaning, provide a personalized, uplifting readi
 4. Ends with an inspiring affirmation or message
 
 Structure your response as 3-4 paragraphs, each with a short subtitle (3-5 words) that summarizes that paragraph.
-Format each paragraph as: [Subtitle]\n[Paragraph text]\n\n
+Format each paragraph as: **Subtitle**\n[Paragraph text]\n\n
 
 Keep the tone warm, mystical, and encouraging. Make it feel personal and meaningful.`;
 
@@ -750,15 +751,17 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
                         </div>
                         <div className="space-y-6">
                           {reading && reading.split('\n\n').filter(p => p.trim()).map((paragraph, index) => {
-                            const lines = paragraph.split('\n');
-                            const subtitleMatch = lines[0]?.match(/^\[(.*?)\]/);
+                            // Parse subtitles wrapped in **Subtitle**
+                            const subtitleMatch = paragraph.match(/^\*\*(.*?)\*\*/);
                             const subtitle = subtitleMatch ? subtitleMatch[1].trim() : null;
-                            const content = subtitleMatch ? lines.slice(1).join('\n').trim() : paragraph.trim();
+                            const content = subtitleMatch 
+                              ? paragraph.replace(/^\*\*(.*?)\*\*\s*/, '').trim() 
+                              : paragraph.trim();
                             
                             return (
-                              <div key={index} className="space-y-2">
+                              <div key={index} className="space-y-3">
                                 {subtitle && (
-                                  <h5 className="text-lg font-semibold text-amber-300 tracking-wide"
+                                  <h5 className="text-lg font-bold text-amber-300 tracking-wide"
                                       style={{ fontFamily: "'Playfair Display', serif" }}>
                                     {subtitle}
                                   </h5>

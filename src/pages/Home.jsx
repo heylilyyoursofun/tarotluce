@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,15 +12,14 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [showReading, setShowReading] = useState(false);
   const [showQuest, setShowQuest] = useState(false);
-  const [isLoading, setIsLoading] = useState(true); // New state for loading screen
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate an async operation or simply a delay for the loading screen
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000); // 3-second delay
+    }, 4000);
 
-    return () => clearTimeout(timer); // Cleanup the timer on component unmount
+    return () => clearTimeout(timer);
   }, []);
 
   const handleDailyAdvice = () => {
@@ -52,11 +50,11 @@ export default function Home() {
           <LoadingScreen key="loading" />
         ) : (
           <>
-            <MagicCursor /> {/* MagicCursor moved here to only appear after loading */}
+            <MagicCursor />
             
             {!showReading && !showQuest ? (
               <motion.div
-                key="home" // Added key for AnimatePresence
+                key="home"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -69,7 +67,6 @@ export default function Home() {
                   transition={{ delay: 0.2 }}
                   className="text-center mb-16 md:mb-20"
                 >
-                  {/* Art Deco ornament */}
                   <div className="flex justify-center mb-6">
                     <div className="w-32 h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />
                   </div>
@@ -109,7 +106,6 @@ export default function Home() {
                       className="bg-gradient-to-br from-purple-900/80 to-purple-700/80 backdrop-blur-xl border-2 border-purple-400/30 hover:border-purple-400/50 transition-all duration-500 cursor-pointer group overflow-hidden relative h-full shadow-[0_0_30px_rgba(168,85,247,0.4)] hover:shadow-[0_0_50px_rgba(168,85,247,0.7)]"
                       onClick={handleDailyAdvice}
                     >
-                      {/* Art Deco geometric pattern */}
                       <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
                         <div className="absolute inset-0"
                           style={{
@@ -118,7 +114,6 @@ export default function Home() {
                         />
                       </div>
                       
-                      {/* Glow effect border */}
                       <div className="absolute inset-0 rounded-lg"
                         style={{
                           boxShadow: 'inset 0 0 20px rgba(168, 85, 247, 0.3), inset 0 0 40px rgba(168, 85, 247, 0.1)'
@@ -128,7 +123,6 @@ export default function Home() {
                       <CardContent className="p-12 relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-pink-400 opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
                         <div className="relative z-10 text-center">
-                          {/* Sunburst icon */}
                           <div className="w-24 h-24 mx-auto mb-6 relative">
                             <div className="absolute inset-0 flex items-center justify-center">
                               {[...Array(12)].map((_, i) => (
@@ -183,7 +177,6 @@ export default function Home() {
                       className="bg-gradient-to-br from-teal-900/80 to-emerald-700/80 backdrop-blur-xl border-2 border-teal-400/30 hover:border-teal-400/50 transition-all duration-500 cursor-pointer group overflow-hidden relative h-full shadow-[0_0_30px_rgba(20,184,166,0.4)] hover:shadow-[0_0_50px_rgba(20,184,166,0.7)]"
                       onClick={handleMakeQuest}
                     >
-                      {/* Art Deco geometric pattern */}
                       <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
                         <div className="absolute inset-0"
                           style={{
@@ -192,7 +185,6 @@ export default function Home() {
                         />
                       </div>
                       
-                      {/* Glow effect border */}
                       <div className="absolute inset-0 rounded-lg"
                         style={{
                           boxShadow: 'inset 0 0 20px rgba(20, 184, 166, 0.3), inset 0 0 40px rgba(20, 184, 166, 0.1)'
@@ -202,7 +194,6 @@ export default function Home() {
                       <CardContent className="p-12 relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-cyan-400 opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
                         <div className="relative z-10 text-center">
-                          {/* Compass icon with hexagon */}
                           <div className="w-24 h-24 mx-auto mb-6 relative">
                             <div className="absolute inset-0 flex items-center justify-center">
                               <div className="w-full h-full bg-gradient-to-br from-yellow-300 to-yellow-500 opacity-30"
@@ -253,7 +244,7 @@ export default function Home() {
               </motion.div>
             ) : showQuest ? (
               <motion.div
-                key="quest" // Added key for AnimatePresence
+                key="quest"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -263,7 +254,7 @@ export default function Home() {
               </motion.div>
             ) : (
               <motion.div
-                key="reading" // Added key for AnimatePresence
+                key="reading"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}

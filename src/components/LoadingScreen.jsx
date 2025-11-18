@@ -51,23 +51,25 @@ export default function LoadingScreen() {
           </div>
           
           {/* Wick */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-4 bg-gradient-to-b from-gray-800 to-gray-600 rounded-full" />
+          <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-1 h-3 bg-gradient-to-b from-gray-800 to-gray-600 rounded-full" />
           
-          {/* Flame */}
+          {/* Flame - aligned with wick */}
           <motion.div
             animate={{
-              scale: [1, 1.1, 0.95, 1.05, 1],
-              y: [0, -2, 1, -1, 0],
+              scale: [1, 1.15, 0.9, 1.1, 0.95, 1.05, 1],
+              y: [0, -3, 1, -2, 2, -1, 0],
+              x: [0, 1, -1, 2, -1, 1, 0],
+              rotate: [0, -2, 3, -1, 2, -2, 0]
             }}
             transition={{
-              duration: 2,
+              duration: 1.5,
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="absolute -top-8 left-1/2 -translate-x-1/2"
+            className="absolute -top-10 left-1/2 -translate-x-1/2"
           >
             {/* Outer flame glow */}
-            <div className="absolute inset-0 w-8 h-12 bg-gradient-radial from-orange-400/60 via-yellow-500/40 to-transparent blur-xl" />
+            <div className="absolute inset-0 w-10 h-14 -left-5 -top-1 bg-gradient-radial from-orange-400/70 via-yellow-500/50 to-transparent blur-xl" />
             
             {/* Main flame */}
             <svg width="24" height="32" viewBox="0 0 24 32" className="relative z-10">
@@ -85,7 +87,23 @@ export default function LoadingScreen() {
                 filter="drop-shadow(0 0 10px rgba(251, 191, 36, 0.8))"
               />
               {/* Inner bright core */}
-              <ellipse cx="12" cy="20" rx="3" ry="6" fill="#fef3c7" opacity="0.9" />
+              <motion.ellipse 
+                cx="12" 
+                cy="20" 
+                rx="3" 
+                ry="6" 
+                fill="#fef3c7" 
+                opacity="0.9"
+                animate={{
+                  opacity: [0.9, 1, 0.85, 0.95, 0.9],
+                  ry: [6, 6.5, 5.5, 6.2, 6]
+                }}
+                transition={{
+                  duration: 1.2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
             </svg>
           </motion.div>
         </motion.div>

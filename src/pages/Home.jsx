@@ -185,10 +185,10 @@ export default function Home() {
                       
                       <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-4" />
                       
-                      <p className="text-slate-300/70 text-sm tracking-wide"
-                    style={{ fontFamily: "'Cinzel', serif" }}>
-                        Receive guidance and inspiration for your day ahead
-                      </p>
+                      <p className="text-slate-300/70 text-sm tracking-wide opacity-100"
+                    style={{ fontFamily: "'Cinzel', serif" }}>Receive guidance and inspiration for your day ahead
+
+                    </p>
                     </div>
                   </CardContent>
                 </Card>

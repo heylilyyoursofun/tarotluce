@@ -60,7 +60,7 @@ export default function GenerateImages() {
             Generate Tarot Card Images
           </h1>
           <p className="text-amber-200/70 mb-8" style={{ fontFamily: "'Cinzel', serif" }}>
-            Generate AI images for all 22 Major Arcana cards
+            Generate AI images for all 78 tarot cards
           </p>
 
           {!isGenerating && completedCards.length === 0 && (
@@ -70,7 +70,7 @@ export default function GenerateImages() {
               style={{ fontFamily: "'Cinzel', serif" }}
             >
               <Sparkles className="w-5 h-5 mr-2" />
-              Generate All 22 Cards
+              Generate All 78 Cards
             </Button>
           )}
 

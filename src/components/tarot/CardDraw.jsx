@@ -369,6 +369,14 @@ export default function CardDraw({ category, onBack }) {
   const [isGenerating, setIsGenerating] = useState(false);
   const [fairyDust, setFairyDust] = useState([]);
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [cardImageUrl, setCardImageUrl] = useState(null);
+
+  // Fetch generated images from database
+  const { data: generatedImages } = useQuery({
+    queryKey: ['tarot-images'],
+    queryFn: () => base44.entities.TarotCardImage.list(),
+    initialData: []
+  });
 
   const drawCard = async () => {
     setIsDrawing(true);

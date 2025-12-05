@@ -821,8 +821,9 @@ When you're ready, draw your card.
                   <Button
                 onClick={() => {
                   setDrawnCard(null);
-                  setReading(null);
-                  setIsFlipped(false);
+                                          setReading(null);
+                                          setIsFlipped(false);
+                                          setCardImageUrl(null);
                   if (window.speechSynthesis.speaking) {
                     window.speechSynthesis.cancel();
                     setIsSpeaking(false);

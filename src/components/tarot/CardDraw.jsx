@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -525,7 +524,7 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
               </div>
               
               <p className="text-amber-200/80 text-lg max-w-md mx-auto mb-8 tracking-wide"
-            style={{ fontFamily: "'Cinzel', serif" }}>Take a deep breath. Clear your mind. 
+            style={{ fontFamily: "'Cinzel', serif" }}>Take a deep breath. Clear your mind.<br />
 When you're ready, draw your card.
             </p>
             </div>

@@ -702,33 +702,50 @@ When you're ready, draw your card.
                         <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-amber-400" />
                       </div>
                       
-                      <CardContent className="p-8 h-full flex flex-col items-center justify-center text-center relative z-10">
-                        <div className="text-7xl mb-6 font-bold text-amber-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
-                      style={{ fontFamily: "'Cinzel', serif" }}>
-                          {drawnCard.number}
-                        </div>
-                        
-                        <div className="w-16 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent mb-4" />
-                        
-                        <h3 className="text-3xl font-bold text-amber-100 mb-4 tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
-                      style={{ fontFamily: "'Cinzel', serif" }}>
-                          {drawnCard.name}
-                        </h3>
-                        
-                        <div className="w-16 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent mb-6" />
-                        
-                        <div className="flex flex-wrap gap-2 justify-center">
-                          {drawnCard.keywords.slice(0, 3).map((keyword, i) =>
-                        <span
-                          key={i}
-                          className="px-3 py-1 bg-amber-900/80 border border-amber-600/60 text-sm text-amber-100 tracking-wide backdrop-blur-sm"
-                          style={{ fontFamily: "'Cinzel', serif" }}>
+                      <CardContent className="p-0 h-full flex flex-col items-center justify-center text-center relative z-10">
+                                                    {cardImageUrl ? (
+                                                      <div className="w-full h-full relative">
+                                                        <img 
+                                                          src={cardImageUrl} 
+                                                          alt={drawnCard.name}
+                                                          className="w-full h-full object-cover"
+                                                        />
+                                                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4">
+                                                          <h3 className="text-2xl font-bold text-amber-100 tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
+                                                            style={{ fontFamily: "'Cinzel', serif" }}>
+                                                            {drawnCard.number} - {drawnCard.name}
+                                                          </h3>
+                                                        </div>
+                                                      </div>
+                                                    ) : (
+                                                      <div className="p-8">
+                                                        <div className="text-7xl mb-6 font-bold text-amber-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
+                                                          style={{ fontFamily: "'Cinzel', serif" }}>
+                                                          {drawnCard.number}
+                                                        </div>
 
-                              {keyword}
-                            </span>
-                        )}
-                        </div>
-                      </CardContent>
+                                                        <div className="w-16 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent mb-4" />
+
+                                                        <h3 className="text-3xl font-bold text-amber-100 mb-4 tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
+                                                          style={{ fontFamily: "'Cinzel', serif" }}>
+                                                          {drawnCard.name}
+                                                        </h3>
+
+                                                        <div className="w-16 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent mb-6" />
+
+                                                        <div className="flex flex-wrap gap-2 justify-center">
+                                                          {drawnCard.keywords.slice(0, 3).map((keyword, i) =>
+                                                            <span
+                                                              key={i}
+                                                              className="px-3 py-1 bg-amber-900/80 border border-amber-600/60 text-sm text-amber-100 tracking-wide backdrop-blur-sm"
+                                                              style={{ fontFamily: "'Cinzel', serif" }}>
+                                                              {keyword}
+                                                            </span>
+                                                          )}
+                                                        </div>
+                                                      </div>
+                                                    )}
+                                                  </CardContent>
                     </Card>
                   </div>
                 </motion.div>

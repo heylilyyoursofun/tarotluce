@@ -10,6 +10,7 @@ const TAROT_CARDS = [
   name: "The Fool",
   number: 0,
   keywords: ["new beginnings", "innocence", "adventure", "freedom"],
+  imagePrompt: "An ethereal young figure with shimmering cosmic patterns woven into tattered flowing robes, standing at the edge of a swirling dark fantasy nebula cliff. Eyes reflect distant galaxies, a star-studded path stretches into the unknown void. A small glowing astral dog companion leaps playfully beside them. Ancient cosmic ruins float in the background. Style of Alex Aliume and Chesley Bonestell, digital painting, rich deep purples and blues with golden cosmic dust, dramatic lighting, highly detailed, 8k.",
   interpretation: {
     general: "The Fool represents new beginnings, spontaneity, and a leap of faith into the unknown. It signals a time of potential and infinite possibilities, encouraging you to embrace the journey ahead with an open heart.",
     love: "In matters of the heart, The Fool suggests a fresh romantic beginning or taking a risk in love. It may indicate meeting someone new or approaching relationships with childlike wonder and authenticity.",
@@ -25,6 +26,7 @@ const TAROT_CARDS = [
   name: "The Magician",
   number: 1,
   keywords: ["manifestation", "power", "skill", "concentration"],
+  imagePrompt: "A powerful cosmic sorcerer figure channeling swirling nebula energy between raised hands, one pointing to distant galaxies above, one to a dark planetary surface below. Ethereal glowing tools float around them - a luminous wand, crystalline cup, spectral sword, and golden pentacle. An infinity symbol of stars burns above their head. Ancient cosmic temple ruins in background. Style of Alex Aliume and Chesley Bonestell, digital painting, rich deep purples and blues with golden cosmic dust, dramatic lighting, highly detailed, 8k.",
   interpretation: {
     general: "The Magician represents your ability to manifest your desires through willpower and resourcefulness. You have all the tools you need - it's time to harness your personal power and take inspired action.",
     love: "In love, The Magician signals attraction, charisma, and the power to manifest the relationship you desire. Communication flows easily, and you have the ability to create magic in your connections.",
@@ -40,6 +42,7 @@ const TAROT_CARDS = [
   name: "The High Priestess",
   number: 2,
   keywords: ["intuition", "sacred knowledge", "divine feminine"],
+  imagePrompt: "A mysterious veiled feminine figure seated on a throne between two towering cosmic pillars - one of dark matter, one of pure starlight. She holds an ancient glowing scroll of celestial secrets. A luminous crescent moon crown adorns her head. Behind her, a veil of shimmering nebula conceals deeper mysteries. Dark reflective waters at her feet mirror distant galaxies. Style of Alex Aliume and Chesley Bonestell, digital painting, rich deep purples and blues with silver moonlight accents, dramatic lighting, highly detailed, 8k.",
   interpretation: {
     general: "The High Priestess calls you to trust your intuition and inner wisdom. She represents the subconscious mind, sacred knowledge, and the mysteries waiting to be unveiled through quiet contemplation.",
     love: "In love, this card suggests trusting your intuition about relationships. There may be unspoken emotions or hidden aspects to explore. Listen to your inner voice about matters of the heart.",
@@ -55,6 +58,7 @@ const TAROT_CARDS = [
   name: "The Empress",
   number: 3,
   keywords: ["abundance", "nurturing", "fertility", "nature"],
+  imagePrompt: "A radiant cosmic goddess reclining on a throne of living stardust and flowering nebulae. She wears a crown of twelve stars and robes that flow into rivers of galaxies. Lush bioluminescent cosmic gardens bloom around her with ethereal plants and glowing fruits. A heart-shaped shield of golden light rests beside her. Planets orbit gently in the background like celestial children. Style of Alex Aliume and Chesley Bonestell, digital painting, rich emerald greens and deep purples with golden cosmic dust, warm nurturing light, highly detailed, 8k.",
   interpretation: {
     general: "The Empress embodies abundance, creativity, and nurturing energy. She represents the fruition of ideas, material comfort, and connection to nature and beauty.",
     love: "In relationships, The Empress signals deep affection, sensuality, and nurturing love. It may indicate a relationship entering a more stable, abundant phase or the possibility of growing your family.",
@@ -70,6 +74,7 @@ const TAROT_CARDS = [
   name: "The Emperor",
   number: 4,
   keywords: ["authority", "structure", "control", "leadership"],
+  imagePrompt: "A powerful cosmic ruler seated on a massive throne carved from asteroid rock and ancient cosmic metals, adorned with ram skull motifs made of stars. He wears armor forged from compressed starlight and holds an ankh scepter crackling with nebula energy. His stern gaze surveys a vast empire of ordered star systems. Geometric sacred patterns of constellations form behind him. Style of Alex Aliume and Chesley Bonestell, digital painting, rich deep reds and oranges with golden cosmic dust, powerful dramatic lighting, highly detailed, 8k.",
   interpretation: {
     general: "The Emperor represents structure, authority, and taking control of your life. He brings stability through organization, discipline, and establishing clear boundaries and systems.",
     love: "In love, The Emperor suggests stable, committed relationships built on mutual respect. It may indicate a partner who is protective and reliable, or the need to establish healthy boundaries.",
@@ -85,6 +90,7 @@ const TAROT_CARDS = [
   name: "The Hierophant",
   number: 5,
   keywords: ["tradition", "conformity", "education", "belief"],
+  imagePrompt: "An ancient cosmic pope figure seated between two pillars of crystallized wisdom in a vast cathedral of stars. He wears elaborate robes embroidered with sacred geometries and constellations, a triple crown of orbiting moons. One hand raised in blessing channels divine light, the other holds a triple cross staff of intertwined galaxies. Two robed disciples kneel before him on a floor of ancient star maps. Style of Alex Aliume and Chesley Bonestell, digital painting, rich deep purples and stone grays with golden sacred light, reverent atmosphere, highly detailed, 8k.",
   interpretation: {
     general: "The Hierophant represents tradition, spiritual wisdom, and established institutions. This card suggests seeking guidance from mentors, following conventional paths, or exploring your belief systems.",
     love: "In relationships, this card may indicate traditional commitments like marriage, or relationships blessed by family and community. It can also suggest seeking relationship counseling or guidance.",
@@ -100,6 +106,7 @@ const TAROT_CARDS = [
   name: "The Lovers",
   number: 6,
   keywords: ["love", "harmony", "relationships", "choices"],
+  imagePrompt: "Two ethereal figures - one masculine, one feminine - floating in an embrace within a heart-shaped nebula, their forms partially merging into swirling cosmic energy. Above them, a radiant angelic being made of pure starlight blesses their union with outstretched wings of aurora. Below, the tree of life and tree of knowledge grow from a shared cosmic garden. Twin suns illuminate the scene. Style of Alex Aliume and Chesley Bonestell, digital painting, rich rose pinks and deep purples with golden cosmic dust, romantic ethereal lighting, highly detailed, 8k.",
   interpretation: {
     general: "The Lovers represents meaningful relationships, important choices, and values alignment. This card speaks to harmony, partnership, and making decisions that honor your authentic self.",
     love: "In romance, this is a powerful card of deep connection, soulmate energy, and relationships built on mutual love and respect. It may indicate an important choice in love.",
@@ -115,6 +122,7 @@ const TAROT_CARDS = [
   name: "The Chariot",
   number: 7,
   keywords: ["control", "willpower", "determination", "victory"],
+  imagePrompt: "A triumphant cosmic warrior standing in a magnificent chariot made of meteoric iron and crystallized starlight, pulled by two powerful sphinx creatures - one of dark matter, one of pure light. The warrior wears armor decorated with celestial symbols and holds the reins of pure energy. A canopy of stars forms above. The chariot races across a bridge of light between galaxies, leaving trails of cosmic dust. Style of Alex Aliume and Chesley Bonestell, digital painting, rich deep blues and cyans with golden cosmic dust, dynamic triumphant lighting, highly detailed, 8k.",
   interpretation: {
     general: "The Chariot represents triumph through determination and willpower. This card signals victory, forward movement, and the ability to overcome obstacles through focused effort and self-discipline.",
     love: "In love, The Chariot suggests taking control of your romantic destiny. It may indicate overcoming relationship obstacles or pursuing someone with determination and confidence.",
@@ -130,6 +138,7 @@ const TAROT_CARDS = [
   name: "Strength",
   number: 8,
   keywords: ["courage", "patience", "compassion", "inner strength"],
+  imagePrompt: "A serene feminine figure gently closing the jaws of a massive cosmic lion made of swirling nebulae and burning stars. Her touch radiates calm golden light that tames the beast's fierce energy. She wears flowing robes of soft starlight, an infinity symbol of gentle stars above her head. The lion's mane flows into rivers of galaxies. A peaceful cosmic meadow of glowing flowers surrounds them. Style of Alex Aliume and Chesley Bonestell, digital painting, rich amber and orange with soft golden light, gentle yet powerful atmosphere, highly detailed, 8k.",
   interpretation: {
     general: "Strength represents inner courage, patience, and compassionate power. This card reminds you that true strength comes from within - through kindness, self-control, and gentle persuasion rather than force.",
     love: "In relationships, Strength suggests patience, compassion, and the courage to be vulnerable. It indicates relationships that require understanding and gentle handling, where love conquers all.",
@@ -145,6 +154,7 @@ const TAROT_CARDS = [
   name: "The Hermit",
   number: 9,
   keywords: ["introspection", "solitude", "guidance", "wisdom"],
+  imagePrompt: "An ancient hooded sage standing alone atop a desolate cosmic mountain peak, holding a lantern containing a trapped star that illuminates the infinite darkness. His weathered robes are woven from the fabric of space itself. A long staff of crystallized time supports his contemplation. Below, endless void stretches with distant galaxies. The figure gazes inward while lighting the way for seekers far below. Style of Alex Aliume and Chesley Bonestell, digital painting, rich deep grays and silvers with golden lantern light piercing darkness, solitary contemplative atmosphere, highly detailed, 8k.",
   interpretation: {
     general: "The Hermit represents soul-searching, introspection, and seeking inner wisdom. This card suggests taking time alone to reflect, meditate, and connect with your higher self and inner guidance.",
     love: "In love, The Hermit may indicate a period of solitude before meeting someone meaningful, or needing space within a relationship for self-reflection and personal growth.",
@@ -160,6 +170,7 @@ const TAROT_CARDS = [
   name: "Wheel of Fortune",
   number: 10,
   keywords: ["destiny", "cycles", "change", "luck"],
+  imagePrompt: "A massive cosmic wheel spinning in the center of the universe, made of interlocking galaxies and orbital rings inscribed with alchemical symbols. Mysterious creatures ride the wheel - a sphinx of starlight at the top, a serpent of dark matter descending, a jackal-headed figure of nebulae rising. The four corners hold winged cosmic beings representing the fixed signs. Lightning of pure creation energy crackles around the wheel. Style of Alex Aliume and Chesley Bonestell, digital painting, rich gold and deep purples with dynamic energy, spinning motion and cosmic power, highly detailed, 8k.",
   interpretation: {
     general: "The Wheel of Fortune represents life's cycles, destiny, and inevitable change. This card reminds you that nothing is permanent - what goes up must come down, but what goes down will rise again.",
     love: "In love, this card indicates changing relationship dynamics. If single, you may meet someone unexpectedly. Existing relationships enter new phases. Embrace the natural cycles of love.",
@@ -175,6 +186,7 @@ const TAROT_CARDS = [
   name: "Justice",
   number: 11,
   keywords: ["fairness", "truth", "law", "balance"],
+  imagePrompt: "A blindfolded cosmic judge seated on a throne of balanced scales between order and chaos. In one hand, a sword of pure crystallized truth cuts through nebulae. In the other, perfectly balanced scales weigh galaxies of light against galaxies of shadow. The figure wears robes of mathematical precision, sacred geometry forming the patterns. Twin pillars of cosmic law frame the scene. A level horizon of stars stretches infinitely behind. Style of Alex Aliume and Chesley Bonestell, digital painting, rich blues and teals with silver justice light, balanced symmetrical composition, highly detailed, 8k.",
   interpretation: {
     general: "Justice represents fairness, truth, and karmic balance. This card signals that honesty will be rewarded and dishonesty exposed. Decisions should be made with careful consideration of cause and effect.",
     love: "In relationships, Justice indicates fair treatment, honest communication, and balanced partnerships. Legal matters may affect relationships. Karma is at play in romantic situations.",
@@ -190,6 +202,7 @@ const TAROT_CARDS = [
   name: "The Hanged Man",
   number: 12,
   keywords: ["sacrifice", "letting go", "new perspective"],
+  imagePrompt: "A serene figure suspended upside-down from a cosmic tree that grows from nothing into everything, roots in stars, branches in void. The figure hangs by one ankle, other leg crossed, arms behind back forming a triangle, surrounded by a halo of enlightenment. Their peaceful face shows transcendence, not suffering. Galaxies swirl differently from this inverted perspective. Golden light emanates from within their being. Style of Alex Aliume and Chesley Bonestell, digital painting, rich deep purples and indigos with golden spiritual light, peaceful suspended atmosphere, highly detailed, 8k.",
   interpretation: {
     general: "The Hanged Man represents surrender, new perspectives, and meaningful sacrifice. This card suggests that sometimes the best action is inaction - pausing to see situations from a different angle.",
     love: "In love, this card indicates the need to let go of control, see relationships from a new perspective, or make sacrifices for love. Patience brings clarity.",
@@ -205,6 +218,7 @@ const TAROT_CARDS = [
   name: "Death",
   number: 13,
   keywords: ["transformation", "endings", "rebirth", "transition"],
+  imagePrompt: "A skeletal cosmic reaper in flowing robes of pure void, riding a pale horse made of dying stars across a battlefield where old galaxies crumble and new ones begin to form. The figure carries a black banner emblazoned with a white rose of rebirth. Before them, kings and paupers of light equally fall and transform. Behind them, dawn breaks over a new universe being born from the ashes. Style of Alex Aliume and Chesley Bonestell, digital painting, rich blacks and deep grays with hints of golden rebirth light breaking through, transformative apocalyptic atmosphere, highly detailed, 8k.",
   interpretation: {
     general: "Death represents profound transformation and necessary endings. This card rarely means physical death - instead, it signals that major change is necessary for growth. Let go of what no longer serves you.",
     love: "In relationships, Death may indicate the end of one phase and beginning of another. Relationships transform deeply, or endings make way for new love. Embrace necessary change.",
@@ -220,6 +234,7 @@ const TAROT_CARDS = [
   name: "Temperance",
   number: 14,
   keywords: ["balance", "moderation", "patience", "purpose"],
+  imagePrompt: "A radiant angelic figure with iridescent wings of aurora light standing with one foot in a pool of liquid starlight, one on solid cosmic ground. They pour luminous essence between two chalices in an eternal flow that never spills - liquid light and liquid shadow mixing into perfect balance. A path of stepping stones leads to distant mountains where a crown of light awaits. Irises of pure light bloom at their feet. Style of Alex Aliume and Chesley Bonestell, digital painting, rich sky blues and soft golds with harmonious balanced light, serene alchemical atmosphere, highly detailed, 8k.",
   interpretation: {
     general: "Temperance represents balance, moderation, and finding the middle path. This card encourages patience, blending opposing forces harmoniously, and maintaining equilibrium in all areas of life.",
     love: "In relationships, Temperance signals harmony, balanced give-and-take, and patient nurturing of love. It may indicate balancing relationship needs with personal needs.",
@@ -235,6 +250,7 @@ const TAROT_CARDS = [
   name: "The Devil",
   number: 15,
   keywords: ["bondage", "materialism", "temptation", "shadow self"],
+  imagePrompt: "A massive horned shadow entity perched on a cubic black hole throne, half goat, half bat, with hypnotic spiral galaxies for eyes. Chains of dark matter loosely bind two smaller humanoid figures to the throne - chains they could easily remove but choose not to. An inverted pentagram of dying stars burns above. The creature holds a torch pointing downward, its dark flame consuming light. Tempting treasures of corrupted gold float nearby. Style of Alex Aliume and Chesley Bonestell, digital painting, rich deep reds and blacks with sickly green shadows, oppressive seductive darkness, highly detailed, 8k.",
   interpretation: {
     general: "The Devil represents attachment, restriction, and shadow aspects. This card highlights where you may be bound by unhealthy patterns, addictions, or limiting beliefs. Awareness is the first step to freedom.",
     love: "In relationships, The Devil may indicate codependency, unhealthy attachments, or being drawn to destructive patterns. It's time to examine what's truly binding you in love.",
@@ -250,6 +266,7 @@ const TAROT_CARDS = [
   name: "The Tower",
   number: 16,
   keywords: ["upheaval", "chaos", "revelation", "awakening"],
+  imagePrompt: "A colossal cosmic tower built from crystallized false beliefs shatters as a bolt of divine lightning from a supernova strikes its crown. Figures of light tumble through space as the structure crumbles. The crown - a symbol of material achievement - is blown off and falls into the void. Flames of purifying cosmic fire consume the old order. Through the destruction, a new dawn of clarity breaks on the horizon. Debris transforms into seeds of new creation. Style of Alex Aliume and Chesley Bonestell, digital painting, rich oranges and reds against dark cosmic chaos with white lightning, explosive dramatic destruction, highly detailed, 8k.",
   interpretation: {
     general: "The Tower represents sudden change, upheaval, and breakthrough moments. Though often challenging, this card clears away false structures to reveal truth and create space for authentic rebuilding.",
     love: "In relationships, The Tower indicates sudden revelations or changes that shake foundations. Though difficult, these changes remove illusions and create opportunity for authentic connection.",
@@ -265,6 +282,7 @@ const TAROT_CARDS = [
   name: "The Star",
   number: 17,
   keywords: ["hope", "faith", "renewal", "spirituality"],
+  imagePrompt: "A serene nude figure kneels at the edge of a cosmic pool, pouring starlight from two vessels - one into the water of the subconscious, one onto the land of the material world. Above her, one great eight-pointed star of hope blazes surrounded by seven smaller stars representing the chakras. Her form glows with inner light. The landscape is peaceful, with an ibis of wisdom perched nearby and cosmic flowers blooming. Healing energy radiates everywhere. Style of Alex Aliume and Chesley Bonestell, digital painting, rich soft blues and cyans with brilliant white starlight, serene hopeful healing atmosphere, highly detailed, 8k.",
   interpretation: {
     general: "The Star represents hope, healing, and renewed faith. After challenges, this card brings peace, spiritual connection, and trust that everything will work out. Your wishes and dreams are blessed.",
     love: "In relationships, The Star brings hope for love, healing of past wounds, and renewed faith in romance. It's a beautiful omen for soulmate connections and deep spiritual love.",
@@ -280,6 +298,7 @@ const TAROT_CARDS = [
   name: "The Moon",
   number: 18,
   keywords: ["illusion", "intuition", "subconscious", "fear"],
+  imagePrompt: "A haunting cosmic landscape under a massive moon with a mysterious face, dripping luminescent dew into a dark reflective pool. A winding path leads between two ominous towers of shadow into unknown darkness. A wolf and a domesticated dog howl at the moon - the wild and tamed aspects of mind. A cosmic crayfish emerges from the primordial waters of the subconscious. Everything shimmers with deceptive beauty and hidden danger. Illusions dance in the moonlight. Style of Alex Aliume and Chesley Bonestell, digital painting, rich deep indigos and violets with silver moonlight, mysterious unsettling dreamlike atmosphere, highly detailed, 8k.",
   interpretation: {
     general: "The Moon represents illusion, intuition, and the subconscious realm. This card signals that not everything is as it appears. Trust your intuition but be aware that fears and illusions may cloud your judgment.",
     love: "In relationships, The Moon indicates confusion, hidden emotions, or illusions about love. Trust your intuition but don't make major decisions until clarity emerges.",
@@ -295,6 +314,7 @@ const TAROT_CARDS = [
   name: "The Sun",
   number: 19,
   keywords: ["joy", "success", "celebration", "positivity"],
+  imagePrompt: "A radiant cosmic sun with a benevolent face blazes gloriously, its rays reaching across the universe bringing life and joy. Below, a joyful child of light rides a white horse made of pure starlight through a garden of massive cosmic sunflowers. A red banner of vitality waves triumphantly. Everything is illuminated - no shadows can hide here. The child's innocence and joy are infectious. Golden light bathes every surface in warmth and clarity. Style of Alex Aliume and Chesley Bonestell, digital painting, rich brilliant golds and warm oranges with radiant sunshine, joyful triumphant celebratory atmosphere, highly detailed, 8k.",
   interpretation: {
     general: "The Sun represents joy, success, and radiant vitality. This is one of the most positive cards, bringing warmth, happiness, and clarity to all situations. Everything is illuminated and blessed.",
     love: "In relationships, The Sun brings joy, warmth, and successful partnerships. It may indicate engagement, marriage, or simply the happiness of authentic love shining brightly.",
@@ -310,6 +330,7 @@ const TAROT_CARDS = [
   name: "Judgement",
   number: 20,
   keywords: ["reflection", "reckoning", "inner calling", "absolution"],
+  imagePrompt: "A colossal cosmic angel emerges from swirling clouds of nebulae, blowing a trumpet that sends waves of awakening energy across the universe. Below, figures of light rise from cosmic tombs and crystalline coffins, arms raised in resurrection and liberation. Families reunite across the barriers of time and space. The trumpet's call echoes through dimensions, awakening souls to their higher purpose. A cross of balanced cosmic energy marks the banner of transformation. Style of Alex Aliume and Chesley Bonestell, digital painting, rich violets and purples with brilliant white resurrection light, transcendent awakening atmosphere, highly detailed, 8k.",
   interpretation: {
     general: "Judgement represents awakening, reflection, and answering your higher calling. This card signals a time of reckoning, self-evaluation, and transformation based on past lessons learned.",
     love: "In relationships, Judgement indicates evaluating past relationship patterns, making peace with romantic history, or relationships reaching a point of decision and renewal.",
@@ -325,6 +346,7 @@ const TAROT_CARDS = [
   name: "The World",
   number: 21,
   keywords: ["completion", "accomplishment", "fulfillment", "travel"],
+  imagePrompt: "A dancing cosmic figure floats within a great wreath made of intertwined galaxies, celebrating the completion of the universal journey. They hold two wands of mastery, their form expressing perfect integration and wholeness. In the four corners, the four cosmic creatures watch - lion of fire, bull of earth, eagle of water, angel of air - representing mastered elements and fixed signs. The entire universe seems to dance in harmony. A sense of arrival and fulfillment pervades everything. Style of Alex Aliume and Chesley Bonestell, digital painting, rich emeralds and teals with golden completion light, triumphant fulfilling celebratory atmosphere, highly detailed, 8k.",
   interpretation: {
     general: "The World represents completion, fulfillment, and achieving wholeness. This card signals the successful conclusion of a journey and the integration of all you've learned. You've come full circle.",
     love: "In relationships, The World indicates reaching relationship goals, deep fulfillment in love, or completing one phase to begin another. Soulmate connections feel complete and whole.",

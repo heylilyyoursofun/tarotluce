@@ -398,6 +398,14 @@ export default function CardDraw({ category, onBack }) {
       playWindChime();
       createFairyDust();
       generateReading(randomCard);
+      
+      // Find the generated image for this card
+      const generatedImage = generatedImages.find(img => img.card_number === randomCard.number);
+      if (generatedImage) {
+        setCardImageUrl(generatedImage.image_url);
+      } else {
+        setCardImageUrl(null);
+      }
     }, 500);
   };
 

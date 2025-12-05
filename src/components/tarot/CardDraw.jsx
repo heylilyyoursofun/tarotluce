@@ -359,9 +359,9 @@ When you're ready, draw your card.
                                                         />
                                                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4">
                                                           <h3 className="text-2xl font-bold text-amber-100 tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
-                                                            style={{ fontFamily: "'Cinzel', serif" }}>
-                                                            {drawnCard.number} - {drawnCard.name}
-                                                          </h3>
+                                                              style={{ fontFamily: "'Cinzel', serif" }}>
+                                                              {drawnCard.arcana === "major" ? `${drawnCard.number} - ${drawnCard.name}` : drawnCard.name}
+                                                            </h3>
                                                         </div>
                                                       </div>
                                                     ) : (

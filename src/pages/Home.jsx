@@ -124,42 +124,70 @@ export default function Home() {
                         <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-pink-400 opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
                         <div className="relative z-10 text-center">
                           <div className="w-10 h-10 md:w-24 md:h-24 mx-auto mb-2 md:mb-6 relative">
-                            {/* Crystal ball outer glow */}
-                            <div className="absolute inset-[-10%] flex items-center justify-center">
-                              <div className="w-full h-full rounded-full bg-gradient-radial from-purple-400/30 via-purple-500/10 to-transparent blur-md" />
-                            </div>
-                            
-                            {/* Crystal ball main sphere */}
-                            <div className="absolute inset-[10%] flex items-center justify-center">
-                              <div className="w-full h-full rounded-full bg-gradient-to-br from-purple-300/40 via-purple-400/60 to-purple-600/40 border-2 border-purple-300/50 shadow-[inset_0_-10px_20px_rgba(168,85,247,0.4)]" />
-                            </div>
-                            
-                            {/* Mystical swirls inside */}
-                            <div className="absolute inset-[20%] flex items-center justify-center overflow-hidden rounded-full">
-                              <div className="absolute w-full h-1 md:h-2 bg-gradient-to-r from-transparent via-yellow-300/60 to-transparent transform rotate-45" />
-                              <div className="absolute w-full h-1 md:h-2 bg-gradient-to-r from-transparent via-yellow-300/40 to-transparent transform -rotate-45" />
-                            </div>
-                            
-                            {/* Sparkles around */}
-                            {[0, 60, 120, 180, 240, 300].map((angle) => (
-                              <div
-                                key={angle}
-                                className="absolute w-1 h-1 md:w-2 md:h-2 bg-yellow-300 rounded-full"
-                                style={{
-                                  top: '50%',
-                                  left: '50%',
-                                  transform: `rotate(${angle}deg) translateY(-24px) translateX(-50%)`,
-                                  boxShadow: '0 0 6px rgba(253, 224, 71, 0.8)'
-                                }}
+                            {/* Hand-drawn crystal ball - imperfect circle */}
+                            <svg viewBox="0 0 100 100" className="w-full h-full">
+                              {/* Outer glow */}
+                              <circle cx="50" cy="45" r="42" fill="url(#glowGradient)" opacity="0.3" />
+                              
+                              {/* Main ball with hand-drawn edge */}
+                              <path 
+                                d="M 50 10 Q 70 12 82 25 Q 88 35 88 45 Q 88 55 82 65 Q 70 78 50 80 Q 30 78 18 65 Q 12 55 12 45 Q 12 35 18 25 Q 30 12 50 10"
+                                fill="url(#ballGradient)"
+                                stroke="rgba(216, 180, 254, 0.6)"
+                                strokeWidth="1.5"
+                                opacity="0.8"
                               />
-                            ))}
-                            
-                            {/* Stand base */}
-                            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4 md:w-8 h-1 md:h-2 bg-gradient-to-b from-yellow-400 to-amber-600 rounded-t-sm" />
-                            <div className="absolute -bottom-0.5 md:-bottom-1 left-1/2 transform -translate-x-1/2 w-5 md:w-10 h-0.5 md:h-1 bg-gradient-to-b from-amber-600 to-amber-800 rounded-sm" />
-                            
-                            {/* Light reflection */}
-                            <div className="absolute inset-[15%] top-[10%] left-[15%] w-3 h-3 md:w-6 md:h-6 rounded-full bg-white/40 blur-sm" />
+                              
+                              {/* Inner mystical swirls */}
+                              <path 
+                                d="M 30 35 Q 40 40 50 35 Q 60 30 70 40"
+                                stroke="rgba(253, 224, 71, 0.5)"
+                                strokeWidth="1.5"
+                                fill="none"
+                                strokeLinecap="round"
+                              />
+                              <path 
+                                d="M 35 50 Q 45 45 55 52"
+                                stroke="rgba(253, 224, 71, 0.4)"
+                                strokeWidth="1"
+                                fill="none"
+                                strokeLinecap="round"
+                              />
+                              
+                              {/* Hand-drawn sparkles */}
+                              <text x="25" y="20" fontSize="8" fill="rgba(253, 224, 71, 0.8)">✦</text>
+                              <text x="72" y="25" fontSize="6" fill="rgba(253, 224, 71, 0.7)">✧</text>
+                              <text x="78" y="60" fontSize="7" fill="rgba(253, 224, 71, 0.8)">✦</text>
+                              <text x="20" y="68" fontSize="6" fill="rgba(253, 224, 71, 0.7)">✧</text>
+                              
+                              {/* Sketchy stand base */}
+                              <path 
+                                d="M 42 78 L 42 85 Q 42 88 45 88 L 55 88 Q 58 88 58 85 L 58 78"
+                                fill="url(#standGradient)"
+                                stroke="rgba(180, 83, 9, 0.4)"
+                                strokeWidth="0.5"
+                              />
+                              <ellipse cx="50" cy="88" rx="10" ry="2" fill="rgba(120, 53, 15, 0.6)" />
+                              
+                              {/* Light reflection blob */}
+                              <ellipse cx="38" cy="28" rx="6" ry="8" fill="rgba(255, 255, 255, 0.35)" transform="rotate(-25 38 28)" />
+                              
+                              <defs>
+                                <radialGradient id="glowGradient">
+                                  <stop offset="0%" stopColor="rgb(168, 85, 247)" stopOpacity="0.4" />
+                                  <stop offset="100%" stopColor="rgb(168, 85, 247)" stopOpacity="0" />
+                                </radialGradient>
+                                <linearGradient id="ballGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                  <stop offset="0%" stopColor="rgba(216, 180, 254, 0.5)" />
+                                  <stop offset="50%" stopColor="rgba(192, 132, 252, 0.6)" />
+                                  <stop offset="100%" stopColor="rgba(147, 51, 234, 0.5)" />
+                                </linearGradient>
+                                <linearGradient id="standGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                  <stop offset="0%" stopColor="rgb(251, 191, 36)" />
+                                  <stop offset="100%" stopColor="rgb(180, 83, 9)" />
+                                </linearGradient>
+                              </defs>
+                            </svg>
                           </div>
                           
                           <h3 className="text-sm md:text-3xl font-semibold text-slate-100 mb-1 md:mb-3 tracking-wider"
@@ -207,37 +235,68 @@ export default function Home() {
                       <CardContent className="p-3 md:p-12 relative">
                         <div className="relative z-10 text-center">
                           <div className="w-10 h-10 md:w-24 md:h-24 mx-auto mb-2 md:mb-6 relative">
-                            {/* Ancient scroll rolled at top */}
-                            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-8 md:w-16 h-1.5 md:h-3 bg-gradient-to-r from-amber-700 via-yellow-600 to-amber-700 rounded-full shadow-md" />
-                            
-                            {/* Scroll paper */}
-                            <div className="absolute inset-[8%] top-[15%] bottom-[15%] flex items-center justify-center">
-                              <div className="w-full h-full bg-gradient-to-br from-amber-50 via-yellow-100 to-amber-100 border-2 border-amber-600/60 rounded-sm shadow-lg" 
-                                   style={{ boxShadow: 'inset 0 2px 4px rgba(180, 83, 9, 0.2)' }}>
-                                {/* Aged paper texture */}
-                                <div className="absolute inset-0 opacity-20" 
-                                     style={{
-                                       backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(180, 83, 9, 0.1) 2px, rgba(180, 83, 9, 0.1) 3px)`
-                                     }} />
-                              </div>
-                            </div>
-                            
-                            {/* Mystical symbols on scroll */}
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <div className="text-amber-800 text-xs md:text-2xl font-bold" style={{ fontFamily: "'Cinzel', serif" }}>✦</div>
-                            </div>
-                            
-                            {/* Wax seal */}
-                            <div className="absolute bottom-[8%] right-[15%] w-3 h-3 md:w-6 md:h-6 rounded-full bg-gradient-to-br from-red-600 to-red-800 border border-red-900 shadow-md">
-                              <div className="absolute inset-0 flex items-center justify-center text-yellow-200 text-[6px] md:text-xs font-bold">✧</div>
-                            </div>
-                            
-                            {/* Scroll rolled at bottom */}
-                            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 md:w-16 h-1.5 md:h-3 bg-gradient-to-r from-amber-700 via-yellow-600 to-amber-700 rounded-full shadow-md" />
-                            
-                            {/* Decorative corner flourishes */}
-                            <div className="absolute top-[18%] left-[12%] text-amber-700/40 text-[8px] md:text-sm">❋</div>
-                            <div className="absolute top-[18%] right-[12%] text-amber-700/40 text-[8px] md:text-sm">❋</div>
+                            {/* Hand-drawn scroll */}
+                            <svg viewBox="0 0 100 100" className="w-full h-full">
+                              {/* Top rolled section - organic curve */}
+                              <ellipse cx="50" cy="12" rx="28" ry="5" fill="url(#scrollRodGradient)" stroke="rgba(120, 53, 15, 0.5)" strokeWidth="0.5" />
+                              <path d="M 22 12 Q 22 15 22 18" stroke="rgba(120, 53, 15, 0.3)" strokeWidth="1" fill="none" />
+                              <path d="M 78 12 Q 78 15 78 18" stroke="rgba(120, 53, 15, 0.3)" strokeWidth="1" fill="none" />
+                              
+                              {/* Main scroll paper - wavy edges */}
+                              <path 
+                                d="M 24 18 Q 22 25 23 35 L 22 70 Q 23 78 28 82 L 72 82 Q 77 78 78 70 L 77 35 Q 78 25 76 18 Z"
+                                fill="url(#paperGradient)"
+                                stroke="rgba(180, 83, 9, 0.4)"
+                                strokeWidth="1"
+                              />
+                              
+                              {/* Aged paper stains */}
+                              <ellipse cx="40" cy="35" rx="8" ry="6" fill="rgba(180, 83, 9, 0.08)" />
+                              <ellipse cx="65" cy="55" rx="6" ry="8" fill="rgba(180, 83, 9, 0.06)" />
+                              
+                              {/* Hand-drawn decorative lines */}
+                              <path d="M 35 30 L 65 30" stroke="rgba(180, 83, 9, 0.25)" strokeWidth="0.5" strokeLinecap="round" />
+                              <path d="M 35 38 L 65 38" stroke="rgba(180, 83, 9, 0.2)" strokeWidth="0.5" strokeLinecap="round" />
+                              <path d="M 35 46 L 60 46" stroke="rgba(180, 83, 9, 0.2)" strokeWidth="0.5" strokeLinecap="round" />
+                              
+                              {/* Mystical symbol - hand drawn style */}
+                              <circle cx="50" cy="58" r="10" fill="none" stroke="rgba(180, 83, 9, 0.3)" strokeWidth="1" />
+                              <path d="M 50 50 L 50 66 M 42 58 L 58 58" stroke="rgba(180, 83, 9, 0.35)" strokeWidth="1.5" strokeLinecap="round" />
+                              <text x="50" y="60" fontSize="8" fill="rgba(180, 83, 9, 0.5)" textAnchor="middle" fontFamily="'Cinzel', serif">✦</text>
+                              
+                              {/* Bottom rolled section */}
+                              <ellipse cx="50" cy="83" rx="28" ry="5" fill="url(#scrollRodGradient)" stroke="rgba(120, 53, 15, 0.5)" strokeWidth="0.5" />
+                              
+                              {/* Wax seal - organic blob */}
+                              <path 
+                                d="M 68 74 Q 71 71 74 73 Q 77 75 76 78 Q 75 81 72 82 Q 69 83 66 81 Q 64 79 65 76 Q 66 73 68 74"
+                                fill="url(#waxGradient)"
+                                stroke="rgba(127, 29, 29, 0.6)"
+                                strokeWidth="0.5"
+                              />
+                              <text x="70" y="79" fontSize="6" fill="rgba(253, 224, 71, 0.8)" textAnchor="middle">✧</text>
+                              
+                              {/* Corner flourishes - sketchy */}
+                              <text x="28" y="26" fontSize="6" fill="rgba(180, 83, 9, 0.3)" fontFamily="cursive">❋</text>
+                              <text x="68" y="26" fontSize="6" fill="rgba(180, 83, 9, 0.3)" fontFamily="cursive">❋</text>
+                              
+                              <defs>
+                                <linearGradient id="scrollRodGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                  <stop offset="0%" stopColor="rgb(120, 53, 15)" />
+                                  <stop offset="50%" stopColor="rgb(217, 119, 6)" />
+                                  <stop offset="100%" stopColor="rgb(120, 53, 15)" />
+                                </linearGradient>
+                                <linearGradient id="paperGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                  <stop offset="0%" stopColor="rgb(254, 243, 199)" />
+                                  <stop offset="50%" stopColor="rgb(253, 230, 138)" />
+                                  <stop offset="100%" stopColor="rgb(252, 211, 77)" />
+                                </linearGradient>
+                                <radialGradient id="waxGradient">
+                                  <stop offset="0%" stopColor="rgb(220, 38, 38)" />
+                                  <stop offset="100%" stopColor="rgb(127, 29, 29)" />
+                                </radialGradient>
+                              </defs>
+                            </svg>
                           </div>
                           
                           <h3 className="text-sm md:text-3xl font-semibold text-slate-100 mb-1 md:mb-3 tracking-wider"

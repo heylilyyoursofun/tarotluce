@@ -191,9 +191,11 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
               </div>
               
               <p className="text-amber-200/80 mb-8 mx-auto text-base tracking-wide max-w-md"
-            style={{ fontFamily: "'Cinzel', serif" }}>Take a deep breath. Clear your mind.
-When you're ready, draw your card.
-            </p>
+            style={{ fontFamily: "'Cinzel', serif" }}>
+                Take a deep breath. Clear your mind.<br />
+                <span className="inline-block ml-8">When you're ready,</span><br />
+                <span className="inline-block ml-8">draw your card.</span>
+              </p>
             </div>
 
             <Button

@@ -225,7 +225,7 @@ export default function Home() {
 
                       <CardContent className="p-8 md:p-12 relative">
                         <div className="relative z-10 text-center">
-                          <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 md:mb-6 relative flex items-center justify-center">
+                          <div className="w-40 h-40 md:w-48 md:h-48 mx-auto mb-4 md:mb-6 relative flex items-center justify-center">
                             <img 
                               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/0eef56bf5_Gemini_Generated_Image_qgitxpqgitxpqgit-removebg-preview.png"
                               alt="Meditation"

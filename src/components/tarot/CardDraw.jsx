@@ -57,9 +57,9 @@ export default function CardDraw({ category, onBack }) {
   };
 
   const playWindChime = () => {
-    const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
-    audio.volume = 0.5;
-    audio.playbackRate = 1.2;
+    const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3');
+    audio.volume = 0.4;
+    audio.playbackRate = 0.85;
     audio.play().catch(() => {});
   };
 
@@ -69,7 +69,7 @@ export default function CardDraw({ category, onBack }) {
       particles.push({
         id: Math.random(),
         x: 30 + Math.random() * 40,
-        y: 20 + Math.random() * 60,
+        y: -10 + Math.random() * 20,
         delay: Math.random() * 0.3,
         duration: 1.5 + Math.random() * 1
       });
@@ -237,7 +237,7 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
               animate={{
                 opacity: [0, 1, 0.8, 0],
                 scale: [0, 2, 1.5, 0],
-                y: [0, -80, -150],
+                y: [0, 80, 120],
                 rotate: [0, 180, 360]
               }}
               exit={{ opacity: 0 }}

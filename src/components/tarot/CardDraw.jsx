@@ -65,7 +65,7 @@ export default function CardDraw({ category, onBack }) {
 
   const createFairyDust = () => {
     const particles = [];
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 25; i++) {
       particles.push({
         id: Math.random(),
         x: 30 + Math.random() * 40,
@@ -260,11 +260,11 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
               }}>
 
                   <Sparkles
-                className="text-amber-300"
-                size={Math.random() * 16 + 12}
-                style={{
-                  filter: 'drop-shadow(0 0 12px rgba(251, 191, 36, 1)) drop-shadow(0 0 20px rgba(251, 191, 36, 0.6))'
-                }} />
+                    className="text-slate-300"
+                    size={Math.random() * 16 + 12}
+                    style={{
+                      filter: 'drop-shadow(0 0 12px rgba(203, 213, 225, 1)) drop-shadow(0 0 20px rgba(203, 213, 225, 0.6))'
+                    }} />
 
                 </motion.div>
             )}

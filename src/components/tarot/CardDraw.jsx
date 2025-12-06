@@ -127,13 +127,15 @@ Core card interpretation: ${baseInterpretation}
 The card's keywords are: ${card.keywords.join(", ")}.
 
 Based on this traditional tarot meaning, provide a personalized, uplifting reading that:
-1. Expands on the core interpretation provided for ${category.name} specifically
-2. Offers specific, actionable guidance relevant to ${category.name}
-3. Highlights opportunities and positive potentials
-4. Ends with an inspiring affirmation or message
+1. Starts with a powerful 1-sentence affirmation on its own line
+2. Expands on the core interpretation provided for ${category.name} specifically
+3. Offers specific, actionable guidance relevant to ${category.name}
+4. Highlights opportunities and positive potentials
 
-Structure your response as 3-4 paragraphs, each with a short subtitle (3-5 words) that summarizes that paragraph.
-Format each paragraph as: **Subtitle**\n[Paragraph text]\n\n
+Structure your response as:
+- First line: A single powerful affirmation sentence
+- Then 3-4 paragraphs, each with a short subtitle (3-5 words) that summarizes that paragraph
+Format: [Affirmation sentence]\n\n**Subtitle**\n[Paragraph text]\n\n**Subtitle**\n[Paragraph text]\n\n
 
 Keep the tone warm, mystical, and encouraging. Make it feel personal and meaningful.`;
 
@@ -449,29 +451,45 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
                           </Button>
                         </div>
                         <div className="space-y-6">
-                          {reading && reading.split('\n\n').filter((p) => p.trim()).map((paragraph, index) => {
-                      // Parse subtitles wrapped in **Subtitle**
-                      const subtitleMatch = paragraph.match(/^\*\*(.*?)\*\*/);
-                      const subtitle = subtitleMatch ? subtitleMatch[1].trim() : null;
-                      const content = subtitleMatch ?
-                      paragraph.replace(/^\*\*(.*?)\*\*\s*/, '').trim() :
-                      paragraph.trim();
+                          {reading && (() => {
+                            const parts = reading.split('\n\n').filter((p) => p.trim());
+                            const affirmation = parts[0] && !parts[0].includes('**') ? parts[0].trim() : null;
+                            const paragraphs = affirmation ? parts.slice(1) : parts;
 
-                      return (
-                        <div key={index} className="space-y-3">
-                                {subtitle &&
-                          <h5 className="text-lg font-bold text-amber-300 tracking-wide"
-                          style={{ fontFamily: "'Playfair Display', serif" }}>
-                                    {subtitle}
-                                  </h5>
-                          }
-                                <p className="text-amber-100/90 leading-relaxed tracking-wide"
-                          style={{ fontFamily: "'Playfair Display', serif" }}>
-                                  {content}
-                                </p>
-                              </div>);
+                            return (
+                              <>
+                                {affirmation && (
+                                  <p className="text-amber-200/90 italic leading-relaxed tracking-wide text-center mb-6"
+                                     style={{ fontFamily: "'Playfair Display', serif" }}>
+                                    {affirmation}
+                                  </p>
+                                )}
+                                {paragraphs.map((paragraph, index) => {
+                                  // Parse subtitles wrapped in **Subtitle**
+                                  const subtitleMatch = paragraph.match(/^\*\*(.*?)\*\*/);
+                                  const subtitle = subtitleMatch ? subtitleMatch[1].trim() : null;
+                                  const content = subtitleMatch ?
+                                    paragraph.replace(/^\*\*(.*?)\*\*\s*/, '').trim() :
+                                    paragraph.trim();
 
-                    })}
+                                  return (
+                                    <div key={index} className="space-y-3">
+                                      {subtitle &&
+                                        <h5 className="text-lg font-bold text-amber-300 tracking-wide"
+                                            style={{ fontFamily: "'Playfair Display', serif" }}>
+                                          {subtitle}
+                                        </h5>
+                                      }
+                                      <p className="text-amber-100/90 leading-relaxed tracking-wide"
+                                         style={{ fontFamily: "'Playfair Display', serif" }}>
+                                        {content}
+                                      </p>
+                                    </div>
+                                  );
+                                })}
+                              </>
+                            );
+                          })()}
                         </div>
                       </>
                 }

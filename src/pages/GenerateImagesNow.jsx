@@ -7,8 +7,8 @@ export default function GenerateImagesNow() {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    // Auto-start generation
-    generateImages();
+    // Don't auto-start to prevent errors
+    // generateImages();
   }, []);
 
   const generateImages = async () => {
@@ -39,6 +39,7 @@ export default function GenerateImagesNow() {
   return (
     <div className="p-8 text-white">
       <h1 className="text-2xl mb-4">{status}</h1>
+      <button onClick={generateImages} className="mb-4 px-4 py-2 bg-blue-600 rounded">Start Generation</button>
       <div className="grid grid-cols-4 gap-4">
         {results.map((r, i) => (
           <div key={i} className="text-center">

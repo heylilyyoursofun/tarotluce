@@ -227,10 +227,9 @@ export default function Home() {
                         <div className="relative z-10 text-center">
                           <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 md:mb-6 relative flex items-center justify-center">
                             <img 
-                              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/ba9fa11dd_image.png"
+                              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/0eef56bf5_Gemini_Generated_Image_qgitxpqgitxpqgit-removebg-preview.png"
                               alt="Meditation"
                               className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(244,63,94,0.6)]"
-                              style={{ mixBlendMode: 'screen' }}
                             />
                           </div>
 
@@ -279,10 +278,9 @@ export default function Home() {
                         <div className="relative z-10 text-center">
                           <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 md:mb-6 relative flex items-center justify-center">
                             <img 
-                              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/abe599014_image.png"
+                              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/a58d17124_Gemini_Generated_Image_o4j7zmo4j7zmo4j7-removebg-preview.png"
                               alt="Tarot Journal"
                               className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(59,130,246,0.6)]"
-                              style={{ mixBlendMode: 'screen' }}
                             />
                           </div>
 

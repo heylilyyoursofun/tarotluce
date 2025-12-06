@@ -192,7 +192,6 @@ export default function Home() {
                       />
                       
                       <CardContent className="p-3 md:p-12 relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-cyan-400 opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
                         <div className="relative z-10 text-center">
                           <div className="w-10 h-10 md:w-24 md:h-24 mx-auto mb-2 md:mb-6 relative">
                             <div className="absolute inset-0 flex items-center justify-center">

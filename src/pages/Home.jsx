@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Sparkles, Compass } from "lucide-react";
+import { Sparkles, Compass, BookHeart, Flower2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import CardDraw from "../components/tarot/CardDraw";
 import QuestSelection from "../components/tarot/QuestSelection";
@@ -95,7 +95,7 @@ export default function Home() {
                 </motion.div>
 
                 {/* Main Action Buttons */}
-                <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-4 md:mb-16">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-16">
                   {/* Daily Advice Button - Amethyst Purple */}
                   <motion.div
                 initial={{ x: -20, opacity: 0 }}
@@ -198,9 +198,103 @@ export default function Home() {
                       </CardContent>
                     </Card>
                   </motion.div>
-                </div>
 
-                {/* Footer note */}
+                  {/* Guided Meditation Button - Ruby Rose */}
+                  <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.6 }}>
+
+                    <Card
+                  className="bg-gradient-to-br from-rose-900/80 to-red-700/80 backdrop-blur-xl border-2 border-rose-400/30 hover:border-rose-400/50 transition-all duration-500 cursor-pointer group overflow-hidden relative h-full shadow-[0_0_30px_rgba(244,63,94,0.4)] hover:shadow-[0_0_50px_rgba(244,63,94,0.7)]"
+                  onClick={() => {}}>
+
+                      <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <div className="absolute inset-0"
+                    style={{
+                      backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(212, 175, 55, 0.3) 10px, rgba(212, 175, 55, 0.3) 11px)`
+                    }} />
+
+                      </div>
+
+                      <div className="absolute inset-0 rounded-lg"
+                  style={{
+                    boxShadow: 'inset 0 0 20px rgba(244, 63, 94, 0.3), inset 0 0 40px rgba(244, 63, 94, 0.1)'
+                  }} />
+
+
+                      <CardContent className="p-8 md:p-12 relative">
+                        <div className="relative z-10 text-center">
+                          <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 md:mb-6 relative flex items-center justify-center">
+                            <Flower2 className="w-full h-full text-rose-300 drop-shadow-[0_0_20px_rgba(244,63,94,0.6)]" />
+                          </div>
+
+                          <h3 className="text-xl md:text-3xl font-semibold text-slate-100 mb-2 md:mb-3 tracking-wider"
+                      style={{ fontFamily: "'Cinzel', serif" }}>
+
+                            Guided Tarot Meditation
+                          </h3>
+
+                          <div className="w-16 md:w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-2 md:mb-4" />
+
+                          <p className="text-slate-100/90 text-sm md:text-sm tracking-wide leading-relaxed"
+                      style={{ fontFamily: "'Cinzel', serif" }}>
+                            A short meditation to invite your card
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+
+                  {/* Tarot Journal Button - Sapphire Blue */}
+                  <motion.div
+                  initial={{ x: 20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.7 }}>
+
+                    <Card
+                  className="bg-gradient-to-br from-blue-900/80 to-indigo-700/80 backdrop-blur-xl border-2 border-blue-400/30 hover:border-blue-400/50 transition-all duration-500 cursor-pointer group overflow-hidden relative h-full shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:shadow-[0_0_50px_rgba(59,130,246,0.7)]"
+                  onClick={() => {}}>
+
+                      <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <div className="absolute inset-0"
+                    style={{
+                      backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(212, 175, 55, 0.3) 10px, rgba(212, 175, 55, 0.3) 11px)`
+                    }} />
+
+                      </div>
+
+                      <div className="absolute inset-0 rounded-lg"
+                  style={{
+                    boxShadow: 'inset 0 0 20px rgba(59, 130, 246, 0.3), inset 0 0 40px rgba(59, 130, 246, 0.1)'
+                  }} />
+
+
+                      <CardContent className="p-8 md:p-12 relative">
+                        <div className="relative z-10 text-center">
+                          <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 md:mb-6 relative flex items-center justify-center">
+                            <BookHeart className="w-full h-full text-blue-300 drop-shadow-[0_0_20px_rgba(59,130,246,0.6)]" />
+                          </div>
+
+                          <h3 className="text-xl md:text-3xl font-semibold text-slate-100 mb-2 md:mb-3 tracking-wider"
+                      style={{ fontFamily: "'Cinzel', serif" }}>
+
+                            My Tarot Journal
+                          </h3>
+
+                          <div className="w-16 md:w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-2 md:mb-4" />
+
+                          <p className="text-slate-100/90 text-sm md:text-sm tracking-wide leading-relaxed"
+                      style={{ fontFamily: "'Cinzel', serif" }}>
+                            Your personal tarot reflections
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                  </div>
+
+                  {/* Footer note */}
                 <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

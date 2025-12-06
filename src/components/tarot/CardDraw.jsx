@@ -169,11 +169,14 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
           className="text-center">
 
             <div className="mb-8">
-              {/* Crystal Ball Icon */}
+              {/* Crystal Ball for Daily Advice, Scroll for Quest */}
               <div className="w-40 h-40 mx-auto mb-8 relative flex items-center justify-center">
                 <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/2d552633c_image-removebg-preview.png"
-                alt="Crystal Ball"
+                src={category.id === "general" 
+                  ? "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/2d552633c_image-removebg-preview.png"
+                  : "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/82c88a076_image-removebg-preview-2.png"
+                }
+                alt={category.id === "general" ? "Crystal Ball" : "Ancient Scroll"}
                 className="w-32 h-32 object-contain drop-shadow-[0_0_30px_rgba(251,191,36,0.6)]" />
 
               </div>

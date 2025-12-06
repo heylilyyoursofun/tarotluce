@@ -1,17 +1,17 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Heart, Briefcase, DollarSign, Users, Activity, Sparkles } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function QuestSelection({ onQuestSelect, onBack }) {
   const quests = [
-  { id: "love", name: "Love & Relationships", icon: Heart, color: "from-rose-600 to-amber-500", description: "Matters of the heart and connections" },
-  { id: "career", name: "Career & Purpose", icon: Briefcase, color: "from-amber-600 to-orange-700", description: "Professional path and calling" },
-  { id: "finance", name: "Wealth & Abundance", icon: DollarSign, color: "from-yellow-500 to-amber-600", description: "Financial prosperity and resources" },
-  { id: "family", name: "Family & Home", icon: Users, color: "from-amber-700 to-yellow-600", description: "Domestic harmony and bonds" },
-  { id: "health", name: "Health & Vitality", icon: Activity, color: "from-orange-600 to-amber-600", description: "Physical and mental wellbeing" },
-  { id: "spirituality", name: "Spirituality & Growth", icon: Sparkles, color: "from-purple-600 to-amber-500", description: "Inner wisdom and soul evolution" }];
+  { id: "love", name: "Love & Relationships", iconUrl: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/7c99c3b59_image.png", color: "from-rose-600 to-amber-500", description: "Matters of the heart and connections" },
+  { id: "career", name: "Career & Purpose", iconUrl: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/da91d00cd_image.png", color: "from-amber-600 to-orange-700", description: "Professional path and calling" },
+  { id: "finance", name: "Wealth & Abundance", iconUrl: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/6bfa385ea_image.png", color: "from-yellow-500 to-amber-600", description: "Financial prosperity and resources" },
+  { id: "family", name: "Family & Home", iconUrl: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/44becf823_image.png", color: "from-amber-700 to-yellow-600", description: "Domestic harmony and bonds" },
+  { id: "health", name: "Health & Vitality", iconUrl: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/d47bdfb0f_image.png", color: "from-orange-600 to-amber-600", description: "Physical and mental wellbeing" },
+  { id: "spirituality", name: "Spirituality & Growth", iconUrl: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/b2690d08b_image.png", color: "from-purple-600 to-amber-500", description: "Inner wisdom and soul evolution" }];
 
 
   return (
@@ -45,7 +45,6 @@ export default function QuestSelection({ onQuestSelect, onBack }) {
       {/* Quest Cards Grid */}
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex-1">
         {quests.map((quest, index) => {
-          const Icon = quest.icon;
           return (
             <motion.div
               key={quest.id}
@@ -75,18 +74,12 @@ export default function QuestSelection({ onQuestSelect, onBack }) {
                 <CardContent className="p-8 relative h-full flex flex-col">
                   <div className={`absolute inset-0 bg-gradient-to-br ${quest.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
                   <div className="relative z-10 flex-1 flex flex-col">
-                    <div className="w-20 h-20 mx-auto mb-6 relative">
-                      {/* Hexagonal frame */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className={`w-full h-full bg-gradient-to-br ${quest.color} opacity-20`}
-                        style={{
-                          clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)"
-                        }} />
-
-                      </div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <Icon className="w-10 h-10 text-amber-400 relative z-10" />
-                      </div>
+                    <div className="w-20 h-20 mx-auto mb-6 relative flex items-center justify-center">
+                      <img 
+                        src={quest.iconUrl} 
+                        alt={quest.name}
+                        className="w-16 h-16 object-contain drop-shadow-[0_0_15px_rgba(251,191,36,0.6)]"
+                      />
                     </div>
                     
                     <h3 className="text-xl font-semibold text-amber-100 text-center mb-2 tracking-wide"

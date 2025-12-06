@@ -124,28 +124,68 @@ export default function Home() {
                         <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-pink-400 opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
                         <div className="relative z-10 text-center">
                           <div className="w-10 h-10 md:w-24 md:h-24 mx-auto mb-2 md:mb-6 relative">
+                            {/* Outer ring with ornate details */}
                             <div className="absolute inset-0 flex items-center justify-center">
-                              {[...Array(12)].map((_, i) => (
+                              <div className="w-full h-full rounded-full border-2 border-yellow-400/40" />
+                            </div>
+                            
+                            {/* Long rays */}
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              {[...Array(8)].map((_, i) => (
                                 <div
-                                  key={i}
-                                  className="absolute w-0.5 md:w-1 h-5 md:h-12 bg-gradient-to-t from-yellow-400/60 to-transparent"
+                                  key={`long-${i}`}
+                                  className="absolute w-0.5 md:w-1 h-6 md:h-14 bg-gradient-to-t from-yellow-400 via-yellow-300 to-transparent"
                                   style={{
                                     transformOrigin: 'bottom center',
-                                    transform: `rotate(${i * 30}deg)`,
+                                    transform: `rotate(${i * 45}deg)`,
                                     bottom: '50%'
                                   }}
                                 />
                               ))}
                             </div>
+                            
+                            {/* Short rays in between */}
                             <div className="absolute inset-0 flex items-center justify-center">
-                              <div className="w-6 h-6 md:w-16 md:h-16 bg-gradient-to-br from-yellow-300 to-yellow-500 opacity-30"
+                              {[...Array(8)].map((_, i) => (
+                                <div
+                                  key={`short-${i}`}
+                                  className="absolute w-0.5 h-3 md:h-8 bg-gradient-to-t from-yellow-400/60 to-transparent"
+                                  style={{
+                                    transformOrigin: 'bottom center',
+                                    transform: `rotate(${i * 45 + 22.5}deg)`,
+                                    bottom: '50%'
+                                  }}
+                                />
+                              ))}
+                            </div>
+                            
+                            {/* Inner decorative ring */}
+                            <div className="absolute inset-[20%] md:inset-[25%] flex items-center justify-center">
+                              <div className="w-full h-full rounded-full border border-yellow-300/50" />
+                            </div>
+                            
+                            {/* Multiple star layers */}
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <div className="w-6 h-6 md:w-14 md:h-14 bg-gradient-to-br from-yellow-200 to-yellow-400 opacity-40"
                                 style={{
-                                  clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)"
+                                  clipPath: "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)"
                                 }}
                               />
                             </div>
+                            
+                            {/* Rotating inner star */}
                             <div className="absolute inset-0 flex items-center justify-center">
-                              <Sparkles className="w-5 h-5 md:w-12 md:h-12 text-yellow-300 relative z-10" />
+                              <div className="w-4 h-4 md:w-10 md:h-10 bg-gradient-to-br from-yellow-300 to-amber-500 opacity-60"
+                                style={{
+                                  clipPath: "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)",
+                                  transform: "rotate(36deg)"
+                                }}
+                              />
+                            </div>
+                            
+                            {/* Center diamond */}
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <div className="w-2 h-2 md:w-4 md:h-4 bg-yellow-200 rotate-45 shadow-[0_0_10px_rgba(250,204,21,0.8)]" />
                             </div>
                           </div>
                           
@@ -194,15 +234,75 @@ export default function Home() {
                       <CardContent className="p-3 md:p-12 relative">
                         <div className="relative z-10 text-center">
                           <div className="w-10 h-10 md:w-24 md:h-24 mx-auto mb-2 md:mb-6 relative">
+                            {/* Outer ornate hexagon */}
                             <div className="absolute inset-0 flex items-center justify-center">
-                              <div className="w-full h-full bg-gradient-to-br from-yellow-300 to-yellow-500 opacity-30"
+                              <div className="w-full h-full bg-gradient-to-br from-yellow-400/20 to-amber-500/20 border-2 border-yellow-400/40"
                                 style={{
                                   clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)"
                                 }}
                               />
                             </div>
+                            
+                            {/* Inner hexagon */}
+                            <div className="absolute inset-[15%] flex items-center justify-center">
+                              <div className="w-full h-full border border-yellow-300/50"
+                                style={{
+                                  clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)"
+                                }}
+                              />
+                            </div>
+                            
+                            {/* Corner ornaments */}
+                            {[...Array(6)].map((_, i) => (
+                              <div
+                                key={i}
+                                className="absolute w-1 h-1 md:w-2 md:h-2 bg-yellow-400 rounded-full"
+                                style={{
+                                  top: '50%',
+                                  left: '50%',
+                                  transform: `rotate(${i * 60}deg) translateY(-${18}px) translateX(-50%)`
+                                }}
+                              />
+                            ))}
+                            
+                            {/* Compass rose center - outer circle */}
+                            <div className="absolute inset-[25%] flex items-center justify-center">
+                              <div className="w-full h-full rounded-full border-2 border-yellow-300/60" />
+                            </div>
+                            
+                            {/* Four main cardinal points */}
                             <div className="absolute inset-0 flex items-center justify-center">
-                              <Compass className="w-5 h-5 md:w-12 md:h-12 text-yellow-300 relative z-10" />
+                              {[0, 90, 180, 270].map((angle) => (
+                                <div
+                                  key={angle}
+                                  className="absolute w-0.5 md:w-1 h-3 md:h-7 bg-gradient-to-t from-yellow-400 to-yellow-200"
+                                  style={{
+                                    transformOrigin: 'bottom center',
+                                    transform: `rotate(${angle}deg)`,
+                                    bottom: '50%'
+                                  }}
+                                />
+                              ))}
+                            </div>
+                            
+                            {/* Four secondary points */}
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              {[45, 135, 225, 315].map((angle) => (
+                                <div
+                                  key={angle}
+                                  className="absolute w-0.5 h-2 md:h-5 bg-gradient-to-t from-yellow-400/60 to-transparent"
+                                  style={{
+                                    transformOrigin: 'bottom center',
+                                    transform: `rotate(${angle}deg)`,
+                                    bottom: '50%'
+                                  }}
+                                />
+                              ))}
+                            </div>
+                            
+                            {/* Center diamond compass marker */}
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <div className="w-2 h-2 md:w-4 md:h-4 bg-gradient-to-br from-yellow-200 to-amber-400 rotate-45 shadow-[0_0_8px_rgba(250,204,21,0.6)]" />
                             </div>
                           </div>
                           

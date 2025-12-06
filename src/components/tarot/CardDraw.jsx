@@ -86,8 +86,20 @@ export default function CardDraw({ category, onBack }) {
       } else {
         // Remove subtitles (formatted as **Subtitle**) for speech
         const utterance = new SpeechSynthesisUtterance(reading.replace(/\*\*(.*?)\*\*\n?/g, ''));
-        utterance.rate = 0.9;
-        utterance.pitch = 1;
+        
+        // Get available voices and prefer natural-sounding ones
+        const voices = window.speechSynthesis.getVoices();
+        const preferredVoice = voices.find(voice => 
+          voice.name.includes('Natural') || 
+          voice.name.includes('Premium') ||
+          voice.name.includes('Enhanced') ||
+          (voice.name.includes('Female') && voice.lang.startsWith('en'))
+        ) || voices.find(voice => voice.lang.startsWith('en'));
+        
+        if (preferredVoice) utterance.voice = preferredVoice;
+        utterance.rate = 0.85;
+        utterance.pitch = 0.95;
+        utterance.volume = 0.9;
         utterance.onend = () => setIsSpeaking(false);
         window.speechSynthesis.speak(utterance);
         setIsSpeaking(true);

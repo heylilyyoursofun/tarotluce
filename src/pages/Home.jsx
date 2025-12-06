@@ -95,7 +95,7 @@ export default function Home() {
                 </motion.div>
 
                 {/* Main Action Buttons */}
-                <div className="max-w-4xl mx-auto grid grid-cols-2 gap-3 md:gap-8 mb-4 md:mb-16">
+                <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-4 md:mb-16">
                   {/* Daily Advice Button - Amethyst Purple */}
                   <motion.div
                 initial={{ x: -20, opacity: 0 }}

@@ -183,18 +183,18 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
               
               <div className="mb-4">
                 <div className="w-24 h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mb-4" />
-                <h3 className="text-3xl font-semibold text-amber-100 mb-2 tracking-wider animate-pulse"
+                <h3 className="text-xl md:text-3xl font-semibold text-amber-100 mb-2 tracking-wider animate-pulse px-4"
                 style={{ fontFamily: "'Cinzel', serif", animationDuration: '3s' }}>
                   Focus on Your Question
                 </h3>
                 <div className="w-24 h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mt-4" />
               </div>
               
-              <p className="text-amber-200/80 mb-8 mx-auto text-base tracking-wide max-w-md"
+              <p className="text-amber-200/80 mb-8 mx-auto text-sm md:text-base tracking-wide max-w-md px-4"
             style={{ fontFamily: "'Cinzel', serif" }}>
                 Take a deep breath. Clear your mind.<br />
-                <span className="inline-block ml-8">When you're ready,</span><br />
-                <span className="inline-block ml-8">draw your card.</span>
+                <span className="inline-block ml-4 md:ml-8">When you're ready,</span><br />
+                <span className="inline-block ml-4 md:ml-8">draw your card.</span>
               </p>
             </div>
 

@@ -139,11 +139,10 @@ export default function Home() {
                           
                           <div className="w-10 md:w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-1 md:mb-4" />
                           
-                          <p className="text-[10px] text-lg font-semibold tracking-wide leading-tight md:text-sm"
-                      style={{ fontFamily: "'Cinzel', serif" }}>Receive guidance for your day
-
-
-                      </p>
+                          <p className="text-slate-100/90 text-[10px] md:text-sm tracking-wide leading-tight"
+                      style={{ fontFamily: "'Cinzel', serif" }}>
+                            Receive guidance for your day
+                          </p>
                         </div>
                       </CardContent>
                     </Card>
@@ -191,11 +190,10 @@ export default function Home() {
                           
                           <div className="w-10 md:w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-1 md:mb-4" />
                           
-                          <p className="text-[10px] text-lg font-semibold tracking-wide leading-tight md:text-sm"
-                      style={{ fontFamily: "'Cinzel', serif" }}>Seek answers about life areas
-
-
-                      </p>
+                          <p className="text-slate-100/90 text-[10px] md:text-sm tracking-wide leading-tight"
+                      style={{ fontFamily: "'Cinzel', serif" }}>
+                            Seek answers about life areas
+                          </p>
                         </div>
                       </CardContent>
                     </Card>
@@ -213,7 +211,7 @@ export default function Home() {
               style={{ fontFamily: "'Cinzel', serif" }}>
 
                     <div className="w-4 md:w-8 h-px bg-gradient-to-r from-transparent to-slate-400/50" />
-                    <p className="text-lg">Unique Reading For You</p>
+                    <p>Unique Reading For You</p>
                     <div className="w-4 md:w-8 h-px bg-gradient-to-l from-transparent to-slate-400/50" />
                   </div>
                 </motion.div>

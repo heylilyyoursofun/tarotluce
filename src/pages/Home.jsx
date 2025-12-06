@@ -128,6 +128,7 @@ export default function Home() {
                               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/22cd7f450_image.png"
                               alt="Crystal Ball"
                               className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(168,85,247,0.6)]"
+                              style={{ mixBlendMode: 'screen' }}
                             />
                           </div>
                           
@@ -180,6 +181,7 @@ export default function Home() {
                               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/a7b072506_image.png"
                               alt="Ancient Scroll"
                               className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(20,184,166,0.6)]"
+                              style={{ mixBlendMode: 'screen' }}
                             />
                           </div>
                           

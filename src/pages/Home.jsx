@@ -225,7 +225,7 @@ export default function Home() {
 
                       <CardContent className="p-4 md:p-6 relative">
                         <div className="relative z-10 text-center">
-                          <div className="w-40 h-40 md:w-48 md:h-48 mx-auto mb-2 md:mb-3 relative flex items-center justify-center">
+                          <div className="w-40 h-40 md:w-48 md:h-48 mx-auto mb-1 md:mb-1 relative flex items-center justify-center">
                             <img 
                               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/d563710ad_Gemini_Generated_Image_qgitxpqgitxpqgit-removebg-preview.png"
                               alt="Meditation"
@@ -276,7 +276,7 @@ export default function Home() {
 
                       <CardContent className="p-4 md:p-6 relative">
                         <div className="relative z-10 text-center">
-                          <div className="w-40 h-40 md:w-48 md:h-48 mx-auto mb-2 md:mb-3 relative flex items-center justify-center">
+                          <div className="w-40 h-40 md:w-48 md:h-48 mx-auto mb-1 md:mb-1 relative flex items-center justify-center">
                             <img 
                               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/1dab970df_Gemini_Generated_Image_o4j7zmo4j7zmo4j7-removebg-preview.png"
                               alt="Tarot Journal"

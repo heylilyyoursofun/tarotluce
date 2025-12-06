@@ -169,35 +169,13 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
           className="text-center">
 
             <div className="mb-8">
-              {/* Art Deco sunburst */}
-              <div className="w-40 h-40 mx-auto mb-8 relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {[...Array(16)].map((_, i) =>
-                <motion.div
-                  key={i}
-                  className="absolute w-1 bg-gradient-to-t from-amber-500/60 to-transparent"
-                  style={{
-                    height: '80px',
-                    transformOrigin: 'bottom center',
-                    transform: `rotate(${i * 22.5}deg)`,
-                    bottom: '50%'
-                  }}
-                  animate={{
-                    opacity: [0.3, 0.8, 0.3]
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    delay: i * 0.1
-                  }} />
-
-                )}
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-20 h-20 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center border-4 border-amber-300/50">
-                    <Sparkles className="w-10 h-10 text-amber-950" />
-                  </div>
-                </div>
+              {/* Crystal Ball Icon */}
+              <div className="w-40 h-40 mx-auto mb-8 relative flex items-center justify-center">
+                <img 
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/2d552633c_image-removebg-preview.png"
+                  alt="Crystal Ball"
+                  className="w-32 h-32 object-contain drop-shadow-[0_0_30px_rgba(251,191,36,0.6)]"
+                />
               </div>
               
               <div className="mb-4">

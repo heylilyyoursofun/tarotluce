@@ -17,29 +17,31 @@ export default function QuestSelection({ onQuestSelect, onBack }) {
   return (
     <div className="container mx-auto px-4 py-8 min-h-screen flex flex-col">
       {/* Header */}
-      <div className="flex items-center justify-center mb-12 relative">
-        <Button
-          variant="ghost"
-          onClick={onBack}
-          className="absolute left-0 text-amber-200 hover:text-amber-100 hover:bg-amber-900/30 border border-amber-700/40">
+      <div className="mb-8 md:mb-12">
+        <div className="flex items-center justify-start md:justify-center mb-4 md:mb-0 md:relative">
+          <Button
+            variant="ghost"
+            onClick={onBack}
+            className="md:absolute md:left-0 text-amber-200 hover:text-amber-100 hover:bg-amber-900/30 border border-amber-700/40">
 
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          Back
-        </Button>
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back
+          </Button>
+        </div>
         
-        <div className="flex items-center gap-3">
-          <div className="w-16 h-px bg-gradient-to-r from-transparent to-amber-500" />
-          <h2 className="text-3xl font-semibold text-amber-100 tracking-wider"
+        <div className="flex items-center justify-center gap-2 md:gap-3 px-4">
+          <div className="w-8 md:w-16 h-px bg-gradient-to-r from-transparent to-amber-500" />
+          <h2 className="text-xl md:text-3xl font-semibold text-amber-100 tracking-wider text-center"
           style={{ fontFamily: "'Cinzel', serif" }}>
             Choose Your Quest
           </h2>
-          <div className="w-16 h-px bg-gradient-to-l from-transparent to-amber-500" />
+          <div className="w-8 md:w-16 h-px bg-gradient-to-l from-transparent to-amber-500" />
         </div>
       </div>
 
-      <p className="text-center text-amber-200/80 text-lg mb-12 max-w-2xl mx-auto tracking-wide"
-      style={{ fontFamily: "'Cinzel', serif" }}>Select the area of your life where you seek guidance from the illuminating cards
-
+      <p className="text-center text-amber-200/80 text-sm md:text-lg mb-8 md:mb-12 max-w-2xl mx-auto tracking-wide px-4"
+      style={{ fontFamily: "'Cinzel', serif" }}>
+        Select the area of your life where you seek guidance from the illuminating cards
       </p>
 
       {/* Quest Cards Grid */}

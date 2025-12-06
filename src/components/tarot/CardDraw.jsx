@@ -57,24 +57,25 @@ export default function CardDraw({ category, onBack }) {
   };
 
   const playWindChime = () => {
-    const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3');
-    audio.volume = 0.4;
+    const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
+    audio.volume = 0.5;
+    audio.playbackRate = 1.2;
     audio.play().catch(() => {});
   };
 
   const createFairyDust = () => {
     const particles = [];
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 50; i++) {
       particles.push({
         id: Math.random(),
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        delay: Math.random() * 0.5,
-        duration: 1 + Math.random() * 1
+        x: 30 + Math.random() * 40,
+        y: 20 + Math.random() * 60,
+        delay: Math.random() * 0.3,
+        duration: 1.5 + Math.random() * 1
       });
     }
     setFairyDust(particles);
-    setTimeout(() => setFairyDust([]), 2500);
+    setTimeout(() => setFairyDust([]), 3000);
   };
 
   const speakReading = () => {
@@ -227,16 +228,17 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
               {fairyDust.map((particle) =>
             <motion.div
               key={particle.id}
-              className="absolute pointer-events-none"
+              className="absolute pointer-events-none z-50"
               style={{
                 left: `${particle.x}%`,
                 top: `${particle.y}%`
               }}
-              initial={{ opacity: 0, scale: 0, y: 0 }}
+              initial={{ opacity: 0, scale: 0, y: 0, rotate: 0 }}
               animate={{
-                opacity: [0, 1, 1, 0],
-                scale: [0, 1.5, 1, 0],
-                y: [0, -50, -100]
+                opacity: [0, 1, 0.8, 0],
+                scale: [0, 2, 1.5, 0],
+                y: [0, -80, -150],
+                rotate: [0, 180, 360]
               }}
               exit={{ opacity: 0 }}
               transition={{
@@ -246,10 +248,10 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
               }}>
 
                   <Sparkles
-                className="text-amber-400"
-                size={Math.random() * 12 + 8}
+                className="text-amber-300"
+                size={Math.random() * 16 + 12}
                 style={{
-                  filter: 'drop-shadow(0 0 8px rgba(251, 191, 36, 0.8))'
+                  filter: 'drop-shadow(0 0 12px rgba(251, 191, 36, 1)) drop-shadow(0 0 20px rgba(251, 191, 36, 0.6))'
                 }} />
 
                 </motion.div>

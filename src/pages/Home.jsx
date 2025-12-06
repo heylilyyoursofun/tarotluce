@@ -223,14 +223,10 @@ export default function Home() {
                   }} />
 
 
-                      <CardContent className="p-4 md:p-6 relative">
+                      <CardContent className="p-8 md:p-12 relative">
                         <div className="relative z-10 text-center">
-                          <div className="w-40 h-40 md:w-48 md:h-48 mx-auto mb-1 md:mb-1 relative flex items-center justify-center">
-                            <img 
-                              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/d563710ad_Gemini_Generated_Image_qgitxpqgitxpqgit-removebg-preview.png"
-                              alt="Meditation"
-                              className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(244,63,94,0.6)]"
-                            />
+                          <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 md:mb-6 relative flex items-center justify-center">
+                            <Flower2 className="w-full h-full text-rose-300 drop-shadow-[0_0_20px_rgba(244,63,94,0.6)]" />
                           </div>
 
                           <h3 className="text-base md:text-xl font-semibold text-slate-100 mb-1 md:mb-2 tracking-wider"
@@ -274,14 +270,10 @@ export default function Home() {
                   }} />
 
 
-                      <CardContent className="p-4 md:p-6 relative">
+                      <CardContent className="p-8 md:p-12 relative">
                         <div className="relative z-10 text-center">
-                          <div className="w-40 h-40 md:w-48 md:h-48 mx-auto mb-1 md:mb-1 relative flex items-center justify-center">
-                            <img 
-                              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/1dab970df_Gemini_Generated_Image_o4j7zmo4j7zmo4j7-removebg-preview.png"
-                              alt="Tarot Journal"
-                              className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(59,130,246,0.6)]"
-                            />
+                          <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 md:mb-6 relative flex items-center justify-center">
+                            <BookHeart className="w-full h-full text-blue-300 drop-shadow-[0_0_20px_rgba(59,130,246,0.6)]" />
                           </div>
 
                           <h3 className="text-base md:text-xl font-semibold text-slate-100 mb-1 md:mb-2 tracking-wider"

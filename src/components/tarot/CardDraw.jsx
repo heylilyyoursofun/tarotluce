@@ -18,6 +18,15 @@ export default function CardDraw({ category, onBack }) {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [cardImageUrl, setCardImageUrl] = useState(null);
 
+  // Stop speech when component unmounts
+  useEffect(() => {
+    return () => {
+      if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, []);
+
   // Fetch generated images from database
   const { data: generatedImages } = useQuery({
     queryKey: ['tarot-images'],
@@ -461,7 +470,7 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
                                 {affirmation && (
                                   <p className="text-amber-200/90 italic leading-relaxed tracking-wide text-center mb-6"
                                      style={{ fontFamily: "'Playfair Display', serif" }}>
-                                    {affirmation}
+                                    "{affirmation}"
                                   </p>
                                 )}
                                 {paragraphs.map((paragraph, index) => {

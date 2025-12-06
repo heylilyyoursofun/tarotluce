@@ -125,10 +125,9 @@ export default function Home() {
                         <div className="relative z-10 text-center">
                           <div className="w-10 h-10 md:w-24 md:h-24 mx-auto mb-2 md:mb-6 relative">
                             <img 
-                              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/22cd7f450_image.png"
+                              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/c035611ac_image.png"
                               alt="Crystal Ball"
                               className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(168,85,247,0.6)]"
-                              style={{ mixBlendMode: 'screen' }}
                             />
                           </div>
                           
@@ -178,10 +177,9 @@ export default function Home() {
                         <div className="relative z-10 text-center">
                           <div className="w-10 h-10 md:w-24 md:h-24 mx-auto mb-2 md:mb-6 relative">
                             <img 
-                              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/a7b072506_image.png"
+                              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/31b42e573_image.png"
                               alt="Ancient Scroll"
                               className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(20,184,166,0.6)]"
-                              style={{ mixBlendMode: 'screen' }}
                             />
                           </div>
                           

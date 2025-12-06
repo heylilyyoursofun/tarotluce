@@ -74,11 +74,11 @@ export default function QuestSelection({ onQuestSelect, onBack }) {
                 <CardContent className="p-8 relative h-full flex flex-col">
                   <div className={`absolute inset-0 bg-gradient-to-br ${quest.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
                   <div className="relative z-10 flex-1 flex flex-col">
-                    <div className="w-20 h-20 mx-auto mb-6 relative flex items-center justify-center">
+                    <div className="w-32 h-32 mx-auto mb-6 relative flex items-center justify-center">
                       <img 
                         src={quest.iconUrl} 
                         alt={quest.name}
-                        className="w-16 h-16 object-contain drop-shadow-[0_0_15px_rgba(251,191,36,0.6)]"
+                        className="w-28 h-28 object-contain drop-shadow-[0_0_20px_rgba(251,191,36,0.6)]"
                         style={{ mixBlendMode: 'screen' }}
                       />
                     </div>

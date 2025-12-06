@@ -125,7 +125,7 @@ export default function Home() {
                         <div className="relative z-10 text-center">
                           <div className="w-10 h-10 md:w-24 md:h-24 mx-auto mb-2 md:mb-6 relative">
                             <img 
-                              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/c035611ac_image.png"
+                              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/eaad51a93_image-removebg-preview.png"
                               alt="Crystal Ball"
                               className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(168,85,247,0.6)]"
                             />
@@ -177,7 +177,7 @@ export default function Home() {
                         <div className="relative z-10 text-center">
                           <div className="w-10 h-10 md:w-24 md:h-24 mx-auto mb-2 md:mb-6 relative">
                             <img 
-                              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/31b42e573_image.png"
+                              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/36d7b66e8_image-removebg-preview-2.png"
                               alt="Ancient Scroll"
                               className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(20,184,166,0.6)]"
                             />

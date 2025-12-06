@@ -6,12 +6,12 @@ import { motion } from "framer-motion";
 
 export default function QuestSelection({ onQuestSelect, onBack }) {
   const quests = [
-  { id: "love", name: "Love & Relationships", iconUrl: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/7c99c3b59_image.png", color: "from-rose-600 to-amber-500", description: "Matters of the heart and connections" },
-  { id: "career", name: "Career & Purpose", iconUrl: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/da91d00cd_image.png", color: "from-amber-600 to-orange-700", description: "Professional path and calling" },
-  { id: "finance", name: "Wealth & Abundance", iconUrl: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/6bfa385ea_image.png", color: "from-yellow-500 to-amber-600", description: "Financial prosperity and resources" },
-  { id: "family", name: "Family & Home", iconUrl: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/44becf823_image.png", color: "from-amber-700 to-yellow-600", description: "Domestic harmony and bonds" },
-  { id: "health", name: "Health & Vitality", iconUrl: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/d47bdfb0f_image.png", color: "from-orange-600 to-amber-600", description: "Physical and mental wellbeing" },
-  { id: "spirituality", name: "Spirituality & Growth", iconUrl: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/b2690d08b_image.png", color: "from-purple-600 to-amber-500", description: "Inner wisdom and soul evolution" }];
+  { id: "love", name: "Love & Relationships", iconUrl: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/87911f1e3_image.png", color: "from-rose-600 to-amber-500", description: "Matters of the heart and connections" },
+  { id: "career", name: "Career & Purpose", iconUrl: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/38b724085_image.png", color: "from-amber-600 to-orange-700", description: "Professional path and calling" },
+  { id: "finance", name: "Wealth & Abundance", iconUrl: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/f2ba6527a_image.png", color: "from-yellow-500 to-amber-600", description: "Financial prosperity and resources" },
+  { id: "family", name: "Family & Home", iconUrl: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/d8cd6cc75_image.png", color: "from-amber-700 to-yellow-600", description: "Domestic harmony and bonds" },
+  { id: "health", name: "Health & Vitality", iconUrl: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/0e9c3786c_image.png", color: "from-orange-600 to-amber-600", description: "Physical and mental wellbeing" },
+  { id: "spirituality", name: "Spirituality & Growth", iconUrl: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/40d0676f6_image.png", color: "from-purple-600 to-amber-500", description: "Inner wisdom and soul evolution" }];
 
 
   return (

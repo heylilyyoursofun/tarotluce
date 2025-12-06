@@ -120,10 +120,10 @@ export default function Home() {
                   }} />
 
                       
-                      <CardContent className="p-3 md:p-12 relative">
+                      <CardContent className="p-8 md:p-12 relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-pink-400 opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
                         <div className="relative z-10 text-center">
-                          <div className="w-10 h-10 md:w-24 md:h-24 mx-auto mb-2 md:mb-6 relative">
+                          <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 md:mb-6 relative">
                             <img
                           src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/eaad51a93_image-removebg-preview.png"
                           alt="Crystal Ball"
@@ -131,15 +131,15 @@ export default function Home() {
 
                           </div>
                           
-                          <h3 className="text-sm md:text-3xl font-semibold text-slate-100 mb-1 md:mb-3 tracking-wider"
+                          <h3 className="text-xl md:text-3xl font-semibold text-slate-100 mb-2 md:mb-3 tracking-wider"
                       style={{ fontFamily: "'Cinzel', serif" }}>
 
                             My Daily Advice
                           </h3>
                           
-                          <div className="w-10 md:w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-1 md:mb-4" />
+                          <div className="w-16 md:w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-2 md:mb-4" />
                           
-                          <p className="text-slate-100/90 text-[10px] md:text-sm tracking-wide leading-tight"
+                          <p className="text-slate-100/90 text-sm md:text-sm tracking-wide leading-relaxed"
                       style={{ fontFamily: "'Cinzel', serif" }}>
                             Receive guidance for your day
                           </p>
@@ -172,9 +172,9 @@ export default function Home() {
                   }} />
 
                       
-                      <CardContent className="p-3 md:p-12 relative">
+                      <CardContent className="p-8 md:p-12 relative">
                         <div className="relative z-10 text-center">
-                          <div className="w-10 h-10 md:w-24 md:h-24 mx-auto mb-2 md:mb-6 relative">
+                          <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 md:mb-6 relative">
                             <img
                           src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/36d7b66e8_image-removebg-preview-2.png"
                           alt="Ancient Scroll"
@@ -182,15 +182,15 @@ export default function Home() {
 
                           </div>
                           
-                          <h3 className="text-sm md:text-3xl font-semibold text-slate-100 mb-1 md:mb-3 tracking-wider"
+                          <h3 className="text-xl md:text-3xl font-semibold text-slate-100 mb-2 md:mb-3 tracking-wider"
                       style={{ fontFamily: "'Cinzel', serif" }}>
 
                             Make A Quest
                           </h3>
                           
-                          <div className="w-10 md:w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-1 md:mb-4" />
+                          <div className="w-16 md:w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-2 md:mb-4" />
                           
-                          <p className="text-slate-100/90 text-[10px] md:text-sm tracking-wide leading-tight"
+                          <p className="text-slate-100/90 text-sm md:text-sm tracking-wide leading-relaxed"
                       style={{ fontFamily: "'Cinzel', serif" }}>
                             Seek answers about life areas
                           </p>

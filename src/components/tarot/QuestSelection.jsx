@@ -79,6 +79,7 @@ export default function QuestSelection({ onQuestSelect, onBack }) {
                         src={quest.iconUrl} 
                         alt={quest.name}
                         className="w-16 h-16 object-contain drop-shadow-[0_0_15px_rgba(251,191,36,0.6)]"
+                        style={{ mixBlendMode: 'screen' }}
                       />
                     </div>
                     

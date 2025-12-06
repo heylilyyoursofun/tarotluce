@@ -183,8 +183,8 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
               
               <div className="mb-4">
                 <div className="w-24 h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mb-4" />
-                <h3 className="text-3xl font-semibold text-amber-100 mb-2 tracking-wider"
-              style={{ fontFamily: "'Cinzel', serif" }}>
+                <h3 className="text-3xl font-semibold text-amber-100 mb-2 tracking-wider animate-pulse"
+                style={{ fontFamily: "'Cinzel', serif", animationDuration: '3s' }}>
                   Focus on Your Question
                 </h3>
                 <div className="w-24 h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mt-4" />

@@ -230,6 +230,7 @@ export default function Home() {
                               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/ba9fa11dd_image.png"
                               alt="Meditation"
                               className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(244,63,94,0.6)]"
+                              style={{ mixBlendMode: 'screen' }}
                             />
                           </div>
 
@@ -281,6 +282,7 @@ export default function Home() {
                               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/abe599014_image.png"
                               alt="Tarot Journal"
                               className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(59,130,246,0.6)]"
+                              style={{ mixBlendMode: 'screen' }}
                             />
                           </div>
 

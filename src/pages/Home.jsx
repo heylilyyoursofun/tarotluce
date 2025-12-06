@@ -58,21 +58,21 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="relative z-10 container mx-auto px-4 py-2 md:py-16 min-h-screen flex flex-col justify-center">
+            className="relative z-10 container mx-auto px-4 py-4 md:py-8 min-h-screen flex flex-col justify-center">
 
                 {/* Header */}
                 <motion.div
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-center mb-4 md:mb-20">
+                initial={{ y: -20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="text-center mb-3 md:mb-8">
 
                   <div className="flex justify-center mb-2 md:mb-6">
                     <div className="w-24 md:w-32 h-0.5 md:h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />
                   </div>
                   
-                  <h1 className="text-3xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-yellow-200 via-yellow-300 to-yellow-500 mb-1 md:mb-2 tracking-widest drop-shadow-[0_0_30px_rgba(250,204,21,0.5)]"
-              style={{ fontFamily: "'Cinzel', serif" }}>
+                  <h1 className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-yellow-200 via-yellow-300 to-yellow-500 mb-1 tracking-widest drop-shadow-[0_0_30px_rgba(250,204,21,0.5)]"
+                  style={{ fontFamily: "'Cinzel', serif" }}>
 
                     Tarot Luce
                   </h1>
@@ -83,8 +83,8 @@ export default function Home() {
                     <div className="w-8 md:w-16 h-0.5 bg-gradient-to-l from-transparent to-yellow-400" />
                   </div>
                   
-                  <p className="text-slate-200/90 text-xs md:text-xl max-w-2xl mx-auto leading-relaxed tracking-wide md:tracking-wider drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] px-2"
-              style={{ fontFamily: "'Cinzel', serif" }}>
+                  <p className="text-slate-200/90 text-xs md:text-base max-w-2xl mx-auto leading-relaxed tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] px-2"
+                  style={{ fontFamily: "'Cinzel', serif" }}>
 
                     Seek guidance, inspiration and wisdom from the cards
                   </p>
@@ -95,7 +95,7 @@ export default function Home() {
                 </motion.div>
 
                 {/* Main Action Buttons */}
-                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-16">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-4 mb-3 md:mb-6">
                   {/* Daily Advice Button - Amethyst Purple */}
                   <motion.div
                 initial={{ x: -20, opacity: 0 }}
@@ -131,16 +131,16 @@ export default function Home() {
 
                           </div>
                           
-                          <h3 className="text-xl md:text-3xl font-semibold text-slate-100 mb-2 md:mb-3 tracking-wider"
-                      style={{ fontFamily: "'Cinzel', serif" }}>
+                          <h3 className="text-base md:text-xl font-semibold text-slate-100 mb-1 md:mb-2 tracking-wider"
+                          style={{ fontFamily: "'Cinzel', serif" }}>
 
                             My Daily Advice
                           </h3>
-                          
-                          <div className="w-16 md:w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-2 md:mb-4" />
-                          
-                          <p className="text-slate-100/90 text-sm md:text-sm tracking-wide leading-relaxed"
-                      style={{ fontFamily: "'Cinzel', serif" }}>
+
+                          <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-1 md:mb-2" />
+
+                          <p className="text-slate-100/90 text-xs md:text-sm tracking-wide leading-relaxed"
+                          style={{ fontFamily: "'Cinzel', serif" }}>
                             Receive guidance for your day
                           </p>
                         </div>
@@ -182,16 +182,16 @@ export default function Home() {
 
                           </div>
                           
-                          <h3 className="text-xl md:text-3xl font-semibold text-slate-100 mb-2 md:mb-3 tracking-wider"
-                      style={{ fontFamily: "'Cinzel', serif" }}>
+                          <h3 className="text-base md:text-xl font-semibold text-slate-100 mb-1 md:mb-2 tracking-wider"
+                          style={{ fontFamily: "'Cinzel', serif" }}>
 
                             Make A Quest
                           </h3>
-                          
-                          <div className="w-16 md:w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-2 md:mb-4" />
-                          
-                          <p className="text-slate-100/90 text-sm md:text-sm tracking-wide leading-relaxed"
-                      style={{ fontFamily: "'Cinzel', serif" }}>
+
+                          <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-1 md:mb-2" />
+
+                          <p className="text-slate-100/90 text-xs md:text-sm tracking-wide leading-relaxed"
+                          style={{ fontFamily: "'Cinzel', serif" }}>
                             Seek answers about life areas
                           </p>
                         </div>
@@ -229,16 +229,16 @@ export default function Home() {
                             <Flower2 className="w-full h-full text-rose-300 drop-shadow-[0_0_20px_rgba(244,63,94,0.6)]" />
                           </div>
 
-                          <h3 className="text-xl md:text-3xl font-semibold text-slate-100 mb-2 md:mb-3 tracking-wider"
-                      style={{ fontFamily: "'Cinzel', serif" }}>
+                          <h3 className="text-base md:text-xl font-semibold text-slate-100 mb-1 md:mb-2 tracking-wider"
+                          style={{ fontFamily: "'Cinzel', serif" }}>
 
                             Guided Tarot Meditation
                           </h3>
 
-                          <div className="w-16 md:w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-2 md:mb-4" />
+                          <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-1 md:mb-2" />
 
-                          <p className="text-slate-100/90 text-sm md:text-sm tracking-wide leading-relaxed"
-                      style={{ fontFamily: "'Cinzel', serif" }}>
+                          <p className="text-slate-100/90 text-xs md:text-sm tracking-wide leading-relaxed"
+                          style={{ fontFamily: "'Cinzel', serif" }}>
                             A short meditation to invite your card
                           </p>
                         </div>
@@ -276,16 +276,16 @@ export default function Home() {
                             <BookHeart className="w-full h-full text-blue-300 drop-shadow-[0_0_20px_rgba(59,130,246,0.6)]" />
                           </div>
 
-                          <h3 className="text-xl md:text-3xl font-semibold text-slate-100 mb-2 md:mb-3 tracking-wider"
-                      style={{ fontFamily: "'Cinzel', serif" }}>
+                          <h3 className="text-base md:text-xl font-semibold text-slate-100 mb-1 md:mb-2 tracking-wider"
+                          style={{ fontFamily: "'Cinzel', serif" }}>
 
                             My Tarot Journal
                           </h3>
 
-                          <div className="w-16 md:w-20 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-2 md:mb-4" />
+                          <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-1 md:mb-2" />
 
-                          <p className="text-slate-100/90 text-sm md:text-sm tracking-wide leading-relaxed"
-                      style={{ fontFamily: "'Cinzel', serif" }}>
+                          <p className="text-slate-100/90 text-xs md:text-sm tracking-wide leading-relaxed"
+                          style={{ fontFamily: "'Cinzel', serif" }}>
                             Your personal tarot reflections
                           </p>
                         </div>

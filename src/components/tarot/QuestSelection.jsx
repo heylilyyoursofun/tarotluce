@@ -75,18 +75,12 @@ export default function QuestSelection({ onQuestSelect, onBack }) {
                 <CardContent className="p-8 relative h-full flex flex-col">
                   <div className={`absolute inset-0 bg-gradient-to-br ${quest.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
                   <div className="relative z-10 flex-1 flex flex-col">
-                    <div className="w-20 h-20 mx-auto mb-6 relative">
-                      {/* Hexagonal frame */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className={`w-full h-full bg-gradient-to-br ${quest.color} opacity-20`}
-                        style={{
-                          clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)"
-                        }} />
-
-                      </div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <Icon className="w-10 h-10 text-amber-400 relative z-10" />
-                      </div>
+                    <div className="w-20 h-20 mx-auto mb-6 relative flex items-center justify-center">
+                      <img 
+                        src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/86f878f17_image-removebg-preview-2.png"
+                        alt={quest.name}
+                        className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(251,191,36,0.5)]"
+                      />
                     </div>
                     
                     <h3 className="text-xl font-semibold text-amber-100 text-center mb-2 tracking-wide"

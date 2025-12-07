@@ -62,17 +62,17 @@ export default function Home() {
 
                 {/* Header */}
                 <motion.div
-                initial={{ y: -20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className="text-center mb-3 md:mb-8">
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="text-center mb-3 md:mb-8">
 
                   <div className="flex justify-center mb-2 md:mb-6">
                     <div className="w-24 md:w-32 h-0.5 md:h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />
                   </div>
                   
                   <h1 className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-yellow-200 via-yellow-300 to-yellow-500 mb-1 tracking-widest drop-shadow-[0_0_30px_rgba(250,204,21,0.5)]"
-                  style={{ fontFamily: "'Cinzel', serif" }}>
+              style={{ fontFamily: "'Cinzel', serif" }}>
 
                     Tarot Luce
                   </h1>
@@ -84,7 +84,7 @@ export default function Home() {
                   </div>
                   
                   <p className="text-slate-200/90 text-xs md:text-base max-w-2xl mx-auto leading-relaxed tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] px-2"
-                  style={{ fontFamily: "'Cinzel', serif" }}>
+              style={{ fontFamily: "'Cinzel', serif" }}>
 
                     Seek guidance, inspiration and wisdom from the cards
                   </p>
@@ -132,7 +132,7 @@ export default function Home() {
                           </div>
                           
                           <h3 className="text-base md:text-xl font-semibold text-slate-100 mb-1 md:mb-2 tracking-wider"
-                          style={{ fontFamily: "'Cinzel', serif" }}>
+                      style={{ fontFamily: "'Cinzel', serif" }}>
 
                             My Daily Advice
                           </h3>
@@ -140,7 +140,7 @@ export default function Home() {
                           <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-1 md:mb-2" />
 
                           <p className="text-slate-100/90 text-xs md:text-sm tracking-wide leading-relaxed"
-                          style={{ fontFamily: "'Cinzel', serif" }}>
+                      style={{ fontFamily: "'Cinzel', serif" }}>
                             Receive guidance for your day
                           </p>
                         </div>
@@ -183,7 +183,7 @@ export default function Home() {
                           </div>
                           
                           <h3 className="text-base md:text-xl font-semibold text-slate-100 mb-1 md:mb-2 tracking-wider"
-                          style={{ fontFamily: "'Cinzel', serif" }}>
+                      style={{ fontFamily: "'Cinzel', serif" }}>
 
                             Make A Quest
                           </h3>
@@ -191,7 +191,7 @@ export default function Home() {
                           <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-1 md:mb-2" />
 
                           <p className="text-slate-100/90 text-xs md:text-sm tracking-wide leading-relaxed"
-                          style={{ fontFamily: "'Cinzel', serif" }}>
+                      style={{ fontFamily: "'Cinzel', serif" }}>
                             Seek answers about life areas
                           </p>
                         </div>
@@ -201,9 +201,9 @@ export default function Home() {
 
                   {/* Guided Meditation Button - Ruby Rose */}
                   <motion.div
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.6 }}>
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.6 }}>
 
                     <Card
                   className="bg-gradient-to-br from-rose-900/80 to-red-700/80 backdrop-blur-xl border-2 border-rose-400/30 hover:border-rose-400/50 transition-all duration-500 cursor-pointer group overflow-hidden relative h-full shadow-[0_0_30px_rgba(244,63,94,0.4)] hover:shadow-[0_0_50px_rgba(244,63,94,0.7)]"
@@ -226,15 +226,15 @@ export default function Home() {
                       <CardContent className="p-8 md:p-12 relative">
                         <div className="relative z-10 text-center">
                           <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 md:mb-6 relative flex items-center justify-center">
-                            <img 
-                              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/f1623c9f6_image-removebg-preview-4.png"
-                              alt="Meditation"
-                              className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(244,63,94,0.6)]"
-                            />
+                            <img
+                          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/f1623c9f6_image-removebg-preview-4.png"
+                          alt="Meditation"
+                          className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(244,63,94,0.6)]" />
+
                           </div>
 
                           <h3 className="text-base md:text-xl font-semibold text-slate-100 mb-1 md:mb-2 tracking-wider"
-                          style={{ fontFamily: "'Cinzel', serif" }}>
+                      style={{ fontFamily: "'Cinzel', serif" }}>
 
                             Guided Tarot Meditation
                           </h3>
@@ -242,9 +242,9 @@ export default function Home() {
                           <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-1 md:mb-2" />
 
                           <p className="text-slate-100/90 text-xs md:text-sm tracking-wide leading-relaxed"
-                          style={{ fontFamily: "'Cinzel', serif" }}>
-                            A short meditation to invite your card
-                          </p>
+                      style={{ fontFamily: "'Cinzel', serif" }}>Meditate on your cards
+
+                      </p>
                         </div>
                       </CardContent>
                     </Card>
@@ -252,9 +252,9 @@ export default function Home() {
 
                   {/* Tarot Journal Button - Sapphire Blue */}
                   <motion.div
-                  initial={{ x: 20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.7 }}>
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.7 }}>
 
                     <Card
                   className="bg-gradient-to-br from-blue-900/80 to-indigo-700/80 backdrop-blur-xl border-2 border-blue-400/30 hover:border-blue-400/50 transition-all duration-500 cursor-pointer group overflow-hidden relative h-full shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:shadow-[0_0_50px_rgba(59,130,246,0.7)]"
@@ -277,15 +277,15 @@ export default function Home() {
                       <CardContent className="p-8 md:p-12 relative">
                         <div className="relative z-10 text-center">
                           <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 md:mb-6 relative flex items-center justify-center">
-                            <img 
-                              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/f401cebc2_image-removebg-preview-5.png"
-                              alt="Tarot Journal"
-                              className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(59,130,246,0.6)]"
-                            />
+                            <img
+                          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/f401cebc2_image-removebg-preview-5.png"
+                          alt="Tarot Journal"
+                          className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(59,130,246,0.6)]" />
+
                           </div>
 
                           <h3 className="text-base md:text-xl font-semibold text-slate-100 mb-1 md:mb-2 tracking-wider"
-                          style={{ fontFamily: "'Cinzel', serif" }}>
+                      style={{ fontFamily: "'Cinzel', serif" }}>
 
                             My Tarot Journal
                           </h3>
@@ -293,7 +293,7 @@ export default function Home() {
                           <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-1 md:mb-2" />
 
                           <p className="text-slate-100/90 text-xs md:text-sm tracking-wide leading-relaxed"
-                          style={{ fontFamily: "'Cinzel', serif" }}>
+                      style={{ fontFamily: "'Cinzel', serif" }}>
                             Your personal tarot reflections
                           </p>
                         </div>

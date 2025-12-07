@@ -242,7 +242,7 @@ export default function Home() {
                           <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-1 md:mb-2" />
 
                           <p className="text-slate-100/90 text-xs md:text-sm tracking-wide leading-relaxed"
-                      style={{ fontFamily: "'Cinzel', serif" }}>Meditate on your cards
+                      style={{ fontFamily: "'Cinzel', serif" }}>Meditate on your tarot cards
 
                       </p>
                         </div>

@@ -285,17 +285,17 @@ export default function Home() {
                           </div>
 
                           <h3 className="text-base md:text-xl font-semibold text-slate-100 mb-1 md:mb-2 tracking-wider"
-                      style={{ fontFamily: "'Cinzel', serif" }}>
+                      style={{ fontFamily: "'Cinzel', serif" }}>The Tarot Journal
 
-                            My Tarot Journal
-                          </h3>
+
+                      </h3>
 
                           <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-1 md:mb-2" />
 
                           <p className="text-slate-100/90 text-xs md:text-sm tracking-wide leading-relaxed"
-                      style={{ fontFamily: "'Cinzel', serif" }}>
-                            Your personal tarot reflections
-                          </p>
+                      style={{ fontFamily: "'Cinzel', serif" }}>My personal tarot reflections
+
+                      </p>
                         </div>
                       </CardContent>
                     </Card>

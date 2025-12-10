@@ -9,11 +9,22 @@ import { motion, AnimatePresence } from "framer-motion";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "../utils";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 
 export default function TarotJournal() {
   const [editingEntry, setEditingEntry] = useState(null);
   const [editReflection, setEditReflection] = useState("");
   const [expandedReadings, setExpandedReadings] = useState({});
+  const [deleteConfirmId, setDeleteConfirmId] = useState(null);
   const queryClient = useQueryClient();
 
   const { data: entries, isLoading } = useQuery({
@@ -34,6 +45,7 @@ export default function TarotJournal() {
     mutationFn: (id) => base44.entities.TarotJournalEntry.delete(id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['tarot-journal'] });
+      setDeleteConfirmId(null);
     }
   });
 
@@ -50,8 +62,12 @@ export default function TarotJournal() {
   };
 
   const handleDelete = (id) => {
-    if (window.confirm("Are you sure you want to delete this journal entry?")) {
-      deleteMutation.mutate(id);
+    setDeleteConfirmId(id);
+  };
+
+  const confirmDelete = () => {
+    if (deleteConfirmId) {
+      deleteMutation.mutate(deleteConfirmId);
     }
   };
 
@@ -273,6 +289,31 @@ export default function TarotJournal() {
           </div>
         )}
       </div>
+
+      {/* Delete Confirmation Dialog */}
+      <AlertDialog open={!!deleteConfirmId} onOpenChange={() => setDeleteConfirmId(null)}>
+        <AlertDialogContent className="bg-gradient-to-br from-stone-900 to-amber-950 border-2 border-amber-700/50">
+          <AlertDialogHeader>
+            <AlertDialogTitle className="text-amber-100 tracking-wider" style={{ fontFamily: "'Cinzel', serif" }}>
+              Delete Journal Entry
+            </AlertDialogTitle>
+            <AlertDialogDescription className="text-amber-200/80" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Are you sure you want to delete this journal entry? This action cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel className="text-amber-200 hover:text-amber-100" style={{ fontFamily: "'Cinzel', serif" }}>
+              Cancel
+            </AlertDialogCancel>
+            <AlertDialogAction 
+              onClick={confirmDelete}
+              className="bg-gradient-to-r from-red-600 to-red-800 hover:from-red-500 hover:to-red-700 text-red-50"
+              style={{ fontFamily: "'Cinzel', serif" }}>
+              Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

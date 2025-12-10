@@ -8,6 +8,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { TAROT_CARDS } from "./tarotData";
 import { Textarea } from "@/components/ui/textarea";
 import { BookHeart } from "lucide-react";
+import toast from "react-hot-toast";
 
 
 export default function CardDraw({ category, onBack }) {
@@ -139,9 +140,21 @@ export default function CardDraw({ category, onBack }) {
       queryClient.invalidateQueries({ queryKey: ['tarot-journal'] });
       setShowJournalForm(false);
       setJournalReflection("");
-      alert("Saved to your journal!");
+      toast.success("Saved to your journal!", {
+        style: {
+          background: '#451a03',
+          color: '#fef3c7',
+          border: '1px solid #d97706'
+        }
+      });
     } catch (error) {
-      alert("Failed to save to journal. Please try again.");
+      toast.error("Failed to save to journal. Please try again.", {
+        style: {
+          background: '#451a03',
+          color: '#fef3c7',
+          border: '1px solid #dc2626'
+        }
+      });
     } finally {
       setIsSaving(false);
     }

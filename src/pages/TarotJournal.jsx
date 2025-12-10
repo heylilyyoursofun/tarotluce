@@ -328,12 +328,12 @@ export default function TarotJournal() {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel className="text-amber-200 hover:text-amber-100" style={{ fontFamily: "'Cinzel', serif" }}>
+            <AlertDialogCancel className="text-stone-900 hover:text-stone-950 bg-white hover:bg-stone-50" style={{ fontFamily: "'Cinzel', serif" }}>
               Cancel
             </AlertDialogCancel>
             <AlertDialogAction 
               onClick={confirmDelete}
-              className="bg-gradient-to-r from-red-600 to-red-800 hover:from-red-500 hover:to-red-700 text-red-50"
+              className="bg-[#4A0404] hover:bg-[#5C0A0A] text-red-50"
               style={{ fontFamily: "'Cinzel', serif" }}>
               Delete
             </AlertDialogAction>

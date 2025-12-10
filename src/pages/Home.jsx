@@ -301,6 +301,7 @@ export default function Home() {
                         </div>
                       </CardContent>
                     </Card>
+                    </Link>
                   </motion.div>
                   </div>
 

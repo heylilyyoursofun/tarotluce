@@ -81,7 +81,34 @@ export default function TarotJournal() {
   const getFirstSentence = (text) => {
     if (!text) return "";
     const parts = text.split('\n\n').filter(p => p.trim());
-    return parts[0] && !parts[0].includes('**') ? parts[0].trim() : text.split('\n\n')[0] || text;
+    const firstPart = parts[0] && !parts[0].includes('**') ? parts[0].trim() : text.split('\n\n')[0] || text;
+    return firstPart.replace(/\*\*/g, '');
+  };
+
+  const renderReadingContent = (text) => {
+    if (!text) return null;
+    const parts = text.split('\n\n').filter(p => p.trim());
+    
+    return parts.map((paragraph, index) => {
+      const subtitleMatch = paragraph.match(/^\*\*(.*?)\*\*/);
+      const subtitle = subtitleMatch ? subtitleMatch[1].trim() : null;
+      const content = subtitleMatch ? paragraph.replace(/^\*\*(.*?)\*\*\s*/, '').trim() : paragraph.trim();
+      
+      return (
+        <div key={index} className={index > 0 ? "mt-3" : ""}>
+          {subtitle && (
+            <h5 className="text-sm font-bold text-amber-300 mb-1 tracking-wide"
+              style={{ fontFamily: "'Playfair Display', serif" }}>
+              {subtitle}
+            </h5>
+          )}
+          <p className="text-amber-100/80 text-sm leading-relaxed tracking-wide"
+            style={{ fontFamily: "'Playfair Display', serif" }}>
+            {content}
+          </p>
+        </div>
+      );
+    });
   };
 
   return (
@@ -214,10 +241,9 @@ export default function TarotJournal() {
                         {entry.reading_text && entry.reading_text.split('\n\n').length > 1 && (
                           <>
                             {expandedReadings[entry.id] && (
-                              <p className="text-amber-100/80 text-sm leading-relaxed tracking-wide mt-3"
-                                style={{ fontFamily: "'Playfair Display', serif" }}>
-                                {entry.reading_text.split('\n\n').slice(1).join('\n\n')}
-                              </p>
+                              <div className="mt-3">
+                                {renderReadingContent(entry.reading_text.split('\n\n').slice(1).join('\n\n'))}
+                              </div>
                             )}
                             <Button
                               variant="ghost"

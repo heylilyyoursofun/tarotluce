@@ -4,8 +4,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, Sparkles, Volume2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { base44 } from "@/api/base44Client";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { TAROT_CARDS } from "./tarotData";
+import { Textarea } from "@/components/ui/textarea";
+import { BookHeart } from "lucide-react";
 
 
 export default function CardDraw({ category, onBack }) {
@@ -17,6 +19,10 @@ export default function CardDraw({ category, onBack }) {
   const [fairyDust, setFairyDust] = useState([]);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [cardImageUrl, setCardImageUrl] = useState(null);
+  const [showJournalForm, setShowJournalForm] = useState(false);
+  const [journalReflection, setJournalReflection] = useState("");
+  const [isSaving, setIsSaving] = useState(false);
+  const queryClient = useQueryClient();
 
   // Stop speech when component unmounts
   useEffect(() => {
@@ -113,6 +119,31 @@ export default function CardDraw({ category, onBack }) {
         window.speechSynthesis.speak(utterance);
         setIsSpeaking(true);
       }
+    }
+  };
+
+  const saveToJournal = async () => {
+    if (!journalReflection.trim()) return;
+    
+    setIsSaving(true);
+    try {
+      await base44.entities.TarotJournalEntry.create({
+        card_name: drawnCard.name,
+        card_number: drawnCard.number,
+        reading_text: reading,
+        user_reflection: journalReflection,
+        category: category.name,
+        reading_date: new Date().toISOString().split('T')[0]
+      });
+      
+      queryClient.invalidateQueries({ queryKey: ['tarot-journal'] });
+      setShowJournalForm(false);
+      setJournalReflection("");
+      alert("✨ Saved to your journal!");
+    } catch (error) {
+      alert("Failed to save to journal. Please try again.");
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -505,6 +536,68 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
                   </CardContent>
                 </Card>
 
+                {/* Journal Form */}
+                {!isGenerating && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="max-w-2xl mx-auto mt-6">
+                    
+                    {!showJournalForm ? (
+                      <div className="text-center">
+                        <Button
+                          onClick={() => setShowJournalForm(true)}
+                          className="bg-gradient-to-r from-blue-700 to-indigo-800 hover:from-blue-600 hover:to-indigo-700 text-blue-50 border-2 border-blue-400/50 rounded-none tracking-wider"
+                          style={{ fontFamily: "'Cinzel', serif" }}>
+                          <BookHeart className="w-4 h-4 mr-2" />
+                          Add to Journal
+                        </Button>
+                      </div>
+                    ) : (
+                      <Card className="bg-gradient-to-br from-stone-900/90 to-blue-950/90 backdrop-blur-xl border-2 border-blue-700/50 rounded-none relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-blue-500/40" />
+                        <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-blue-500/40" />
+                        <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-blue-500/40" />
+                        <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-blue-500/40" />
+                        
+                        <CardContent className="p-6 relative z-10">
+                          <h4 className="text-lg font-semibold text-blue-100 mb-4 tracking-wider"
+                            style={{ fontFamily: "'Cinzel', serif" }}>
+                            Add Your Reflection
+                          </h4>
+                          <Textarea
+                            value={journalReflection}
+                            onChange={(e) => setJournalReflection(e.target.value)}
+                            placeholder="What insights does this reading bring you? How does it resonate with your question?"
+                            className="bg-stone-950/50 border-blue-700/50 text-blue-100 min-h-[120px] mb-4"
+                            style={{ fontFamily: "'Playfair Display', serif" }}
+                          />
+                          <div className="flex gap-3 justify-end">
+                            <Button
+                              variant="ghost"
+                              onClick={() => {
+                                setShowJournalForm(false);
+                                setJournalReflection("");
+                              }}
+                              className="text-blue-200 hover:text-blue-100"
+                              style={{ fontFamily: "'Cinzel', serif" }}>
+                              Cancel
+                            </Button>
+                            <Button
+                              onClick={saveToJournal}
+                              disabled={!journalReflection.trim() || isSaving}
+                              className="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-500 hover:to-indigo-600 text-blue-50"
+                              style={{ fontFamily: "'Cinzel', serif" }}>
+                              {isSaving ? "Saving..." : "Save to Journal"}
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    )}
+                  </motion.div>
+                )}
+
                 <div className="text-center mt-8">
                   <Button
                 onClick={() => {
@@ -512,6 +605,8 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
                   setReading(null);
                   setIsFlipped(false);
                   setCardImageUrl(null);
+                  setShowJournalForm(false);
+                  setJournalReflection("");
                   if (window.speechSynthesis.speaking) {
                     window.speechSynthesis.cancel();
                     setIsSpeaking(false);

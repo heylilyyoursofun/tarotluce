@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Sparkles, Compass, BookHeart, Flower2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { createPageUrl } from "./utils";
+import { createPageUrl } from "../utils";
 import CardDraw from "../components/tarot/CardDraw";
 import QuestSelection from "../components/tarot/QuestSelection";
 import MagicCursor from "../components/tarot/MagicCursor";

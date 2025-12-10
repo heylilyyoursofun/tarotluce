@@ -4,7 +4,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
-import { ArrowLeft, BookHeart, Sparkles, Pencil, Trash2 } from "lucide-react";
+import { ArrowLeft, BookHeart, Sparkles, Pencil, Trash2, ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
@@ -13,6 +13,7 @@ import { createPageUrl } from "../utils";
 export default function TarotJournal() {
   const [editingEntry, setEditingEntry] = useState(null);
   const [editReflection, setEditReflection] = useState("");
+  const [expandedReadings, setExpandedReadings] = useState({});
   const queryClient = useQueryClient();
 
   const { data: entries, isLoading } = useQuery({
@@ -52,6 +53,19 @@ export default function TarotJournal() {
     if (window.confirm("Are you sure you want to delete this journal entry?")) {
       deleteMutation.mutate(id);
     }
+  };
+
+  const toggleReadingExpansion = (entryId) => {
+    setExpandedReadings(prev => ({
+      ...prev,
+      [entryId]: !prev[entryId]
+    }));
+  };
+
+  const getFirstSentence = (text) => {
+    if (!text) return "";
+    const parts = text.split('\n\n').filter(p => p.trim());
+    return parts[0] && !parts[0].includes('**') ? parts[0].trim() : text.split('\n\n')[0] || text;
   };
 
   return (
@@ -177,10 +191,38 @@ export default function TarotJournal() {
                           style={{ fontFamily: "'Cinzel', serif" }}>
                           Reading
                         </h4>
-                        <p className="text-amber-100/80 text-sm leading-relaxed tracking-wide line-clamp-4"
+                        <p className="text-amber-100/80 text-sm leading-relaxed tracking-wide italic"
                           style={{ fontFamily: "'Playfair Display', serif" }}>
-                          {entry.reading_text}
+                          "{getFirstSentence(entry.reading_text)}"
                         </p>
+                        {entry.reading_text && entry.reading_text.split('\n\n').length > 1 && (
+                          <>
+                            {expandedReadings[entry.id] && (
+                              <p className="text-amber-100/80 text-sm leading-relaxed tracking-wide mt-3"
+                                style={{ fontFamily: "'Playfair Display', serif" }}>
+                                {entry.reading_text.split('\n\n').slice(1).join('\n\n')}
+                              </p>
+                            )}
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => toggleReadingExpansion(entry.id)}
+                              className="text-amber-300 hover:text-amber-100 hover:bg-amber-900/30 mt-2 text-xs"
+                              style={{ fontFamily: "'Cinzel', serif" }}>
+                              {expandedReadings[entry.id] ? (
+                                <>
+                                  <ChevronUp className="w-3 h-3 mr-1" />
+                                  Collapse
+                                </>
+                              ) : (
+                                <>
+                                  <ChevronDown className="w-3 h-3 mr-1" />
+                                  Expand
+                                </>
+                              )}
+                            </Button>
+                          </>
+                        )}
                       </div>
 
                       <div className="w-full h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mb-4" />

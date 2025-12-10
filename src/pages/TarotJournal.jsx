@@ -8,7 +8,7 @@ import { ArrowLeft, BookHeart, Sparkles, Pencil, Trash2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
-import { createPageUrl } from "./utils";
+import { createPageUrl } from "../utils";
 
 export default function TarotJournal() {
   const [editingEntry, setEditingEntry] = useState(null);

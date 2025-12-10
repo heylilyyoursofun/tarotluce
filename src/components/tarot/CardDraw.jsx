@@ -139,7 +139,7 @@ export default function CardDraw({ category, onBack }) {
       queryClient.invalidateQueries({ queryKey: ['tarot-journal'] });
       setShowJournalForm(false);
       setJournalReflection("");
-      alert("✨ Saved to your journal!");
+      alert("saved to your journal!");
     } catch (error) {
       alert("Failed to save to journal. Please try again.");
     } finally {

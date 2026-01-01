@@ -45,7 +45,7 @@ export default function GuidedMeditation() {
   return (
     <div className="container mx-auto px-4 py-8 min-h-screen">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col gap-4 mb-8">
         <Link to={createPageUrl("Home")}>
           <Button
             variant="ghost"
@@ -58,13 +58,12 @@ export default function GuidedMeditation() {
         <div className="flex items-center gap-3">
           <div className="w-12 h-px bg-gradient-to-r from-transparent to-amber-500" />
           <Music className="w-6 h-6 text-amber-300" />
-          <h1 className="text-2xl md:text-3xl font-semibold text-amber-100 tracking-wider"
+          <h1 className="text-2xl md:text-3xl font-semibold text-amber-100 tracking-wider whitespace-nowrap"
             style={{ fontFamily: "'Cinzel', serif" }}>
             Guided Tarot Meditation
           </h1>
           <div className="w-12 h-px bg-gradient-to-l from-transparent to-amber-500" />
         </div>
-        <div className="w-20" />
       </div>
 
 

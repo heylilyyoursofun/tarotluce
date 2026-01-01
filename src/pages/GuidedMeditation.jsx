@@ -25,8 +25,8 @@ export default function GuidedMeditation() {
 
   const sortByOrder = (items, order) => {
     return [...items].sort((a, b) => {
-      const indexA = order.findIndex(title => a.title.includes(title));
-      const indexB = order.findIndex(title => b.title.includes(title));
+      const indexA = order.findIndex((title) => a.title.includes(title));
+      const indexB = order.findIndex((title) => b.title.includes(title));
       if (indexA === -1) return 1;
       if (indexB === -1) return -1;
       return indexA - indexB;
@@ -34,11 +34,11 @@ export default function GuidedMeditation() {
   };
 
   const preReadingMeditations = sortByOrder(
-    meditations.filter(m => m.category === "pre_reading"),
+    meditations.filter((m) => m.category === "pre_reading"),
     preReadingOrder
   );
   const postReadingMeditations = sortByOrder(
-    meditations.filter(m => m.category === "post_reading"),
+    meditations.filter((m) => m.category === "post_reading"),
     postReadingOrder
   );
 
@@ -58,9 +58,9 @@ export default function GuidedMeditation() {
         <div className="flex items-center gap-3">
           <div className="w-12 h-px bg-gradient-to-r from-transparent to-amber-500" />
           <Music className="w-6 h-6 text-amber-300" />
-          <h1 className="text-2xl md:text-3xl font-semibold text-amber-100 tracking-wider whitespace-nowrap"
-            style={{ fontFamily: "'Cinzel', serif" }}>
-            Guided Tarot Meditation
+          <h1 className="text-amber-100 text-xl font-semibold tracking-wider md:text-3xl whitespace-nowrap"
+          style={{ fontFamily: "'Cinzel', serif" }}>Guided Tarot Meditation
+
           </h1>
           <div className="w-12 h-px bg-gradient-to-l from-transparent to-amber-500" />
         </div>
@@ -75,26 +75,26 @@ export default function GuidedMeditation() {
           <div className="flex items-center gap-3 mb-4">
             <Sparkles className="w-5 h-5 text-amber-400" />
             <h2 className="text-xl font-semibold text-amber-100 tracking-wider"
-              style={{ fontFamily: "'Cinzel', serif" }}>
+            style={{ fontFamily: "'Cinzel', serif" }}>
               Pre-Reading Meditations
             </h2>
           </div>
           <p className="text-amber-200/70 mb-4 text-sm tracking-wide"
-            style={{ fontFamily: "'Playfair Display', serif" }}>
+          style={{ fontFamily: "'Playfair Display', serif" }}>
             Prepare your mind and spirit before drawing your cards
           </p>
           <div className="space-y-4">
-            {preReadingMeditations.length === 0 ? (
-              <p className="text-amber-200/50 italic text-center py-8"
-                style={{ fontFamily: "'Playfair Display', serif" }}>
+            {preReadingMeditations.length === 0 ?
+            <p className="text-amber-200/50 italic text-center py-8"
+            style={{ fontFamily: "'Playfair Display', serif" }}>
                 No pre-reading meditations yet. Upload your first one above.
-              </p>
-            ) : (
-              preReadingMeditations.map((meditation) => (
-                <motion.div
-                  key={meditation.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}>
+              </p> :
+
+            preReadingMeditations.map((meditation) =>
+            <motion.div
+              key={meditation.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}>
                   <Card className="bg-gradient-to-br from-stone-900/90 to-purple-950/90 backdrop-blur-xl border-2 border-purple-700/50 rounded-none relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-purple-500/40" />
                     <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-purple-500/40" />
@@ -104,28 +104,28 @@ export default function GuidedMeditation() {
                     <CardContent className="p-6 relative z-10">
                       <div className="mb-3">
                         <h3 className="text-lg font-bold text-purple-100 tracking-wide"
-                          style={{ fontFamily: "'Cinzel', serif" }}>
+                    style={{ fontFamily: "'Cinzel', serif" }}>
                           {meditation.title}
                         </h3>
                         <p className="text-purple-200/70 text-sm mt-1 tracking-wide"
-                          style={{ fontFamily: "'Playfair Display', serif" }}>
+                    style={{ fontFamily: "'Playfair Display', serif" }}>
                           {meditation.description}
                         </p>
                       </div>
                       <audio
-                        controls
-                        src={meditation.audio_url}
-                        className="w-full mt-4"
-                        style={{ 
-                          filter: 'sepia(0.5) hue-rotate(260deg) saturate(2)',
-                          borderRadius: '0'
-                        }}
-                      />
+                    controls
+                    src={meditation.audio_url}
+                    className="w-full mt-4"
+                    style={{
+                      filter: 'sepia(0.5) hue-rotate(260deg) saturate(2)',
+                      borderRadius: '0'
+                    }} />
+
                     </CardContent>
                   </Card>
                 </motion.div>
-              ))
-            )}
+            )
+            }
           </div>
         </div>
 
@@ -134,26 +134,26 @@ export default function GuidedMeditation() {
           <div className="flex items-center gap-3 mb-4">
             <Sparkles className="w-5 h-5 text-amber-400" />
             <h2 className="text-xl font-semibold text-amber-100 tracking-wider"
-              style={{ fontFamily: "'Cinzel', serif" }}>
+            style={{ fontFamily: "'Cinzel', serif" }}>
               Post-Reading Meditations
             </h2>
           </div>
           <p className="text-amber-200/70 mb-4 text-sm tracking-wide"
-            style={{ fontFamily: "'Playfair Display', serif" }}>
+          style={{ fontFamily: "'Playfair Display', serif" }}>
             Integrate and embody the wisdom from your reading
           </p>
           <div className="space-y-4">
-            {postReadingMeditations.length === 0 ? (
-              <p className="text-amber-200/50 italic text-center py-8"
-                style={{ fontFamily: "'Playfair Display', serif" }}>
+            {postReadingMeditations.length === 0 ?
+            <p className="text-amber-200/50 italic text-center py-8"
+            style={{ fontFamily: "'Playfair Display', serif" }}>
                 No post-reading meditations yet. Upload your first one above.
-              </p>
-            ) : (
-              postReadingMeditations.map((meditation) => (
-                <motion.div
-                  key={meditation.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}>
+              </p> :
+
+            postReadingMeditations.map((meditation) =>
+            <motion.div
+              key={meditation.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}>
                   <Card className="bg-gradient-to-br from-stone-900/90 to-teal-950/90 backdrop-blur-xl border-2 border-teal-700/50 rounded-none relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-teal-500/40" />
                     <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-teal-500/40" />
@@ -163,31 +163,31 @@ export default function GuidedMeditation() {
                     <CardContent className="p-6 relative z-10">
                       <div className="mb-3">
                         <h3 className="text-lg font-bold text-teal-100 tracking-wide"
-                          style={{ fontFamily: "'Cinzel', serif" }}>
+                    style={{ fontFamily: "'Cinzel', serif" }}>
                           {meditation.title}
                         </h3>
                         <p className="text-teal-200/70 text-sm mt-1 tracking-wide"
-                          style={{ fontFamily: "'Playfair Display', serif" }}>
+                    style={{ fontFamily: "'Playfair Display', serif" }}>
                           {meditation.description}
                         </p>
                       </div>
                       <audio
-                        controls
-                        src={meditation.audio_url}
-                        className="w-full mt-4"
-                        style={{ 
-                          filter: 'sepia(0.5) hue-rotate(140deg) saturate(2)',
-                          borderRadius: '0'
-                        }}
-                      />
+                    controls
+                    src={meditation.audio_url}
+                    className="w-full mt-4"
+                    style={{
+                      filter: 'sepia(0.5) hue-rotate(140deg) saturate(2)',
+                      borderRadius: '0'
+                    }} />
+
                     </CardContent>
                   </Card>
                 </motion.div>
-              ))
-            )}
+            )
+            }
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 }

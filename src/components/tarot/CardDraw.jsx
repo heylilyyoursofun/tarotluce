@@ -62,8 +62,8 @@ export default function CardDraw({ category, onBack }) {
       createFairyDust();
       generateReading(randomCard);
 
-      // Find the generated image for this card
-      const generatedImage = generatedImages.find((img) => img.card_number === randomCard.number);
+      // Find the generated image for this card by name (more reliable for all 78 cards)
+      const generatedImage = generatedImages.find((img) => img.card_name === randomCard.name);
       if (generatedImage) {
         setCardImageUrl(generatedImage.image_url);
       } else {

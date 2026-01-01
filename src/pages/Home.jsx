@@ -203,13 +203,13 @@ export default function Home() {
 
                   {/* Guided Meditation Button - Ruby Rose */}
                   <motion.div
-                initial={{ x: -20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.6 }}>
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.6 }}>
 
-                    <Card
-                  className="bg-gradient-to-br from-rose-900/80 to-red-700/80 backdrop-blur-xl border-2 border-rose-400/30 hover:border-rose-400/50 transition-all duration-500 cursor-pointer group overflow-hidden relative h-full shadow-[0_0_30px_rgba(244,63,94,0.4)] hover:shadow-[0_0_50px_rgba(244,63,94,0.7)]"
-                  onClick={() => {}}>
+                    <Link to={createPageUrl("GuidedMeditation")} className="block h-full">
+                      <Card
+                    className="bg-gradient-to-br from-rose-900/80 to-red-700/80 backdrop-blur-xl border-2 border-rose-400/30 hover:border-rose-400/50 transition-all duration-500 cursor-pointer group overflow-hidden relative h-full shadow-[0_0_30px_rgba(244,63,94,0.4)] hover:shadow-[0_0_50px_rgba(244,63,94,0.7)]">
 
                       <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
                         <div className="absolute inset-0"

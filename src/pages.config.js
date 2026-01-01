@@ -1,14 +1,14 @@
-import Home from './pages/Home';
 import GenerateImages from './pages/GenerateImages';
 import GenerateImagesNow from './pages/GenerateImagesNow';
+import Home from './pages/Home';
 import TarotJournal from './pages/TarotJournal';
 import __Layout from './Layout.jsx';
 
 
 export const PAGES = {
-    "Home": Home,
     "GenerateImages": GenerateImages,
     "GenerateImagesNow": GenerateImagesNow,
+    "Home": Home,
     "TarotJournal": TarotJournal,
 }
 

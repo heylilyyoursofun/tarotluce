@@ -71,7 +71,7 @@ export default function Home() {
                   {/* Profile Button - Top Right */}
                   <Link 
                     to={createPageUrl("UserProfile")}
-                    className="absolute top-0 right-0 inline-flex items-center justify-center w-9 h-9 rounded-md text-amber-300 hover:text-amber-100 hover:bg-amber-900/30 border border-amber-700/40 transition-colors">
+                    className="absolute top-0 right-0 z-50 inline-flex items-center justify-center w-12 h-12 md:w-9 md:h-9 rounded-md text-amber-300 hover:text-amber-100 hover:bg-amber-900/30 border border-amber-700/40 transition-colors">
                     <User className="w-5 h-5" />
                   </Link>
 

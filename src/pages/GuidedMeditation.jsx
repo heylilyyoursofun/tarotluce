@@ -31,6 +31,11 @@ export default function GuidedMeditation() {
     }
   };
 
+  const formatDescription = (desc) => {
+    if (!desc) return desc;
+    return desc.replace(/\(Focus:/g, '\nFocus:').replace(/\)$/g, '');
+  };
+
   // Define the desired order
   const preReadingOrder = ["The Clear Channel", "The Alchemist's Tune-Up", "The Empty Vessel"];
   const postReadingOrder = ["Stepping into the Image", "The Journey Starts"];
@@ -119,9 +124,9 @@ export default function GuidedMeditation() {
                     style={{ fontFamily: "'Cinzel', serif" }}>
                           {meditation.title}
                         </h3>
-                        <p className="text-purple-200/70 text-sm mt-1 tracking-wide"
+                        <p className="text-purple-200/70 text-sm mt-1 tracking-wide whitespace-pre-line"
                     style={{ fontFamily: "'Playfair Display', serif" }}>
-                          {meditation.description}
+                          {formatDescription(meditation.description)}
                         </p>
                       </div>
                       <audio
@@ -179,9 +184,9 @@ export default function GuidedMeditation() {
                     style={{ fontFamily: "'Cinzel', serif" }}>
                           {meditation.title}
                         </h3>
-                        <p className="text-teal-200/70 text-sm mt-1 tracking-wide"
+                        <p className="text-teal-200/70 text-sm mt-1 tracking-wide whitespace-pre-line"
                     style={{ fontFamily: "'Playfair Display', serif" }}>
-                          {meditation.description}
+                          {formatDescription(meditation.description)}
                         </p>
                       </div>
                       <audio

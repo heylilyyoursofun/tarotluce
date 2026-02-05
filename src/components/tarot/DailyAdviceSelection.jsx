@@ -19,9 +19,9 @@ export default function DailyAdviceSelection({ onAdviceSelect, onBack }) {
       id: "yes_or_no",
       name: "Yes or No",
       iconUrl: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/691b521ad76cccb10bfed167/36d7b66e8_image-removebg-preview-2.png",
-      color: "from-indigo-900/80 to-violet-700/80",
-      borderColor: "border-indigo-400/30 hover:border-indigo-400/50",
-      shadowColor: "shadow-[0_0_30px_rgba(99,102,241,0.4)] hover:shadow-[0_0_50px_rgba(99,102,241,0.7)]",
+      color: "from-pink-900/80 to-rose-700/80",
+      borderColor: "border-pink-400/30 hover:border-pink-400/50",
+      shadowColor: "shadow-[0_0_30px_rgba(236,72,153,0.4)] hover:shadow-[0_0_50px_rgba(236,72,153,0.7)]",
       description: "Get a clear yes or no answer"
     }
   ];

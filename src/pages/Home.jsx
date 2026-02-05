@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { createPageUrl } from "../utils";
 import CardDraw from "../components/tarot/CardDraw";
 import QuestSelection from "../components/tarot/QuestSelection";
+import DailyAdviceSelection from "../components/tarot/DailyAdviceSelection";
 import MagicCursor from "../components/tarot/MagicCursor";
 import LoadingScreen from "../components/LoadingScreen";
 
@@ -14,6 +15,7 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [showReading, setShowReading] = useState(false);
   const [showQuest, setShowQuest] = useState(false);
+  const [showDailyAdvice, setShowDailyAdvice] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -25,7 +27,16 @@ export default function Home() {
   }, []);
 
   const handleDailyAdvice = () => {
-    setSelectedCategory({ id: "general", name: "Daily Inspiration", icon: Sparkles });
+    setShowDailyAdvice(true);
+  };
+
+  const handleAdviceSelect = (advice) => {
+    setSelectedCategory({ 
+      id: advice.id === "daily_card" ? "general" : "yes_or_no", 
+      name: advice.name, 
+      icon: Sparkles 
+    });
+    setShowDailyAdvice(false);
     setShowReading(true);
   };
 
@@ -42,6 +53,7 @@ export default function Home() {
   const handleBackToHome = () => {
     setShowReading(false);
     setShowQuest(false);
+    setShowDailyAdvice(false);
     setSelectedCategory(null);
   };
 
@@ -54,7 +66,7 @@ export default function Home() {
         <>
             <MagicCursor />
             
-            {!showReading && !showQuest ?
+            {!showReading && !showQuest && !showDailyAdvice ?
           <motion.div
             key="home"
             initial={{ opacity: 0 }}
@@ -106,7 +118,7 @@ export default function Home() {
                 </motion.div>
 
                 {/* Main Action Buttons */}
-                <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-4 mb-3 md:mb-6">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-4 mb-3 md:mb-6">
                   {/* Daily Advice Button - Amethyst Purple */}
                   <motion.div
                 initial={{ x: -20, opacity: 0 }}
@@ -330,6 +342,16 @@ export default function Home() {
                     <div className="w-4 md:w-8 h-px bg-gradient-to-l from-transparent to-slate-400/50" />
                   </div>
                 </motion.div>
+              </motion.div> :
+          showDailyAdvice ?
+          <motion.div
+            key="daily-advice"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="relative z-10">
+
+                <DailyAdviceSelection onAdviceSelect={handleAdviceSelect} onBack={handleBackToHome} />
               </motion.div> :
           showQuest ?
           <motion.div

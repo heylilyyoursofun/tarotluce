@@ -19,6 +19,18 @@ export default function GuidedMeditation() {
     initialData: []
   });
 
+  const trackMeditationPlay = async (meditation) => {
+    try {
+      await base44.entities.MeditationListen.create({
+        meditation_id: meditation.id,
+        meditation_title: meditation.title,
+        listen_date: new Date().toISOString()
+      });
+    } catch (error) {
+      console.error('Failed to track meditation play:', error);
+    }
+  };
+
   // Define the desired order
   const preReadingOrder = ["The Clear Channel", "The Alchemist's Tune-Up", "The Empty Vessel"];
   const postReadingOrder = ["Stepping into the Image", "The Journey Starts"];
@@ -116,6 +128,7 @@ export default function GuidedMeditation() {
                     controls
                     src={meditation.audio_url}
                     className="w-full mt-4"
+                    onPlay={() => trackMeditationPlay(meditation)}
                     style={{
                       filter: 'sepia(0.5) hue-rotate(260deg) saturate(2)',
                       borderRadius: '0'
@@ -175,6 +188,7 @@ export default function GuidedMeditation() {
                     controls
                     src={meditation.audio_url}
                     className="w-full mt-4"
+                    onPlay={() => trackMeditationPlay(meditation)}
                     style={{
                       filter: 'sepia(0.5) hue-rotate(140deg) saturate(2)',
                       borderRadius: '0'

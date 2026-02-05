@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ArrowLeft, User, BookHeart, Sparkles, Calendar, TrendingUp, Save } from "lucide-react";
+import { ArrowLeft, User, BookHeart, Sparkles, Calendar, TrendingUp, Save, Music } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "../utils";
@@ -24,6 +24,12 @@ export default function UserProfile() {
   const { data: journalEntries, isLoading: journalLoading } = useQuery({
     queryKey: ['tarot-journal'],
     queryFn: () => base44.entities.TarotJournalEntry.list('-reading_date'),
+    initialData: []
+  });
+
+  const { data: meditationListens, isLoading: meditationLoading } = useQuery({
+    queryKey: ['meditation-listens'],
+    queryFn: () => base44.entities.MeditationListen.list(),
     initialData: []
   });
 
@@ -77,8 +83,15 @@ export default function UserProfile() {
   const mostDrawnCard = Object.keys(cardCounts).length > 0
     ? Object.entries(cardCounts).sort((a, b) => b[1] - a[1])[0]
     : null;
+  const meditationCounts = meditationListens.reduce((acc, listen) => {
+    acc[listen.meditation_title] = (acc[listen.meditation_title] || 0) + 1;
+    return acc;
+  }, {});
+  const favoriteMeditation = Object.keys(meditationCounts).length > 0
+    ? Object.entries(meditationCounts).sort((a, b) => b[1] - a[1])[0]
+    : null;
 
-  if (userLoading || journalLoading) {
+  if (userLoading || journalLoading || meditationLoading) {
     return (
       <div className="container mx-auto px-4 py-8 min-h-screen flex items-center justify-center">
         <motion.div
@@ -177,16 +190,6 @@ export default function UserProfile() {
                   </p>
                 </div>
 
-                <div>
-                  <Label className="text-amber-200/80 mb-2 block tracking-wide"
-                    style={{ fontFamily: "'Cinzel', serif" }}>
-                    Role
-                  </Label>
-                  <p className="text-amber-100/70 text-lg capitalize"
-                    style={{ fontFamily: "'Playfair Display', serif" }}>
-                    {user?.role}
-                  </p>
-                </div>
               </div>
 
               {isEditing && (
@@ -235,7 +238,7 @@ export default function UserProfile() {
                 </h2>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="text-center">
                   <div className="flex justify-center mb-2">
                     <Calendar className="w-8 h-8 text-indigo-300" />
@@ -286,6 +289,26 @@ export default function UserProfile() {
                     <p className="text-indigo-300/60 text-xs mt-1"
                       style={{ fontFamily: "'Playfair Display', serif" }}>
                       ({mostDrawnCard[1]} times)
+                    </p>
+                  )}
+                </div>
+
+                <div className="text-center">
+                  <div className="flex justify-center mb-2">
+                    <Music className="w-8 h-8 text-indigo-300" />
+                  </div>
+                  <div className="text-xl font-bold text-indigo-100 mb-1"
+                    style={{ fontFamily: "'Cinzel', serif" }}>
+                    {favoriteMeditation ? favoriteMeditation[0] : "—"}
+                  </div>
+                  <p className="text-indigo-200/70 text-sm tracking-wide"
+                    style={{ fontFamily: "'Playfair Display', serif" }}>
+                    Favorite Meditation
+                  </p>
+                  {favoriteMeditation && (
+                    <p className="text-indigo-300/60 text-xs mt-1"
+                      style={{ fontFamily: "'Playfair Display', serif" }}>
+                      ({favoriteMeditation[1]} plays)
                     </p>
                   )}
                 </div>

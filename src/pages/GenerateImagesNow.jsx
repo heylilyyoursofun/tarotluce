@@ -18,7 +18,7 @@ export default function GenerateImagesNow() {
       
       try {
         const result = await base44.integrations.Core.GenerateImage({
-          prompt: `${card.prompt}. CRITICAL: If depicting human figures - ensure compassionate, serene facial expressions with distinct, realistic facial features. Hands must have exactly 5 fingers each, anatomically correct and life-like. All limbs should be proportionate and natural-looking. Focus on realistic human anatomy.`
+          prompt: `${card.prompt}. CRITICAL: If depicting human figures - ensure compassionate, serene facial expressions with distinct, realistic facial features. Eyes must be natural, kind, and smiling - NO glowing or unnatural eyes. Hands must have exactly 5 fingers each, anatomically correct and life-like. All limbs should be proportionate and natural-looking. Focus on realistic human anatomy. ABSOLUTELY NO TEXT OR WORDS on the image. For numbered cards (like 4 of Wands or 10 of Cups), ensure the EXACT correct number of items appears in the image - count carefully.`
         });
 
         await base44.entities.TarotCardImage.create({

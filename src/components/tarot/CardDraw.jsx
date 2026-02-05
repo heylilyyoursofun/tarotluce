@@ -22,6 +22,7 @@ export default function CardDraw({ category, onBack }) {
   const [showJournalForm, setShowJournalForm] = useState(false);
   const [journalReflection, setJournalReflection] = useState("");
   const [isSaving, setIsSaving] = useState(false);
+  const [yesOrNoAnswer, setYesOrNoAnswer] = useState(null);
   const queryClient = useQueryClient();
 
   // Fetch generated images from database
@@ -119,20 +120,72 @@ export default function CardDraw({ category, onBack }) {
     }
   };
 
+  const getYesOrNoForCard = (card) => {
+    // Yes cards - positive, affirming energy
+    const yesCards = [
+      "The Fool", "The Magician", "The Empress", "The Emperor", "The Hierophant", 
+      "The Lovers", "The Chariot", "Strength", "Wheel of Fortune", "The Star", 
+      "The Sun", "The World", "Ace of Wands", "Three of Wands", "Four of Wands",
+      "Six of Wands", "Ace of Cups", "Two of Cups", "Three of Cups", "Six of Cups",
+      "Nine of Cups", "Ten of Cups", "Ace of Swords", "Six of Swords", "Ace of Pentacles",
+      "Three of Pentacles", "Six of Pentacles", "Nine of Pentacles", "Ten of Pentacles"
+    ];
+
+    // No cards - challenging, cautionary energy
+    const noCards = [
+      "The Devil", "The Tower", "The Moon", "The Hanged Man", "Death",
+      "Five of Wands", "Seven of Wands", "Ten of Wands", "Five of Cups",
+      "Seven of Cups", "Eight of Cups", "Two of Swords", "Three of Swords",
+      "Five of Swords", "Seven of Swords", "Eight of Swords", "Nine of Swords",
+      "Ten of Swords", "Five of Pentacles"
+    ];
+
+    if (yesCards.includes(card.name)) return "yes";
+    if (noCards.includes(card.name)) return "no";
+    
+    // For neutral cards, use keywords to determine
+    const keywords = card.keywords.join(" ").toLowerCase();
+    if (keywords.includes("success") || keywords.includes("joy") || 
+        keywords.includes("victory") || keywords.includes("abundance")) {
+      return "yes";
+    }
+    return "no";
+  };
+
   const generateReading = async (card) => {
     setIsGenerating(true);
     try {
-      let categoryKey = "general";
-      if (category.id === "love") categoryKey = "love";else
-      if (category.id === "career") categoryKey = "career";else
-      if (category.id === "finance") categoryKey = "finance";else
-      if (category.id === "family") categoryKey = "family";else
-      if (category.id === "health") categoryKey = "health";else
-      if (category.id === "spirituality") categoryKey = "spirituality";
+      // Check if this is a yes/no reading
+      if (category.id === "yes_or_no") {
+        const answer = getYesOrNoForCard(card);
+        setYesOrNoAnswer(answer);
 
-      const baseInterpretation = card.interpretation[categoryKey];
+        const baseInterpretation = card.interpretation.general;
+        const prompt = `You are a wise tarot reader. Someone asked a yes/no question and drew "${card.name}". Based on the card's traditional meaning, this is a ${answer.toUpperCase()}.
 
-      const prompt = `You are a wise and compassionate tarot reader. A person has drawn "${card.name}" for a reading about ${category.name}.
+Card's core meaning: ${baseInterpretation}
+Card's keywords: ${card.keywords.join(", ")}
+
+Provide a brief, clear explanation (2-3 short sentences) of WHY this card means ${answer.toUpperCase()}. Focus on the card's energy and how it relates to the answer. Be direct and concise.`;
+
+        const result = await base44.integrations.Core.InvokeLLM({
+          prompt: prompt
+        });
+
+        setReading(result);
+      } else {
+        // Regular reading logic
+        let categoryKey = "general";
+        if (category.id === "love") categoryKey = "love";
+        else if (category.id === "career") categoryKey = "career";
+        else if (category.id === "finance") categoryKey = "finance";
+        else if (category.id === "family") categoryKey = "family";
+        else if (category.id === "health") categoryKey = "health";
+        else if (category.id === "spirituality") categoryKey = "spirituality";
+
+        const baseInterpretation = card.interpretation[categoryKey];
+
+        const prompt = `You are a wise and compassionate tarot reader. A person has drawn "${card.name}" for a reading about ${category.name}.
 
 Core card interpretation: ${baseInterpretation}
 
@@ -151,11 +204,12 @@ Format: [Affirmation sentence]\n\n**Subtitle**\n[Paragraph text]\n\n**Subtitle**
 
 Keep the tone warm, mystical, and encouraging. Make it feel personal and meaningful.`;
 
-      const result = await base44.integrations.Core.InvokeLLM({
-        prompt: prompt
-      });
+        const result = await base44.integrations.Core.InvokeLLM({
+          prompt: prompt
+        });
 
-      setReading(result);
+        setReading(result);
+      }
     } catch (error) {
       setReading("The universe's message is unclear at this moment. Please try drawing another card.");
     } finally {
@@ -425,14 +479,24 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
                   <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-amber-500/40" />
                   
                   <CardContent className="p-8 relative z-10">
-                    <div className="flex items-center justify-center gap-3 mb-6">
-                      <div className="w-12 h-px bg-gradient-to-r from-transparent to-amber-500" />
-                      <h4 className="text-2xl font-semibold text-amber-100 tracking-wider"
-                  style={{ fontFamily: "'Playfair Display', serif" }}>
-                        Your Reading
-                      </h4>
-                      <div className="w-12 h-px bg-gradient-to-l from-transparent to-amber-500" />
-                    </div>
+                    {category.id === "yes_or_no" && yesOrNoAnswer ? (
+                      <div className="text-center mb-6">
+                        <h4 className={`text-4xl font-bold tracking-wider ${yesOrNoAnswer === "yes" ? "text-green-400" : "text-red-400"}`}
+                          style={{ fontFamily: "'Cinzel', serif" }}>
+                          It's a {yesOrNoAnswer === "yes" ? "Yes" : "No"}
+                        </h4>
+                        <div className="w-24 h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mt-4" />
+                      </div>
+                    ) : (
+                      <div className="flex items-center justify-center gap-3 mb-6">
+                        <div className="w-12 h-px bg-gradient-to-r from-transparent to-amber-500" />
+                        <h4 className="text-2xl font-semibold text-amber-100 tracking-wider"
+                          style={{ fontFamily: "'Playfair Display', serif" }}>
+                          Your Reading
+                        </h4>
+                        <div className="w-12 h-px bg-gradient-to-l from-transparent to-amber-500" />
+                      </div>
+                    )}
                     
                     {isGenerating ? (
                 <div className="text-center py-8">
@@ -451,6 +515,17 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
                 ) : (
                 <div className="space-y-6">
                           {reading && (() => {
+                            // For yes/no readings, display simple text
+                            if (category.id === "yes_or_no") {
+                              return (
+                                <p className="text-amber-100/90 leading-relaxed tracking-wide text-center"
+                                   style={{ fontFamily: "'Playfair Display', serif" }}>
+                                  {reading}
+                                </p>
+                              );
+                            }
+
+                            // For regular readings, use existing parsing
                             const parts = reading.split('\n\n').filter((p) => p.trim());
                             const affirmation = parts[0] && !parts[0].includes('**') ? parts[0].trim() : null;
                             const paragraphs = affirmation ? parts.slice(1) : parts;
@@ -565,6 +640,7 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
                   setCardImageUrl(null);
                   setShowJournalForm(false);
                   setJournalReflection("");
+                  setYesOrNoAnswer(null);
                 }}
                 className="bg-gradient-to-r from-stone-800 to-amber-900 hover:from-stone-700 hover:to-amber-800 text-amber-200 hover:text-amber-100 border-2 border-amber-600/60 rounded-none tracking-wider"
                 style={{ fontFamily: "'Cinzel', serif" }}>

@@ -101,6 +101,10 @@ export default function CardDraw({ category, onBack }) {
   const speakReading = async () => {
     if (reading) {
       if (isSpeaking) {
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio.currentTime = 0;
+        }
         setIsSpeaking(false);
       } else {
         try {

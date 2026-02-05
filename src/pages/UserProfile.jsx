@@ -161,22 +161,22 @@ export default function UserProfile() {
                 <div>
                   <Label htmlFor="fullName" className="text-amber-200/80 mb-2 block tracking-wide"
                   style={{ fontFamily: "'Cinzel', serif" }}>
-                    Full Name
+                    Call me by
                   </Label>
-                  {isEditing ? (
-                    <Input
-                      id="fullName"
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
-                      className="bg-stone-950/50 border-amber-700/50 text-amber-100"
-                      style={{ fontFamily: "'Playfair Display', serif" }}
-                    />
-                  ) : (
-                    <p className="text-amber-100 text-lg"
-                      style={{ fontFamily: "'Playfair Display', serif" }}>
-                      {fullName || "Not set"}
+                  {isEditing ?
+                  <Input
+                    id="fullName"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    className="bg-stone-950/50 border-amber-700/50 text-amber-100"
+                    style={{ fontFamily: "'Playfair Display', serif" }} /> :
+
+
+                  <p className="text-amber-100 text-lg"
+                  style={{ fontFamily: "'Playfair Display', serif" }}>
+                      {user?.full_name || "Not set"}
                     </p>
-                  )}
+                  }
                 </div>
 
                 <div>

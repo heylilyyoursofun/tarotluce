@@ -67,7 +67,16 @@ export default function Home() {
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-center mb-3 md:mb-8">
+              className="text-center mb-3 md:mb-8 relative">
+                  {/* Profile Button - Top Right */}
+                  <Link to={createPageUrl("UserProfile")} className="absolute top-0 right-0">
+                    <Button
+                      variant="ghost"
+                      className="text-amber-200 hover:text-amber-100 hover:bg-amber-900/30 border border-amber-700/40"
+                      style={{ fontFamily: "'Cinzel', serif" }}>
+                      Profile
+                    </Button>
+                  </Link>
 
                   <div className="flex justify-center mb-2 md:mb-6">
                     <div className="w-24 md:w-32 h-0.5 md:h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />

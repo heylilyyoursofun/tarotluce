@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Sparkles, Compass, BookHeart, Flower2 } from "lucide-react";
+import { Sparkles, Compass, BookHeart, Flower2, User } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "../utils";
@@ -69,12 +69,12 @@ export default function Home() {
               transition={{ delay: 0.2 }}
               className="text-center mb-3 md:mb-8 relative">
                   {/* Profile Button - Top Right */}
-                  <Link to={createPageUrl("UserProfile")} className="absolute top-0 right-0">
+                  <Link to={createPageUrl("UserProfile")}>
                     <Button
                       variant="ghost"
-                      className="text-amber-200 hover:text-amber-100 hover:bg-amber-900/30 border border-amber-700/40"
-                      style={{ fontFamily: "'Cinzel', serif" }}>
-                      Profile
+                      size="icon"
+                      className="absolute top-0 right-0 text-amber-300 hover:text-amber-100 hover:bg-amber-900/30 border border-amber-700/40">
+                      <User className="w-5 h-5" />
                     </Button>
                   </Link>
 

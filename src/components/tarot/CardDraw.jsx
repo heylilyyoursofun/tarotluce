@@ -116,9 +116,10 @@ export default function CardDraw({ category, onBack }) {
 
           if (response.data.audio_url) {
             const audio = new Audio(response.data.audio_url);
+            setCurrentAudio(audio);
             audio.onended = () => setIsSpeaking(false);
             audio.onerror = () => setIsSpeaking(false);
-            audio.play();
+            await audio.play();
           }
         } catch (error) {
           console.error('Failed to generate speech:', error);

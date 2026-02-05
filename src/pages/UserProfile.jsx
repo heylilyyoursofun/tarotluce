@@ -41,8 +41,9 @@ export default function UserProfile() {
 
   const updateProfileMutation = useMutation({
     mutationFn: (data) => base44.auth.updateMe(data),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['current-user'] });
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ['current-user'] });
+      await queryClient.refetchQueries({ queryKey: ['current-user'] });
       setIsEditing(false);
       toast.success("Profile updated!", {
         style: {
@@ -161,7 +162,7 @@ export default function UserProfile() {
                 <div>
                   <Label htmlFor="fullName" className="text-amber-200/80 mb-2 block tracking-wide"
                   style={{ fontFamily: "'Cinzel', serif" }}>
-                    Call me by
+                    Full Name
                   </Label>
                   {isEditing ?
                   <Input

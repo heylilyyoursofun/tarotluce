@@ -67,25 +67,29 @@ export default function UserProfile() {
     updateProfileMutation.mutate({ full_name: fullName });
   };
 
-  // Calculate comprehensive tarot journey statistics
+  // Calculate statistics
   const totalReadings = journalEntries.length;
-  const totalCardsDrawn = journalEntries.length; // Each journal entry represents a card draw
-  
+  const categoryCounts = journalEntries.reduce((acc, entry) => {
+    acc[entry.category] = (acc[entry.category] || 0) + 1;
+    return acc;
+  }, {});
+  const favoriteCategory = Object.keys(categoryCounts).length > 0 ?
+  Object.entries(categoryCounts).sort((a, b) => b[1] - a[1])[0] :
+  null;
   const cardCounts = journalEntries.reduce((acc, entry) => {
     acc[entry.card_name] = (acc[entry.card_name] || 0) + 1;
     return acc;
   }, {});
   const mostDrawnCard = Object.keys(cardCounts).length > 0 ?
-    Object.entries(cardCounts).sort((a, b) => b[1] - a[1])[0] :
-    null;
-  
+  Object.entries(cardCounts).sort((a, b) => b[1] - a[1])[0] :
+  null;
   const meditationCounts = meditationListens.reduce((acc, listen) => {
     acc[listen.meditation_title] = (acc[listen.meditation_title] || 0) + 1;
     return acc;
   }, {});
-  const mostPlayedMeditation = Object.keys(meditationCounts).length > 0 ?
-    Object.entries(meditationCounts).sort((a, b) => b[1] - a[1])[0] :
-    null;
+  const favoriteMeditation = Object.keys(meditationCounts).length > 0 ?
+  Object.entries(meditationCounts).sort((a, b) => b[1] - a[1])[0] :
+  null;
 
   if (userLoading || journalLoading || meditationLoading) {
     return (
@@ -159,20 +163,20 @@ export default function UserProfile() {
                   style={{ fontFamily: "'Cinzel', serif" }}>
                     Full Name
                   </Label>
-                  {isEditing ?
-                  <Input
-                    id="fullName"
-                    value={fullName}
-                    onChange={(e) => setFullName(e.target.value)}
-                    className="bg-stone-950/50 border-amber-700/50 text-amber-100"
-                    style={{ fontFamily: "'Playfair Display', serif" }} /> :
-
-
-                  <p className="text-amber-100 text-lg"
-                  style={{ fontFamily: "'Playfair Display', serif" }}>
-                      {user?.full_name || "Not set"}
+                  {isEditing ? (
+                    <Input
+                      id="fullName"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      className="bg-stone-950/50 border-amber-700/50 text-amber-100"
+                      style={{ fontFamily: "'Playfair Display', serif" }}
+                    />
+                  ) : (
+                    <p className="text-amber-100 text-lg"
+                      style={{ fontFamily: "'Playfair Display', serif" }}>
+                      {fullName || "Not set"}
                     </p>
-                  }
+                  )}
                 </div>
 
                 <div>
@@ -229,8 +233,8 @@ export default function UserProfile() {
               <div className="flex items-center gap-3 mb-6">
                 <BookHeart className="w-6 h-6 text-indigo-300" />
                 <h2 className="text-xl font-semibold text-indigo-100 tracking-wider"
-                  style={{ fontFamily: "'Cinzel', serif" }}>
-                  My Tarot Journey
+                style={{ fontFamily: "'Cinzel', serif" }}>My Tarot Journey
+
                 </h2>
               </div>
 
@@ -240,11 +244,11 @@ export default function UserProfile() {
                     <Calendar className="w-8 h-8 text-indigo-300" />
                   </div>
                   <div className="text-3xl font-bold text-indigo-100 mb-1"
-                    style={{ fontFamily: "'Cinzel', serif" }}>
+                  style={{ fontFamily: "'Cinzel', serif" }}>
                     {totalReadings}
                   </div>
                   <p className="text-indigo-200/70 text-sm tracking-wide"
-                    style={{ fontFamily: "'Playfair Display', serif" }}>
+                  style={{ fontFamily: "'Playfair Display', serif" }}>
                     Total Readings
                   </p>
                 </div>
@@ -253,14 +257,20 @@ export default function UserProfile() {
                   <div className="flex justify-center mb-2">
                     <TrendingUp className="w-8 h-8 text-indigo-300" />
                   </div>
-                  <div className="text-3xl font-bold text-indigo-100 mb-1"
-                    style={{ fontFamily: "'Cinzel', serif" }}>
-                    {totalCardsDrawn}
+                  <div className="text-xl font-bold text-indigo-100 mb-1"
+                  style={{ fontFamily: "'Cinzel', serif" }}>
+                    {favoriteCategory ? favoriteCategory[0] : "—"}
                   </div>
                   <p className="text-indigo-200/70 text-sm tracking-wide"
-                    style={{ fontFamily: "'Playfair Display', serif" }}>
-                    Cards Drawn
+                  style={{ fontFamily: "'Playfair Display', serif" }}>
+                    Favorite Category
                   </p>
+                  {favoriteCategory &&
+                  <p className="text-indigo-300/60 text-xs mt-1"
+                  style={{ fontFamily: "'Playfair Display', serif" }}>
+                      ({favoriteCategory[1]} readings)
+                    </p>
+                  }
                 </div>
 
                 <div className="text-center">
@@ -268,19 +278,19 @@ export default function UserProfile() {
                     <Sparkles className="w-8 h-8 text-indigo-300" />
                   </div>
                   <div className="text-xl font-bold text-indigo-100 mb-1"
-                    style={{ fontFamily: "'Cinzel', serif" }}>
+                  style={{ fontFamily: "'Cinzel', serif" }}>
                     {mostDrawnCard ? mostDrawnCard[0] : "—"}
                   </div>
                   <p className="text-indigo-200/70 text-sm tracking-wide"
-                    style={{ fontFamily: "'Playfair Display', serif" }}>
+                  style={{ fontFamily: "'Playfair Display', serif" }}>
                     Most Drawn Card
                   </p>
-                  {mostDrawnCard && (
-                    <p className="text-indigo-300/60 text-xs mt-1"
-                      style={{ fontFamily: "'Playfair Display', serif" }}>
+                  {mostDrawnCard &&
+                  <p className="text-indigo-300/60 text-xs mt-1"
+                  style={{ fontFamily: "'Playfair Display', serif" }}>
                       ({mostDrawnCard[1]} times)
                     </p>
-                  )}
+                  }
                 </div>
 
                 <div className="text-center">
@@ -288,19 +298,19 @@ export default function UserProfile() {
                     <Music className="w-8 h-8 text-indigo-300" />
                   </div>
                   <div className="text-xl font-bold text-indigo-100 mb-1"
-                    style={{ fontFamily: "'Cinzel', serif" }}>
-                    {mostPlayedMeditation ? mostPlayedMeditation[0] : "—"}
+                  style={{ fontFamily: "'Cinzel', serif" }}>
+                    {favoriteMeditation ? favoriteMeditation[0] : "—"}
                   </div>
                   <p className="text-indigo-200/70 text-sm tracking-wide"
-                    style={{ fontFamily: "'Playfair Display', serif" }}>
-                    Most Played Meditation
+                  style={{ fontFamily: "'Playfair Display', serif" }}>
+                    Favorite Meditation
                   </p>
-                  {mostPlayedMeditation && (
-                    <p className="text-indigo-300/60 text-xs mt-1"
-                      style={{ fontFamily: "'Playfair Display', serif" }}>
-                      ({mostPlayedMeditation[1]} plays)
+                  {favoriteMeditation &&
+                  <p className="text-indigo-300/60 text-xs mt-1"
+                  style={{ fontFamily: "'Playfair Display', serif" }}>
+                      ({favoriteMeditation[1]} plays)
                     </p>
-                  )}
+                  }
                 </div>
               </div>
 

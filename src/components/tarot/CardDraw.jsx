@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Sparkles, Volume2 } from "lucide-react";
+import { ArrowLeft, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { base44 } from "@/api/base44Client";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
@@ -18,24 +18,11 @@ export default function CardDraw({ category, onBack }) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
   const [fairyDust, setFairyDust] = useState([]);
-  const [isSpeaking, setIsSpeaking] = useState(false);
   const [cardImageUrl, setCardImageUrl] = useState(null);
   const [showJournalForm, setShowJournalForm] = useState(false);
   const [journalReflection, setJournalReflection] = useState("");
   const [isSaving, setIsSaving] = useState(false);
   const queryClient = useQueryClient();
-
-  const [currentAudio, setCurrentAudio] = useState(null);
-
-  // Stop audio when component unmounts
-  useEffect(() => {
-    return () => {
-      if (currentAudio) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-      }
-    };
-  }, [currentAudio]);
 
   // Fetch generated images from database
   const { data: generatedImages } = useQuery({
@@ -48,11 +35,6 @@ export default function CardDraw({ category, onBack }) {
     setIsDrawing(true);
     setIsFlipped(false);
     setReading(null);
-    if (currentAudio) {
-      currentAudio.pause();
-      currentAudio.currentTime = 0;
-    }
-    setIsSpeaking(false);
 
     await new Promise((resolve) => setTimeout(resolve, 800));
 
@@ -98,41 +80,7 @@ export default function CardDraw({ category, onBack }) {
     setTimeout(() => setFairyDust([]), 3000);
   };
 
-  const speakReading = async () => {
-    if (reading) {
-      if (isSpeaking) {
-        if (currentAudio) {
-          currentAudio.pause();
-          currentAudio.currentTime = 0;
-        }
-        setIsSpeaking(false);
-      } else {
-        try {
-          setIsSpeaking(true);
-          // Remove subtitles (formatted as **Subtitle**) for speech
-          const textToSpeak = reading.replace(/\*\*(.*?)\*\*\n?/g, '');
-          
-          const response = await base44.functions.invoke('openaiTTS', {
-            text: textToSpeak,
-            voice: 'nova',
-            model: 'tts-1'
-          });
 
-          if (response.data.audio_url) {
-            const audio = new Audio(response.data.audio_url);
-            setCurrentAudio(audio);
-            audio.onended = () => setIsSpeaking(false);
-            audio.onerror = () => setIsSpeaking(false);
-            await audio.play();
-          }
-        } catch (error) {
-          console.error('Failed to generate speech:', error);
-          setIsSpeaking(false);
-          toast.error("Failed to generate speech. Please try again.");
-        }
-      }
-    }
-  };
 
   const saveToJournal = async () => {
     if (!journalReflection.trim()) return;
@@ -501,20 +449,7 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
                         </p>
                       </div> :
 
-                <>
-                        <div className="flex justify-end mb-4">
-                          <Button
-                      onClick={speakReading}
-                      variant="ghost"
-                      size="sm"
-                      className="text-amber-300 hover:text-amber-100 hover:bg-amber-900/30"
-                      style={{ fontFamily: "'Cinzel', serif" }}>
-
-                            <Volume2 className={`w-4 h-4 mr-2 ${isSpeaking ? 'animate-pulse' : ''}`} />
-                            {isSpeaking ? 'Stop' : 'Listen'}
-                          </Button>
-                        </div>
-                        <div className="space-y-6">
+                <div className="space-y-6">
                           {reading && (() => {
                             const parts = reading.split('\n\n').filter((p) => p.trim());
                             const affirmation = parts[0] && !parts[0].includes('**') ? parts[0].trim() : null;
@@ -555,8 +490,6 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
                             );
                           })()}
                         </div>
-                      </>
-                }
                   </CardContent>
                 </Card>
 
@@ -631,11 +564,6 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
                   setCardImageUrl(null);
                   setShowJournalForm(false);
                   setJournalReflection("");
-                  if (currentAudio) {
-                    currentAudio.pause();
-                    currentAudio.currentTime = 0;
-                  }
-                  setIsSpeaking(false);
                 }}
                 className="bg-gradient-to-r from-stone-800 to-amber-900 hover:from-stone-700 hover:to-amber-800 text-amber-200 hover:text-amber-100 border-2 border-amber-600/60 rounded-none tracking-wider"
                 style={{ fontFamily: "'Cinzel', serif" }}>

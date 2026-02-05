@@ -434,7 +434,7 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
                       <div className="w-12 h-px bg-gradient-to-l from-transparent to-amber-500" />
                     </div>
                     
-                    {isGenerating ?
+                    {isGenerating ? (
                 <div className="text-center py-8">
                         <motion.div
                     animate={{ rotate: 360 }}
@@ -447,8 +447,8 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
                   style={{ fontFamily: "'Cinzel', serif" }}>
                           The cards are speaking...
                         </p>
-                      </div> :
-
+                      </div>
+                ) : (
                 <div className="space-y-6">
                           {reading && (() => {
                             const parts = reading.split('\n\n').filter((p) => p.trim());
@@ -490,6 +490,7 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
                             );
                           })()}
                         </div>
+                )}
                   </CardContent>
                 </Card>
 

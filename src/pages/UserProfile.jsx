@@ -41,9 +41,10 @@ export default function UserProfile() {
 
   const updateProfileMutation = useMutation({
     mutationFn: (data) => base44.auth.updateMe(data),
-    onSuccess: async () => {
+    onSuccess: async (response) => {
+      // Update local state with the new name
+      setFullName(response.full_name || "");
       await queryClient.invalidateQueries({ queryKey: ['current-user'] });
-      await queryClient.refetchQueries({ queryKey: ['current-user'] });
       setIsEditing(false);
       toast.success("Profile updated!", {
         style: {
@@ -161,23 +162,23 @@ export default function UserProfile() {
               <div className="space-y-4">
                 <div>
                   <Label htmlFor="fullName" className="text-amber-200/80 mb-2 block tracking-wide"
-                  style={{ fontFamily: "'Cinzel', serif" }}>
-                    Full Name
+                    style={{ fontFamily: "'Cinzel', serif" }}>
+                    Call me by
                   </Label>
-                  {isEditing ?
-                  <Input
-                    id="fullName"
-                    value={fullName}
-                    onChange={(e) => setFullName(e.target.value)}
-                    className="bg-stone-950/50 border-amber-700/50 text-amber-100"
-                    style={{ fontFamily: "'Playfair Display', serif" }} /> :
-
-
-                  <p className="text-amber-100 text-lg"
-                  style={{ fontFamily: "'Playfair Display', serif" }}>
-                      {user?.full_name || "Not set"}
+                  {isEditing ? (
+                    <Input
+                      id="fullName"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      className="bg-stone-950/50 border-amber-700/50 text-amber-100"
+                      style={{ fontFamily: "'Playfair Display', serif" }}
+                    />
+                  ) : (
+                    <p className="text-amber-100 text-lg"
+                      style={{ fontFamily: "'Playfair Display', serif" }}>
+                      {fullName || "Not set"}
                     </p>
-                  }
+                  )}
                 </div>
 
                 <div>

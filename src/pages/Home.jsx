@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import { createPageUrl } from "../utils";
 import CardDraw from "../components/tarot/CardDraw";
 import QuestSelection from "../components/tarot/QuestSelection";
-import DailyAdviceSelection from "../components/tarot/DailyAdviceSelection";
 import MagicCursor from "../components/tarot/MagicCursor";
 import LoadingScreen from "../components/LoadingScreen";
 
@@ -15,7 +14,6 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [showReading, setShowReading] = useState(false);
   const [showQuest, setShowQuest] = useState(false);
-  const [showDailyAdvice, setShowDailyAdvice] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -27,16 +25,7 @@ export default function Home() {
   }, []);
 
   const handleDailyAdvice = () => {
-    setShowDailyAdvice(true);
-  };
-
-  const handleAdviceSelect = (advice) => {
-    setSelectedCategory({ 
-      id: advice.id === "daily_card" ? "general" : "yes_or_no", 
-      name: advice.name, 
-      icon: Sparkles 
-    });
-    setShowDailyAdvice(false);
+    setSelectedCategory({ id: "general", name: "Daily Inspiration", icon: Sparkles });
     setShowReading(true);
   };
 
@@ -53,7 +42,6 @@ export default function Home() {
   const handleBackToHome = () => {
     setShowReading(false);
     setShowQuest(false);
-    setShowDailyAdvice(false);
     setSelectedCategory(null);
   };
 
@@ -66,7 +54,7 @@ export default function Home() {
         <>
             <MagicCursor />
             
-            {!showReading && !showQuest && !showDailyAdvice ?
+            {!showReading && !showQuest ?
           <motion.div
             key="home"
             initial={{ opacity: 0 }}
@@ -81,12 +69,11 @@ export default function Home() {
               transition={{ delay: 0.2 }}
               className="text-center mb-3 md:mb-8 relative">
                   {/* Profile Button - Top Right */}
-                  <Link to={createPageUrl("UserProfile")}>
+                  <Link to={createPageUrl("UserProfile")} className="absolute top-0 right-0 z-50">
                     <Button
                       variant="ghost"
-                      size="icon"
-                      className="absolute top-0 right-0 text-amber-300 hover:text-amber-100 hover:bg-amber-900/30 border border-amber-700/40">
-                      <User className="w-5 h-5" />
+                      className="w-12 h-12 md:w-10 md:h-10 text-amber-300 hover:text-amber-100 hover:bg-amber-900/30 border border-amber-700/40 p-2">
+                      <User className="w-6 h-6 md:w-5 md:h-5" />
                     </Button>
                   </Link>
 
@@ -342,16 +329,6 @@ export default function Home() {
                     <div className="w-4 md:w-8 h-px bg-gradient-to-l from-transparent to-slate-400/50" />
                   </div>
                 </motion.div>
-              </motion.div> :
-          showDailyAdvice ?
-          <motion.div
-            key="daily-advice"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="relative z-10">
-
-                <DailyAdviceSelection onAdviceSelect={handleAdviceSelect} onBack={handleBackToHome} />
               </motion.div> :
           showQuest ?
           <motion.div

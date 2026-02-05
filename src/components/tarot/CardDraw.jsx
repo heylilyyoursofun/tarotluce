@@ -25,14 +25,17 @@ export default function CardDraw({ category, onBack }) {
   const [isSaving, setIsSaving] = useState(false);
   const queryClient = useQueryClient();
 
-  // Stop speech when component unmounts
+  const [currentAudio, setCurrentAudio] = useState(null);
+
+  // Stop audio when component unmounts
   useEffect(() => {
     return () => {
-      if (window.speechSynthesis.speaking) {
-        window.speechSynthesis.cancel();
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
       }
     };
-  }, []);
+  }, [currentAudio]);
 
   // Fetch generated images from database
   const { data: generatedImages } = useQuery({

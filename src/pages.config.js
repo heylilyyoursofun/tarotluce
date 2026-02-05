@@ -47,7 +47,6 @@
  *
  * The mainPage value must match a key in the PAGES object exactly.
  */
-import GenerateImages from './pages/GenerateImages';
 import GenerateImagesNow from './pages/GenerateImagesNow';
 import GuidedMeditation from './pages/GuidedMeditation';
 import Home from './pages/Home';
@@ -57,7 +56,6 @@ import __Layout from './Layout.jsx';
 
 
 export const PAGES = {
-    "GenerateImages": GenerateImages,
     "GenerateImagesNow": GenerateImagesNow,
     "GuidedMeditation": GuidedMeditation,
     "Home": Home,

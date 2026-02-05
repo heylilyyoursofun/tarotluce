@@ -85,7 +85,7 @@ export default function QuestSelection({ onQuestSelect, onBack }) {
                       />
                     </div>
                     
-                    <h3 className="text-xl font-semibold text-amber-100 text-center mb-2 tracking-wide"
+                    <h3 className="text-lg font-semibold text-amber-100 text-center mb-2 tracking-wide"
                     style={{ fontFamily: "'Cinzel', serif" }}>
                       {quest.name}
                     </h3>

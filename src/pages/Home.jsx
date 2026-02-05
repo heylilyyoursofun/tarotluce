@@ -69,10 +69,13 @@ export default function Home() {
               transition={{ delay: 0.2 }}
               className="text-center mb-3 md:mb-8 relative">
                   {/* Profile Button - Top Right */}
-                  <Link 
-                    to={createPageUrl("UserProfile")}
-                    className="absolute top-0 right-0 z-50 inline-flex items-center justify-center w-12 h-12 md:w-9 md:h-9 rounded-md text-amber-300 hover:text-amber-100 hover:bg-amber-900/30 border border-amber-700/40 transition-colors">
-                    <User className="w-5 h-5" />
+                  <Link to={createPageUrl("UserProfile")}>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute top-0 right-0 text-amber-300 hover:text-amber-100 hover:bg-amber-900/30 border border-amber-700/40">
+                      <User className="w-5 h-5" />
+                    </Button>
                   </Link>
 
                   <div className="flex justify-center mb-2 md:mb-6">
@@ -103,7 +106,7 @@ export default function Home() {
                 </motion.div>
 
                 {/* Main Action Buttons */}
-                <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-4 mb-3 md:mb-6">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-4 mb-3 md:mb-6">
                   {/* Daily Advice Button - Amethyst Purple */}
                   <motion.div
                 initial={{ x: -20, opacity: 0 }}
@@ -244,7 +247,7 @@ export default function Home() {
                           <h3 className="text-base md:text-xl font-semibold text-slate-100 mb-1 md:mb-2 tracking-wider"
                       style={{ fontFamily: "'Cinzel', serif" }}>
 
-                            Guided Tarot Meditation
+                            Tarot Meditation
                           </h3>
 
                           <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-1 md:mb-2" />

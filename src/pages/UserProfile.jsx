@@ -257,7 +257,7 @@ export default function UserProfile() {
                   <div className="flex justify-center mb-2">
                     <TrendingUp className="w-8 h-8 text-indigo-300" />
                   </div>
-                  <div className="text-3xl font-bold text-indigo-100 mb-1"
+                  <div className="text-xl font-bold text-indigo-100 mb-1"
                     style={{ fontFamily: "'Cinzel', serif" }}>
                     {favoriteCategory ? favoriteCategory[0] : "—"}
                   </div>

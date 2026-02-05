@@ -106,7 +106,7 @@ export default function Home() {
                 </motion.div>
 
                 {/* Main Action Buttons */}
-                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-4 mb-3 md:mb-6">
+                <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-4 mb-3 md:mb-6">
                   {/* Daily Advice Button - Amethyst Purple */}
                   <motion.div
                 initial={{ x: -20, opacity: 0 }}
@@ -247,7 +247,7 @@ export default function Home() {
                           <h3 className="text-base md:text-xl font-semibold text-slate-100 mb-1 md:mb-2 tracking-wider"
                       style={{ fontFamily: "'Cinzel', serif" }}>
 
-                            Tarot Meditation
+                            Guided Tarot Meditation
                           </h3>
 
                           <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-1 md:mb-2" />

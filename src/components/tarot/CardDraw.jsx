@@ -50,7 +50,7 @@ export default function CardDraw({ category, onBack }) {
       setIsSpeaking(false);
     }
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await new Promise((resolve) => setTimeout(resolve, 800));
 
     const randomCard = TAROT_CARDS[Math.floor(Math.random() * TAROT_CARDS.length)];
     setDrawnCard(randomCard);
@@ -337,7 +337,7 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
               <div className="perspective-1000 mx-auto max-w-sm">
                 <motion.div
                 animate={{ rotateY: isFlipped ? 180 : 0 }}
-                transition={{ duration: 0.6, type: "spring" }}
+                transition={{ duration: 0.4, type: "spring" }}
                 className="relative w-full aspect-[2/3] preserve-3d">
 
                   {/* Card Back */}

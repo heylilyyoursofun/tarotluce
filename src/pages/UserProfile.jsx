@@ -67,29 +67,25 @@ export default function UserProfile() {
     updateProfileMutation.mutate({ full_name: fullName });
   };
 
-  // Calculate statistics
+  // Calculate comprehensive tarot journey statistics
   const totalReadings = journalEntries.length;
-  const categoryCounts = journalEntries.reduce((acc, entry) => {
-    acc[entry.category] = (acc[entry.category] || 0) + 1;
-    return acc;
-  }, {});
-  const favoriteCategory = Object.keys(categoryCounts).length > 0
-    ? Object.entries(categoryCounts).sort((a, b) => b[1] - a[1])[0]
-    : null;
+  const totalCardsDrawn = journalEntries.length; // Each journal entry represents a card draw
+  
   const cardCounts = journalEntries.reduce((acc, entry) => {
     acc[entry.card_name] = (acc[entry.card_name] || 0) + 1;
     return acc;
   }, {});
-  const mostDrawnCard = Object.keys(cardCounts).length > 0
-    ? Object.entries(cardCounts).sort((a, b) => b[1] - a[1])[0]
-    : null;
+  const mostDrawnCard = Object.keys(cardCounts).length > 0 ?
+    Object.entries(cardCounts).sort((a, b) => b[1] - a[1])[0] :
+    null;
+  
   const meditationCounts = meditationListens.reduce((acc, listen) => {
     acc[listen.meditation_title] = (acc[listen.meditation_title] || 0) + 1;
     return acc;
   }, {});
-  const favoriteMeditation = Object.keys(meditationCounts).length > 0
-    ? Object.entries(meditationCounts).sort((a, b) => b[1] - a[1])[0]
-    : null;
+  const mostPlayedMeditation = Object.keys(meditationCounts).length > 0 ?
+    Object.entries(meditationCounts).sort((a, b) => b[1] - a[1])[0] :
+    null;
 
   if (userLoading || journalLoading || meditationLoading) {
     return (
@@ -100,8 +96,8 @@ export default function UserProfile() {
           className="w-12 h-12">
           <Sparkles className="w-full h-full text-amber-400" />
         </motion.div>
-      </div>
-    );
+      </div>);
+
   }
 
   return (
@@ -121,7 +117,7 @@ export default function UserProfile() {
           <div className="w-12 h-px bg-gradient-to-r from-transparent to-amber-500" />
           <User className="w-6 h-6 text-amber-300" />
           <h1 className="text-2xl md:text-3xl font-semibold text-amber-100 tracking-wider"
-            style={{ fontFamily: "'Cinzel', serif" }}>
+          style={{ fontFamily: "'Cinzel', serif" }}>
             My Profile
           </h1>
           <div className="w-12 h-px bg-gradient-to-l from-transparent to-amber-500" />
@@ -143,77 +139,77 @@ export default function UserProfile() {
             <CardContent className="p-6 md:p-8 relative z-10">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-semibold text-amber-100 tracking-wider"
-                  style={{ fontFamily: "'Cinzel', serif" }}>
+                style={{ fontFamily: "'Cinzel', serif" }}>
                   Personal Information
                 </h2>
-                {!isEditing && (
-                  <Button
-                    onClick={() => setIsEditing(true)}
-                    variant="ghost"
-                    className="text-amber-300 hover:text-amber-100 hover:bg-amber-900/30"
-                    style={{ fontFamily: "'Cinzel', serif" }}>
+                {!isEditing &&
+                <Button
+                  onClick={() => setIsEditing(true)}
+                  variant="ghost"
+                  className="text-amber-300 hover:text-amber-100 hover:bg-amber-900/30"
+                  style={{ fontFamily: "'Cinzel', serif" }}>
                     Edit Profile
                   </Button>
-                )}
+                }
               </div>
 
               <div className="space-y-4">
                 <div>
                   <Label htmlFor="fullName" className="text-amber-200/80 mb-2 block tracking-wide"
-                    style={{ fontFamily: "'Cinzel', serif" }}>
+                  style={{ fontFamily: "'Cinzel', serif" }}>
                     Full Name
                   </Label>
-                  {isEditing ? (
-                    <Input
-                      id="fullName"
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
-                      className="bg-stone-950/50 border-amber-700/50 text-amber-100"
-                      style={{ fontFamily: "'Playfair Display', serif" }}
-                    />
-                  ) : (
-                    <p className="text-amber-100 text-lg"
-                      style={{ fontFamily: "'Playfair Display', serif" }}>
+                  {isEditing ?
+                  <Input
+                    id="fullName"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    className="bg-stone-950/50 border-amber-700/50 text-amber-100"
+                    style={{ fontFamily: "'Playfair Display', serif" }} /> :
+
+
+                  <p className="text-amber-100 text-lg"
+                  style={{ fontFamily: "'Playfair Display', serif" }}>
                       {user?.full_name || "Not set"}
                     </p>
-                  )}
+                  }
                 </div>
 
                 <div>
                   <Label className="text-amber-200/80 mb-2 block tracking-wide"
-                    style={{ fontFamily: "'Cinzel', serif" }}>
+                  style={{ fontFamily: "'Cinzel', serif" }}>
                     Email
                   </Label>
                   <p className="text-amber-100/70 text-lg"
-                    style={{ fontFamily: "'Playfair Display', serif" }}>
+                  style={{ fontFamily: "'Playfair Display', serif" }}>
                     {user?.email}
                   </p>
                 </div>
 
               </div>
 
-              {isEditing && (
-                <div className="flex gap-3 justify-end mt-6">
+              {isEditing &&
+              <div className="flex gap-3 justify-end mt-6">
                   <Button
-                    variant="ghost"
-                    onClick={() => {
-                      setIsEditing(false);
-                      setFullName(user?.full_name || "");
-                    }}
-                    className="text-amber-200 hover:text-amber-100"
-                    style={{ fontFamily: "'Cinzel', serif" }}>
+                  variant="ghost"
+                  onClick={() => {
+                    setIsEditing(false);
+                    setFullName(user?.full_name || "");
+                  }}
+                  className="text-amber-200 hover:text-amber-100"
+                  style={{ fontFamily: "'Cinzel', serif" }}>
                     Cancel
                   </Button>
                   <Button
-                    onClick={handleSaveProfile}
-                    disabled={updateProfileMutation.isPending}
-                    className="bg-gradient-to-r from-amber-600 to-amber-800 hover:from-amber-500 hover:to-amber-700 text-amber-50"
-                    style={{ fontFamily: "'Cinzel', serif" }}>
+                  onClick={handleSaveProfile}
+                  disabled={updateProfileMutation.isPending}
+                  className="bg-gradient-to-r from-amber-600 to-amber-800 hover:from-amber-500 hover:to-amber-700 text-amber-50"
+                  style={{ fontFamily: "'Cinzel', serif" }}>
                     <Save className="w-4 h-4 mr-2" />
                     {updateProfileMutation.isPending ? "Saving..." : "Save Changes"}
                   </Button>
                 </div>
-              )}
+              }
             </CardContent>
           </Card>
         </motion.div>
@@ -234,7 +230,7 @@ export default function UserProfile() {
                 <BookHeart className="w-6 h-6 text-indigo-300" />
                 <h2 className="text-xl font-semibold text-indigo-100 tracking-wider"
                   style={{ fontFamily: "'Cinzel', serif" }}>
-                  Tarot Journal Statistics
+                  My Tarot Journey
                 </h2>
               </div>
 
@@ -257,20 +253,14 @@ export default function UserProfile() {
                   <div className="flex justify-center mb-2">
                     <TrendingUp className="w-8 h-8 text-indigo-300" />
                   </div>
-                  <div className="text-xl font-bold text-indigo-100 mb-1"
+                  <div className="text-3xl font-bold text-indigo-100 mb-1"
                     style={{ fontFamily: "'Cinzel', serif" }}>
-                    {favoriteCategory ? favoriteCategory[0] : "—"}
+                    {totalCardsDrawn}
                   </div>
                   <p className="text-indigo-200/70 text-sm tracking-wide"
                     style={{ fontFamily: "'Playfair Display', serif" }}>
-                    Favorite Category
+                    Cards Drawn
                   </p>
-                  {favoriteCategory && (
-                    <p className="text-indigo-300/60 text-xs mt-1"
-                      style={{ fontFamily: "'Playfair Display', serif" }}>
-                      ({favoriteCategory[1]} readings)
-                    </p>
-                  )}
                 </div>
 
                 <div className="text-center">
@@ -299,36 +289,36 @@ export default function UserProfile() {
                   </div>
                   <div className="text-xl font-bold text-indigo-100 mb-1"
                     style={{ fontFamily: "'Cinzel', serif" }}>
-                    {favoriteMeditation ? favoriteMeditation[0] : "—"}
+                    {mostPlayedMeditation ? mostPlayedMeditation[0] : "—"}
                   </div>
                   <p className="text-indigo-200/70 text-sm tracking-wide"
                     style={{ fontFamily: "'Playfair Display', serif" }}>
-                    Favorite Meditation
+                    Most Played Meditation
                   </p>
-                  {favoriteMeditation && (
+                  {mostPlayedMeditation && (
                     <p className="text-indigo-300/60 text-xs mt-1"
                       style={{ fontFamily: "'Playfair Display', serif" }}>
-                      ({favoriteMeditation[1]} plays)
+                      ({mostPlayedMeditation[1]} plays)
                     </p>
                   )}
                 </div>
               </div>
 
-              {totalReadings === 0 && (
-                <div className="text-center mt-8">
+              {totalReadings === 0 &&
+              <div className="text-center mt-8">
                   <p className="text-indigo-200/70 italic mb-4"
-                    style={{ fontFamily: "'Playfair Display', serif" }}>
+                style={{ fontFamily: "'Playfair Display', serif" }}>
                     Your tarot journey awaits. Draw your first card to begin tracking your insights.
                   </p>
                   <Link to={createPageUrl("Home")}>
                     <Button
-                      className="bg-gradient-to-r from-indigo-600 to-indigo-800 hover:from-indigo-500 hover:to-indigo-700 text-indigo-50"
-                      style={{ fontFamily: "'Cinzel', serif" }}>
+                    className="bg-gradient-to-r from-indigo-600 to-indigo-800 hover:from-indigo-500 hover:to-indigo-700 text-indigo-50"
+                    style={{ fontFamily: "'Cinzel', serif" }}>
                       Start Your Journey
                     </Button>
                   </Link>
                 </div>
-              )}
+              }
             </CardContent>
           </Card>
         </motion.div>
@@ -357,6 +347,6 @@ export default function UserProfile() {
           </Link>
         </motion.div>
       </div>
-    </div>
-  );
+    </div>);
+
 }

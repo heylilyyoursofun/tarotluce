@@ -106,16 +106,19 @@ export default function CardDraw({ category, onBack }) {
         // Get available voices and prefer natural-sounding ones
         const voices = window.speechSynthesis.getVoices();
         const preferredVoice = voices.find(voice => 
-          voice.name.includes('Natural') || 
-          voice.name.includes('Premium') ||
-          voice.name.includes('Enhanced') ||
-          (voice.name.includes('Female') && voice.lang.startsWith('en'))
-        ) || voices.find(voice => voice.lang.startsWith('en'));
+          voice.name.toLowerCase().includes('samantha') ||
+          voice.name.toLowerCase().includes('karen') ||
+          voice.name.toLowerCase().includes('natural') || 
+          voice.name.toLowerCase().includes('premium') ||
+          voice.name.toLowerCase().includes('enhanced') ||
+          voice.name.toLowerCase().includes('neural') ||
+          (voice.name.toLowerCase().includes('female') && voice.lang.startsWith('en'))
+        ) || voices.find(voice => voice.lang.startsWith('en') && !voice.localService);
         
         if (preferredVoice) utterance.voice = preferredVoice;
-        utterance.rate = 0.85;
-        utterance.pitch = 0.95;
-        utterance.volume = 0.9;
+        utterance.rate = 0.75;
+        utterance.pitch = 1.0;
+        utterance.volume = 1.0;
         utterance.onend = () => setIsSpeaking(false);
         window.speechSynthesis.speak(utterance);
         setIsSpeaking(true);

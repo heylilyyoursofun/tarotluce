@@ -94,34 +94,33 @@ export default function CardDraw({ category, onBack }) {
     setTimeout(() => setFairyDust([]), 3000);
   };
 
-  const speakReading = () => {
-    if ('speechSynthesis' in window && reading) {
+  const speakReading = async () => {
+    if (reading) {
       if (isSpeaking) {
-        window.speechSynthesis.cancel();
         setIsSpeaking(false);
       } else {
-        // Remove subtitles (formatted as **Subtitle**) for speech
-        const utterance = new SpeechSynthesisUtterance(reading.replace(/\*\*(.*?)\*\*\n?/g, ''));
-        
-        // Get available voices and prefer natural-sounding ones
-        const voices = window.speechSynthesis.getVoices();
-        const preferredVoice = voices.find(voice => 
-          voice.name.toLowerCase().includes('samantha') ||
-          voice.name.toLowerCase().includes('karen') ||
-          voice.name.toLowerCase().includes('natural') || 
-          voice.name.toLowerCase().includes('premium') ||
-          voice.name.toLowerCase().includes('enhanced') ||
-          voice.name.toLowerCase().includes('neural') ||
-          (voice.name.toLowerCase().includes('female') && voice.lang.startsWith('en'))
-        ) || voices.find(voice => voice.lang.startsWith('en') && !voice.localService);
-        
-        if (preferredVoice) utterance.voice = preferredVoice;
-        utterance.rate = 0.75;
-        utterance.pitch = 1.0;
-        utterance.volume = 1.0;
-        utterance.onend = () => setIsSpeaking(false);
-        window.speechSynthesis.speak(utterance);
-        setIsSpeaking(true);
+        try {
+          setIsSpeaking(true);
+          // Remove subtitles (formatted as **Subtitle**) for speech
+          const textToSpeak = reading.replace(/\*\*(.*?)\*\*\n?/g, '');
+          
+          const response = await base44.functions.invoke('openaiTTS', {
+            text: textToSpeak,
+            voice: 'nova',
+            model: 'tts-1'
+          });
+
+          if (response.data.audio_url) {
+            const audio = new Audio(response.data.audio_url);
+            audio.onended = () => setIsSpeaking(false);
+            audio.onerror = () => setIsSpeaking(false);
+            audio.play();
+          }
+        } catch (error) {
+          console.error('Failed to generate speech:', error);
+          setIsSpeaking(false);
+          toast.error("Failed to generate speech. Please try again.");
+        }
       }
     }
   };

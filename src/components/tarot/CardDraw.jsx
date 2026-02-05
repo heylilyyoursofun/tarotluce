@@ -626,10 +626,11 @@ Keep the tone warm, mystical, and encouraging. Make it feel personal and meaning
                   setCardImageUrl(null);
                   setShowJournalForm(false);
                   setJournalReflection("");
-                  if (window.speechSynthesis.speaking) {
-                    window.speechSynthesis.cancel();
-                    setIsSpeaking(false);
+                  if (currentAudio) {
+                    currentAudio.pause();
+                    currentAudio.currentTime = 0;
                   }
+                  setIsSpeaking(false);
                 }}
                 className="bg-gradient-to-r from-stone-800 to-amber-900 hover:from-stone-700 hover:to-amber-800 text-amber-200 hover:text-amber-100 border-2 border-amber-600/60 rounded-none tracking-wider"
                 style={{ fontFamily: "'Cinzel', serif" }}>

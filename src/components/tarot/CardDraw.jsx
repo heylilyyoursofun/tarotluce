@@ -48,10 +48,11 @@ export default function CardDraw({ category, onBack }) {
     setIsDrawing(true);
     setIsFlipped(false);
     setReading(null);
-    if (window.speechSynthesis.speaking) {
-      window.speechSynthesis.cancel();
-      setIsSpeaking(false);
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
     }
+    setIsSpeaking(false);
 
     await new Promise((resolve) => setTimeout(resolve, 800));
 

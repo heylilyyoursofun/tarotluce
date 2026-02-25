@@ -28,7 +28,7 @@ export default function CardDraw({ category, onBack }) {
   // Fetch generated images from database
   const { data: generatedImages } = useQuery({
     queryKey: ['tarot-images'],
-    queryFn: () => base44.entities.TarotCardImage.list(),
+    queryFn: () => base44.entities.TarotCardImage.list('-created_date', 100),
     initialData: []
   });
 
